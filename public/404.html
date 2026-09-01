@@ -4,9 +4,12 @@
     <meta charset="utf-8" />
     <title>Hannes Watolla</title>
     <script>
-      sessionStorage.redirect = location.href;
+      (function () {
+        var base = location.pathname.indexOf('/Portfolio') === 0 ? '/Portfolio/' : '/'
+        sessionStorage.redirect = location.href
+        location.replace(base)
+      })()
     </script>
-    <meta http-equiv="refresh" content="0;URL='/'" />
   </head>
   <body></body>
 </html>
