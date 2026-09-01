@@ -1,0 +1,48 @@
+{
+  "nav": {
+    "projects": "Projekte",
+    "resume": "Lebenslauf",
+    "home": "Startseite"
+  },
+  "hero": {
+    "title": "Architektur & Software",
+    "subtitle": "Räume gestalten und digitale Erlebnisse mit Präzision und Klarheit entwickeln."
+  },
+  "projects": {
+    "title": "Projekte",
+    "subtitle": "Ausgewählte Arbeiten aus Architektur und Softwareentwicklung.",
+    "software": "Softwareentwicklung",
+    "architecture": "Architektur",
+    "viewProject": "Projekt ansehen",
+    "comingSoon": "Weitere Projekte folgen in Kürze."
+  },
+  "resume": {
+    "title": "Lebenslauf",
+    "subtitle": "Erfahrung, Ausbildung und Fähigkeiten.",
+    "download": "PDF herunterladen",
+    "experience": "Berufserfahrung",
+    "education": "Ausbildung",
+    "skills": "Fähigkeiten",
+    "languages": "Sprachen"
+  },
+  "footer": {
+    "copyright": "© {{year}} Hannes Watolla. Alle Rechte vorbehalten."
+  },
+  "a11y": {
+    "title": "Barrierefreiheit",
+    "open": "Barrierefreiheit-Einstellungen öffnen",
+    "close": "Barrierefreiheit-Einstellungen schließen",
+    "fontSize": "Schriftgröße",
+    "fontSmall": "Klein",
+    "fontMedium": "Mittel",
+    "fontLarge": "Groß",
+    "fontXLarge": "Sehr groß",
+    "highContrast": "Hoher Kontrast",
+    "reducedMotion": "Reduzierte Bewegung",
+    "language": "Sprache"
+  },
+  "lang": {
+    "en": "English",
+    "de": "Deutsch"
+  }
+}

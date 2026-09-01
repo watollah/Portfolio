@@ -1,0 +1,48 @@
+{
+  "nav": {
+    "projects": "Projects",
+    "resume": "Resume",
+    "home": "Home"
+  },
+  "hero": {
+    "title": "Architecture & Software",
+    "subtitle": "Designing spaces and building digital experiences with precision and clarity."
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "Selected work across architecture and software development.",
+    "software": "Software Development",
+    "architecture": "Architecture",
+    "viewProject": "View project",
+    "comingSoon": "More projects coming soon."
+  },
+  "resume": {
+    "title": "Resume",
+    "subtitle": "Experience, education, and skills.",
+    "download": "Download PDF",
+    "experience": "Experience",
+    "education": "Education",
+    "skills": "Skills",
+    "languages": "Languages"
+  },
+  "footer": {
+    "copyright": "© {{year}} Hannes Watolla. All rights reserved."
+  },
+  "a11y": {
+    "title": "Accessibility",
+    "open": "Open accessibility settings",
+    "close": "Close accessibility settings",
+    "fontSize": "Font size",
+    "fontSmall": "Small",
+    "fontMedium": "Medium",
+    "fontLarge": "Large",
+    "fontXLarge": "Extra large",
+    "highContrast": "High contrast",
+    "reducedMotion": "Reduced motion",
+    "language": "Language"
+  },
+  "lang": {
+    "en": "English",
+    "de": "Deutsch"
+  }
+}
