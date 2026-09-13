@@ -1,0 +1,76 @@
+{
+  "nav": {
+    "projects": "Progetti",
+    "resume": "Curriculum",
+    "home": "Home",
+    "menu": "Menu",
+    "openMenu": "Apri menu",
+    "closeMenu": "Chiudi menu"
+  },
+  "hero": {
+    "title": "Architettura & Software",
+    "subtitle": "Progettare spazi e creare esperienze digitali con precisione e chiarezza."
+  },
+  "home": {
+    "aboutTitle": "Chi sono",
+    "viewResume": "Vedi curriculum",
+    "featuredProjects": "Progetti selezionati",
+    "showAll": "Mostra tutti"
+  },
+  "projects": {
+    "title": "Progetti",
+    "subtitle": "Lavori selezionati in architettura e sviluppo software.",
+    "software": "Sviluppo software",
+    "architecture": "Architettura",
+    "viewProject": "Vedi progetto",
+    "backToProjects": "Torna ai progetti",
+    "visitExternal": "Visita progetto",
+    "tags": "Tag",
+    "resources": "Link & Documenti",
+    "documents": "Documenti",
+    "links": "Link",
+    "resourceLink": "Link",
+    "resourceDocument": "Documento",
+    "previousImage": "Immagine precedente",
+    "nextImage": "Immagine successiva",
+    "closeImage": "Chiudi immagine",
+    "viewFullscreen": "Visualizza a schermo intero",
+    "comingSoon": "Altri progetti in arrivo.",
+    "createdBy": "Creato da: {{authors}}"
+  },
+  "resume": {
+    "title": "Curriculum",
+    "subtitle": "Esperienza, formazione e competenze.",
+    "download": "Scarica PDF",
+    "experience": "Esperienza",
+    "education": "Formazione",
+    "skills": "Competenze",
+    "languages": "Lingue",
+    "proficiency": {
+      "native": "Madrelingua",
+      "fluent": "Fluente"
+    }
+  },
+  "footer": {
+    "copyright": "© {{year}} Hannes Watolla. Tutti i diritti riservati."
+  },
+  "a11y": {
+    "title": "Accessibilità",
+    "open": "Apri impostazioni di accessibilità",
+    "close": "Chiudi impostazioni di accessibilità",
+    "fontSize": "Dimensione testo",
+    "fontSmall": "Piccolo",
+    "fontMedium": "Medio",
+    "fontLarge": "Grande",
+    "fontXLarge": "Molto grande",
+    "highContrast": "Alto contrasto",
+    "reducedMotion": "Movimento ridotto"
+  },
+  "lang": {
+    "en": "English",
+    "de": "Deutsch",
+    "it": "Italiano",
+    "select": "Seleziona lingua",
+    "switchTo": "Passa a {{language}}"
+  }
+}

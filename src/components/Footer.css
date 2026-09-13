@@ -4,9 +4,9 @@
 }
 
 .footer__inner {
-  max-width: var(--max-width);
+  max-width: var(--layout-width);
   margin: 0 auto;
-  padding: 2rem;
+  padding: 2rem var(--page-gutter);
 }
 
 .footer__inner p {

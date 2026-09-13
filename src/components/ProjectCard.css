@@ -1,88 +1,122 @@
 .project-card {
-  display: flex;
-  flex-direction: column;
-  padding: 2rem;
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  padding: 0;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: 2px;
   text-decoration: none;
-  color: inherit;
-  transition: border-color var(--transition), transform var(--transition);
+  color: #fff;
 }
 
-.project-card:hover {
-  border-color: var(--color-text-muted);
+.project-card--no-cover {
+  background: #fff;
 }
 
-[data-motion='normal'] .project-card:hover {
-  transform: translateY(-2px);
+.project-card__placeholder {
+  position: absolute;
+  inset: 0;
+  background: #fff;
 }
 
-.project-card--static {
-  cursor: default;
+.project-card__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.45s ease;
+  backface-visibility: hidden;
 }
 
-.project-card--static:hover {
-  transform: none;
+.project-card__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1.5rem;
+  text-align: center;
+  background: rgb(26 26 26 / 0.62);
+  opacity: 0;
+  transition: opacity var(--transition);
 }
 
-.project-card__meta {
-  margin-bottom: 1rem;
+.project-card:hover .project-card__overlay,
+.project-card:focus-visible .project-card__overlay,
+.project-card:focus-within .project-card__overlay {
+  opacity: 1;
+}
+
+[data-motion='normal'] .project-card:hover .project-card__image,
+[data-motion='normal'] .project-card:focus-visible .project-card__image,
+[data-motion='normal'] .project-card:focus-within .project-card__image {
+  transform: scale(1.02);
 }
 
 .project-card__year {
   font-size: 0.75rem;
   font-weight: 500;
-  letter-spacing: 0.06em;
-  color: var(--color-text-muted);
+  letter-spacing: 0.08em;
+  color: rgb(255 255 255 / 0.8);
 }
 
 .project-card__title {
-  margin: 0 0 0.75rem;
-  font-family: var(--font-display);
+  margin: 0;
+  font-family: var(--font-heading);
   font-size: 1.375rem;
-  font-weight: 500;
+  font-weight: 700;
+  letter-spacing: -0.02em;
   line-height: 1.3;
-  color: var(--color-text);
+  text-transform: uppercase;
+  color: #fff;
 }
 
 .project-card__description {
-  flex: 1;
-  margin: 0 0 1.25rem;
-  font-size: 0.9375rem;
-  line-height: 1.65;
-  color: var(--color-text-muted);
-}
-
-.project-card__tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin: 0 0 1rem;
-  padding: 0;
-  list-style: none;
-}
-
-.project-card__tags li {
-  padding: 0.25rem 0.625rem;
-  font-size: 0.6875rem;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--color-text-muted);
-  background: var(--color-bg);
-  border: 1px solid var(--color-border);
-  border-radius: 2px;
-}
-
-.project-card__link {
+  margin: 0.15rem 0 0;
+  max-width: 22rem;
   font-size: 0.8125rem;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  color: var(--color-text);
+  font-weight: 400;
+  line-height: 1.45;
+  color: rgb(255 255 255 / 0.82);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  overflow: hidden;
 }
 
 .project-card:focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 2px;
+}
+
+[data-contrast='high'] .project-card {
+  border-color: var(--color-border);
+  border-width: 2px;
+}
+
+[data-contrast='high'] .project-card__overlay {
+  background: #000;
+}
+
+[data-contrast='high'] .project-card__year,
+[data-contrast='high'] .project-card__title,
+[data-contrast='high'] .project-card__description {
+  color: #fff;
+}
+
+@media (hover: none) {
+  .project-card__overlay {
+    opacity: 1;
+  }
 }

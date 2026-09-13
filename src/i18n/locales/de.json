@@ -2,11 +2,20 @@
   "nav": {
     "projects": "Projekte",
     "resume": "Lebenslauf",
-    "home": "Startseite"
+    "home": "Startseite",
+    "menu": "Menü",
+    "openMenu": "Menü öffnen",
+    "closeMenu": "Menü schließen"
   },
   "hero": {
     "title": "Architektur & Software",
     "subtitle": "Räume gestalten und digitale Erlebnisse mit Präzision und Klarheit entwickeln."
+  },
+  "home": {
+    "aboutTitle": "Über mich",
+    "viewResume": "Lebenslauf ansehen",
+    "featuredProjects": "Ausgewählte Projekte",
+    "showAll": "Alle anzeigen"
   },
   "projects": {
     "title": "Projekte",
@@ -14,7 +23,20 @@
     "software": "Softwareentwicklung",
     "architecture": "Architektur",
     "viewProject": "Projekt ansehen",
-    "comingSoon": "Weitere Projekte folgen in Kürze."
+    "backToProjects": "Zurück zu Projekten",
+    "visitExternal": "Projekt besuchen",
+    "tags": "Schlagwörter",
+    "resources": "Links & Dokumente",
+    "documents": "Dokumente",
+    "links": "Links",
+    "resourceLink": "Link",
+    "resourceDocument": "Dokument",
+    "previousImage": "Vorheriges Bild",
+    "nextImage": "Nächstes Bild",
+    "closeImage": "Bild schließen",
+    "viewFullscreen": "Vollbild anzeigen",
+    "comingSoon": "Weitere Projekte folgen in Kürze.",
+    "createdBy": "Erstellt von: {{authors}}"
   },
   "resume": {
     "title": "Lebenslauf",
@@ -23,7 +45,11 @@
     "experience": "Berufserfahrung",
     "education": "Ausbildung",
     "skills": "Fähigkeiten",
-    "languages": "Sprachen"
+    "languages": "Sprachen",
+    "proficiency": {
+      "native": "Muttersprache",
+      "fluent": "Fließend"
+    }
   },
   "footer": {
     "copyright": "© {{year}} Hannes Watolla. Alle Rechte vorbehalten."
@@ -38,11 +64,13 @@
     "fontLarge": "Groß",
     "fontXLarge": "Sehr groß",
     "highContrast": "Hoher Kontrast",
-    "reducedMotion": "Reduzierte Bewegung",
-    "language": "Sprache"
+    "reducedMotion": "Reduzierte Bewegung"
   },
   "lang": {
     "en": "English",
-    "de": "Deutsch"
+    "de": "Deutsch",
+    "it": "Italiano",
+    "select": "Sprache wählen",
+    "switchTo": "Zu {{language}} wechseln"
   }
 }

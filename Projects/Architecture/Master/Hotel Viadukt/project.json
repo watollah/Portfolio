@@ -1,0 +1,129 @@
+{
+  "id": "hotel-viadukt",
+  "category": "architecture",
+  "featured": true,
+  "year": "2025",
+  "title": "Hotel Viadukt",
+  "title_de": "Hotel Viadukt",
+  "title_it": "Hotel Viadukt",
+  "context": "Design project during master's studies",
+  "context_de": "Entwurfsprojekt im Masterstudium",
+  "context_it": "Progetto di design durante il master",
+  "description": "Design of a thermal hotel at the Burtscheid Viaduct in Aachen.",
+  "description_de": "Entwurf eines Thermalhotels am Burtscheider Viadukt in Aachen.",
+  "description_it": "Progetto di un hotel termale al viadotto di Burtscheid ad Aquisgrana.",
+  "authors": [
+    "Philipp Weidauer",
+    "Hannes Watolla"
+  ],
+  "cover": "images/rendering/tower.png",
+  "banner": "images/rendering/fassade.png",
+  "blocks": [
+    {
+      "type": "image",
+      "files": [
+        "images/rendering/tower_transparent.png"
+      ],
+      "textPosition": "top",
+      "text": "Hotel Viadukt combines a place of retreat, wellness offerings, and an urban meeting point. The design caters to those seeking relaxation, business travelers, and conference guests, uniting thermal and sauna facilities, conference areas, and gastronomy under one roof.\n\nAt the same time, the hotel opens up to the city: a publicly accessible wellness landscape, hotel bar, and a rooftop restaurant with views over Aachen create a lively place of encounter for guests and residents.",
+      "text_de": "Das Hotel Viadukt verbindet Rückzugsort, Wellnessangebot und urbanen Treffpunkt. Der Entwurf richtet sich an Erholungssuchende, Geschäftsreisende und Konferenzgäste und vereint Thermal- und Saunalandschaft, Tagungsbereiche sowie Gastronomie unter einem Dach.\n\nGleichzeitig öffnet sich das Hotel zur Stadt: Eine öffentlich zugängliche Wellnesslandschaft, Hotelbar und ein Restaurant im Dachgeschoss mit Blick über Aachen schaffen einen lebendigen Ort der Begegnung für Gäste und Stadtbewohner.",
+      "text_it": "L'Hotel Viadukt unisce un luogo di ritiro, offerte wellness e un punto di incontro urbano. Il progetto si rivolge a chi cerca relax, viaggiatori d'affari e ospiti di conferenze, riunendo paesaggio termale e saune, aree congressuali e gastronomia sotto un unico tetto.\n\nAl contempo, l'hotel si apre alla città: un paesaggio wellness accessibile al pubblico, bar dell'hotel e un ristorante al piano superiore con vista su Aquisgrana creano un vivace luogo d'incontro per ospiti e cittadini."
+    },
+    {
+      "type": "image",
+      "files": [
+        "images/plaene/lageplan.png"
+      ],
+      "textPosition": "right",
+      "text": "The hotel forms a new high point in the urban space, harmoniously integrating into the existing silhouette. This creates sight lines — from the Kurpark, from the viaduct, and from afar.\n\nAachen's bathing culture is brought to the fore at a historic site with a confident architectural language.",
+      "text_de": "Das Hotel bildet einen neuen Hochpunkt im Stadtraum, der sich harmonisch in die bestehende Silhouette einfügt. Dadurch entstehen Blickachsen - vom Kurpark, vom Viadukt und aus der Ferne.\n\nDie Aachener Badekultur wird an einem historischen Standort mit einer selbstbewussten Architektursprache in den Vordergrund gerückt.",
+      "text_it": "L'hotel forma un nuovo punto di rilievo nello spazio urbano, integrandosi armoniosamente nella silhouette esistente. Ne derivano assi visivi — dal Kurpark, dal viadotto e da lontano.\n\nLa cultura termale di Aquisgrana viene messa in evidenza in un sito storico con un linguaggio architettonico sicuro di sé."
+    },
+    {
+      "type": "image",
+      "files": [
+        "images/plaene/axo.jpg",
+        "images/plaene/lobby_perspektive.jpg",
+        "images/plaene/thermalbad_perspektive.jpg"
+      ],
+      "textPosition": "bottom",
+      "text": "*Perspective representations of the design*",
+      "text_de": "*Perspektivische Darstellungen des Entwurfes*",
+      "text_it": "*Rappresentazioni prospettiche del progetto*"
+    },
+    {
+      "type": "image",
+      "files": [
+        "images/ansichten/ansicht_no.jpg",
+        "images/ansichten/ansicht_nw.jpg",
+        "images/ansichten/ansicht_sw.jpg",
+        "images/ansichten/ansicht_so.jpg"
+      ],
+      "textPosition": "bottom",
+      "text": "*Views of the design*",
+      "text_de": "*Ansichten des Entwurfes*",
+      "text_it": "*Viste del progetto*"
+    },
+    {
+      "type": "image",
+      "files": [
+        "images/grundrisse/ug.jpg",
+        "images/grundrisse/eg.jpg",
+        "images/grundrisse/1.jpg",
+        "images/grundrisse/2.jpg",
+        "images/grundrisse/3.jpg",
+        "images/grundrisse/10.jpg",
+        "images/grundrisse/11.jpg"
+      ],
+      "textPosition": "bottom",
+      "text": "*Floor plans*",
+      "text_de": "*Grundrisse*",
+      "text_it": "*Planimetrie*"
+    },
+    {
+      "type": "image",
+      "files": [
+        "images/schnitte/schnitt_laengs.jpg",
+        "images/schnitte/schnitt_quer.jpg"
+      ],
+      "textPosition": "bottom",
+      "text": "*Sections*",
+      "text_de": "*Schnitte*",
+      "text_it": "*Sezioni*"
+    },
+    {
+      "type": "image",
+      "files": [
+        "images/konstruktion/dreitafelprojektion.jpg",
+        "images/konstruktion/sprengiso.jpg"
+      ],
+      "textPosition": "bottom",
+      "text": "*Facade*",
+      "text_de": "*Fassade*",
+      "text_it": "*Facciata*"
+    },
+    {
+      "type": "collage",
+      "files": [
+        "images/rendering/lobby.png",
+        "images/rendering/bath.png",
+        "images/rendering/bathroom.png"
+      ],
+      "text": "*Interior impressions, left: lobby, center: thermal bath, right: hotel room bathroom*",
+      "text_de": "*Impressionen aus dem Innenraum, links: Lobby, mittig: Thermalbad, rechts: Hotelzimmerbad*",
+      "text_it": "*Impressioni degli interni, a sinistra: lobby, al centro: bagno termale, a destra: bagno della camera d'hotel*"
+    }
+  ],
+  "links": [
+    {
+      "url": "https://ages.rwth-aachen.de/cms/ages/studium/Best-Of/Best-Of-Entwurf/M1-Entwurfsprojekt/~brjzwm/Copy-of-SoSe-2025-Viadukt/",
+      "title": "RWTH Ages Chair | Best of Summer 2025",
+      "title_de": "RWTH Ages Lehrstuhl | Best of SoSe 2025",
+      "title_it": "RWTH Ages Lehrstuhl | Best of SoSe 2025",
+      "description": "Our design exhibited in the Best Of of the Chair of Architectural History for the summer semester 2025.",
+      "description_de": "Unser Entwurf ausgestellt im Best Of des Lehrstuhls für Architekturgeschichte des Sommersemesters 2025.",
+      "description_it": "Il nostro progetto esposto nel Best Of della cattedra di storia dell'architettura del semestre estivo 2025."
+    }
+  ],
+  "documents": []
+}

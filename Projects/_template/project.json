@@ -1,0 +1,109 @@
+{
+  "_readme": "Full field documentation: README.md in this folder. Copy this folder to Projects/Software/ or Projects/Architecture/{Group}/, then edit.",
+  "id": "my-project",
+  "category": "software",
+  "featured": false,
+  "year": "2025",
+  "title": "My Project",
+  "title_de": "Mein Projekt",
+  "title_it": "Il mio progetto",
+  "context": "Course project",
+  "context_de": "Studienprojekt",
+  "context_it": "Progetto di corso",
+  "description": "Short summary shown on project cards and in search results.",
+  "description_de": "Kurzbeschreibung für Projekt-Karten und Suche.",
+  "description_it": "Breve riassunto per le schede progetto e la ricerca.",
+  "tags": [
+    "Tag One",
+    "Tag Two"
+  ],
+  "authors": [
+    "Your Name"
+  ],
+  "cover": "cover.png",
+  "banner": "banner.jpg",
+  "blocks": [
+    {
+      "type": "text",
+      "text": "Optional intro with **bold**, *italic*, __underline__, and ~~strikethrough~~.\n\n- First list item\n- Second list item",
+      "text_de": "Optionaler Einleitungstext mit **fett**, *kursiv*, __unterstrichen__ und ~~durchgestrichen~~.\n\n- Erster Listenpunkt\n- Zweiter Listenpunkt",
+      "text_it": "Paragrafo introduttivo con **grassetto**, *corsivo*, __sottolineato__ e ~~barrato~~.\n\n- Prima voce\n- Seconda voce"
+    },
+    {
+      "type": "image",
+      "files": [
+        "cover.png"
+      ],
+      "textPosition": "top",
+      "text": "Caption above the image.",
+      "text_de": "Bildunterschrift über dem Bild.",
+      "text_it": "Didascalia sopra l'immagine."
+    },
+    {
+      "type": "image",
+      "files": [
+        "photo-01.jpg"
+      ],
+      "textPosition": "bottom",
+      "text": "*Caption below the image (default).*",
+      "text_de": "*Bildunterschrift unter dem Bild (Standard).*",
+      "text_it": "*Didascalia sotto l'immagine (predefinito).*"
+    },
+    {
+      "type": "image",
+      "files": [
+        "photo-02.jpg",
+        "photo-03.jpg"
+      ],
+      "textPosition": "right",
+      "text": "Multiple images in one block with prev/next buttons.",
+      "text_de": "Mehrere Bilder in einem Block mit Vor/Zurück-Buttons.",
+      "text_it": "Più immagini in un blocco con pulsanti avanti/indietro."
+    },
+    {
+      "type": "collage",
+      "files": [
+        "photo-04.jpg",
+        "photo-05.jpg"
+      ],
+      "textPosition": "bottom",
+      "text": "*Multiple images shown side by side.*",
+      "text_de": "*Mehrere Bilder nebeneinander.*",
+      "text_it": "*Più immagini affiancate.*"
+    },
+    {
+      "type": "image",
+      "files": [
+        "photo-06.jpg"
+      ],
+      "textPosition": "left",
+      "text": "Caption on the left, image on the right.",
+      "text_de": "Bildunterschrift links, Bild rechts.",
+      "text_it": "Didascalia a sinistra, immagine a destra."
+    }
+  ],
+  "links": [
+    {
+      "url": "https://example.com",
+      "title": "Live Demo",
+      "title_de": "Live-Demo",
+      "title_it": "Demo live",
+      "description": "Optional description for this link.",
+      "description_de": "Optionale Beschreibung für diesen Link.",
+      "description_it": "Descrizione opzionale per questo link.",
+      "preview": "link-preview.png"
+    }
+  ],
+  "documents": [
+    {
+      "file": "documents/thesis.pdf",
+      "title": "Project Report",
+      "title_de": "Projektbericht",
+      "title_it": "Relazione di progetto",
+      "description": "Optional description shown below the preview.",
+      "description_de": "Optionale Beschreibung unter der Vorschau.",
+      "description_it": "Descrizione opzionale sotto l'anteprima.",
+      "preview": "documents/thesis-preview.png"
+    }
+  ]
+}

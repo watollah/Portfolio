@@ -1,9 +1,9 @@
-.resume-page .page__header {
+.resume-page__profile {
   margin-bottom: 3rem;
 }
 
-.resume-download {
-  margin-top: 1.5rem;
+.resume-page .page__header {
+  margin-bottom: 3rem;
 }
 
 .resume-section {
@@ -13,6 +13,7 @@
 .resume-section__title {
   margin: 0 0 1.5rem;
   padding-bottom: 0.75rem;
+  font-family: var(--font-heading);
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.1em;
@@ -46,18 +47,56 @@
   color: var(--color-text);
 }
 
-.resume-entry__org {
+.resume-entry__identity {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.resume-entry__logo {
+  width: 3.5rem;
+  height: 3.5rem;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.resume-entry__labels {
+  flex: 1;
+  min-width: 0;
+}
+
+.resume-entry__meta {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.25rem;
   margin: 0 0 0.5rem;
+}
+
+.resume-entry__org {
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+}
+
+.resume-entry__grade {
+  margin: 0;
+  text-align: right;
   font-size: 0.875rem;
   font-weight: 500;
   color: var(--color-text-muted);
 }
 
 .resume-entry__desc {
-  margin: 0;
+  margin: 0.5rem 0 0;
   font-size: 0.9375rem;
   line-height: 1.65;
   color: var(--color-text-muted);
+}
+
+.resume-entry__content:has(.resume-entry__logo) .resume-entry__desc {
+  padding-left: calc(3.5rem + 1rem);
 }
 
 .skills-grid {
@@ -116,5 +155,21 @@
   .resume-entry {
     grid-template-columns: 1fr;
     gap: 0.5rem;
+  }
+
+  .resume-entry__content:has(.resume-entry__logo) .resume-entry__desc {
+    padding-left: 0;
+  }
+
+  .resume-entry__org {
+    margin-bottom: 0;
+  }
+
+  .resume-entry__meta {
+    margin-bottom: 0;
+  }
+
+  .resume-entry__desc {
+    margin-top: 0.75rem;
   }
 }

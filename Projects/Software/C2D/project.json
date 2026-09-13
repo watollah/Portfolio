@@ -1,0 +1,63 @@
+{
+  "id": "c2d",
+  "category": "software",
+  "featured": true,
+  "year": "2024",
+  "context": "Bachelor's thesis",
+  "contextDe": "Bachelorarbeit",
+  "title": "C2D",
+  "titleDe": "C2D",
+  "description": "A web application for creating and analyzing Cremona diagrams for structural systems.",
+  "descriptionDe": "Eine Webanwendung zum Erstellen und Analysieren von Cremonaplänen für statische Systeme.",
+  "tags": [
+    "Web App",
+    "Structural Analysis",
+    "Education"
+  ],
+  "cover": "cover.png",
+  "images": [
+    {
+      "caption": "Project poster for the bachelor thesis.",
+      "captionDe": "Projektposter zur Bachelorarbeit.",
+      "files": [
+        "poster.png"
+      ]
+    },
+    {
+      "caption": "Defining a structural system on the drawing canvas.",
+      "captionDe": "Definition eines statischen Systems auf der Zeichenfläche.",
+      "files": [
+        "Image1.png"
+      ]
+    },
+    {
+      "caption": "Step-by-step generation of the Cremona diagram.",
+      "captionDe": "Schrittweise Erzeugung des Cremonaplans.",
+      "files": [
+        "Image2.png"
+      ]
+    },
+    {
+      "caption": "Visualizing member forces in the result view.",
+      "captionDe": "Visualisierung der Stabkräfte in der Ergebnisansicht.",
+      "files": [
+        "Image3.png"
+      ]
+    },
+    {
+      "files": [
+        "truss.png"
+      ]
+    }
+  ],
+  "links": [
+    {
+      "url": "https://github.com",
+      "title": "Source Repository",
+      "titleDe": "Quellcode-Repository",
+      "description": "Browse the project source code and documentation.",
+      "descriptionDe": "Projektquellcode und Dokumentation ansehen."
+    }
+  ],
+  "documents": []
+}

@@ -2,15 +2,32 @@ import i18n from 'i18next'
 import { initReactI18next } from 'react-i18next'
 import en from './locales/en.json'
 import de from './locales/de.json'
+import it from './locales/it.json'
+import {
+  getInitialLanguage,
+  normalizeLanguage,
+} from './routing'
 
-const savedLang = localStorage.getItem('portfolio-lang')
+export type { SupportedLanguage } from './routing'
+export {
+  detectBrowserLanguage,
+  getLanguageFromPathname,
+  isSupportedLanguage,
+  localizePath,
+  normalizeLanguage,
+  stripLanguagePrefix,
+  supportedLanguages,
+} from './routing'
+
+const initialLanguage = getInitialLanguage()
 
 i18n.use(initReactI18next).init({
   resources: {
     en: { translation: en },
     de: { translation: de },
+    it: { translation: it },
   },
-  lng: savedLang ?? (navigator.language.startsWith('de') ? 'de' : 'en'),
+  lng: initialLanguage,
   fallbackLng: 'en',
   interpolation: {
     escapeValue: false,
@@ -18,10 +35,10 @@ i18n.use(initReactI18next).init({
 })
 
 i18n.on('languageChanged', (lng) => {
-  localStorage.setItem('portfolio-lang', lng)
-  document.documentElement.lang = lng
+  localStorage.setItem('portfolio-lang', normalizeLanguage(lng))
+  document.documentElement.lang = normalizeLanguage(lng)
 })
 
-document.documentElement.lang = i18n.language
+document.documentElement.lang = initialLanguage
 
 export default i18n

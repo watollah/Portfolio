@@ -11,6 +11,12 @@ node_modules
 dist
 dist-ssr
 *.local
+public/projects/
+src/data/projects.manifest.json
+
+# Raw project source files (not synced to the site)
+Projects/**/sources/
+Projects/**/Sources/
 
 # Editor directories and files
 .vscode/*

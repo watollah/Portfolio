@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100%" height="100%" viewBox="0 0 720 720" xmlns="http://www.w3.org/2000/svg" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+    <style>
+        :root {
+            --duration: 1.87s;
+        }
+
+        .grid-draw {
+            stroke-dasharray: 100;
+            stroke-dashoffset: 100;
+            stroke-linecap: butt;
+            animation: draw-grid var(--duration) linear forwards;
+        }
+
+        #Grid {
+            opacity: 0.5;
+        }
+
+        .shape-letter,
+        .shape-stem-left,
+        .shape-stem-middle,
+        .shape-stem-right {
+            stroke-width: 12.35px;
+        }
+
+        .shape-letter {
+            stroke-dasharray: 1985;
+            stroke-dashoffset: 1985;
+            animation: draw-letter var(--duration) linear forwards;
+        }
+
+        .shape-stem-left {
+            stroke-dasharray: 161;
+            stroke-dashoffset: 161;
+            animation: draw-stem-left var(--duration) linear forwards;
+        }
+
+        .shape-stem-middle {
+            stroke-dasharray: 161;
+            stroke-dashoffset: 161;
+            animation: draw-stem-middle var(--duration) linear forwards;
+        }
+
+        .shape-stem-right {
+            stroke-dasharray: 161;
+            stroke-dashoffset: 161;
+            animation: draw-stem-right var(--duration) linear forwards;
+        }
+
+        #Shape {
+            opacity: 0;
+            visibility: hidden;
+            animation: show-shape var(--duration) linear forwards;
+        }
+
+        @keyframes show-shape {
+            0%, 42.857% {
+                opacity: 0;
+                visibility: hidden;
+            }
+            42.858%, 100% {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+
+        @keyframes draw-grid {
+            0% { stroke-dashoffset: 100; }
+            57.143% { stroke-dashoffset: 0; }
+            100% { stroke-dashoffset: 0; }
+        }
+
+        @keyframes draw-letter {
+            0%, 42.857% { stroke-dashoffset: 1985; }
+            100% { stroke-dashoffset: 0; }
+        }
+
+        @keyframes draw-stem-left {
+            0%, 53.214% { stroke-dashoffset: 161; visibility: hidden; }
+            53.215% { stroke-dashoffset: 161; visibility: visible; }
+            100% { stroke-dashoffset: 0; visibility: visible; }
+        }
+
+        @keyframes draw-stem-middle {
+            0%, 59.268% { stroke-dashoffset: 161; visibility: hidden; }
+            59.269% { stroke-dashoffset: 161; visibility: visible; }
+            100% { stroke-dashoffset: 0; visibility: visible; }
+        }
+
+        @keyframes draw-stem-right {
+            0%, 65.357% { stroke-dashoffset: 161; visibility: hidden; }
+            65.358% { stroke-dashoffset: 161; visibility: visible; }
+            100% { stroke-dashoffset: 0; visibility: visible; }
+        }
+    </style>
+
+    <g id="Logo" transform="matrix(1.333333,0,0,1.333333,-120,-120)">
+        <g>
+            <clipPath id="_clip1">
+                <circle cx="360" cy="360" r="270"/>
+            </clipPath>
+            <g clip-path="url(#_clip1)">
+                <g id="Grid">
+                    <g id="circles">
+                        <path id="large" class="grid-draw" pathLength="100" d="M360,158.538 A201.462,201.462 0 0,0 360,561.462 A201.462,201.462 0 0,0 360,158.538" style="fill:none;stroke:black;stroke-width:3.75px;"/>
+                        <g id="small" transform="matrix(0.446735,0,0,0.446735,199.175517,199.175517)">
+                            <path class="grid-draw" pathLength="100" d="M360,158.538 A201.462,201.462 0 0,1 360,561.462 A201.462,201.462 0 0,1 360,158.538" style="fill:none;stroke:black;stroke-width:8.39px;"/>
+                        </g>
+                    </g>
+                    <g id="vertical">
+                        <g id="C" transform="matrix(1,0,0,1,360,0)">
+                            <path class="grid-draw" pathLength="100" d="M180,0L180,720" style="fill:none;stroke:black;stroke-width:3.75px;"/>
+                        </g>
+                        <path id="B" class="grid-draw" pathLength="100" d="M360,720L360,0" style="fill:none;stroke:black;stroke-width:3.75px;"/>
+                        <path id="A" class="grid-draw" pathLength="100" d="M180,0L180,720" style="fill:none;stroke:black;stroke-width:3.75px;"/>
+                    </g>
+                    <g id="horizontal">
+                        <g id="_5" transform="matrix(1,0,0,1,0,360)">
+                            <path class="grid-draw" pathLength="100" d="M0,180L720,180" style="fill:none;stroke:black;stroke-width:3.75px;"/>
+                        </g>
+                        <g id="_4" transform="matrix(1,0,0,1,0,180)">
+                            <path class="grid-draw" pathLength="100" d="M720,270L0,270" style="fill:none;stroke:black;stroke-width:3.75px;"/>
+                        </g>
+                        <g id="_3" transform="matrix(1,0,0,1,0,180)">
+                            <path class="grid-draw" pathLength="100" d="M0,180L720,180" style="fill:none;stroke:black;stroke-width:3.75px;"/>
+                        </g>
+                        <path id="_2" class="grid-draw" pathLength="100" d="M720,270L0,270" style="fill:none;stroke:black;stroke-width:3.75px;"/>
+                        <path id="_1" class="grid-draw" pathLength="100" d="M0,180L720,180" style="fill:none;stroke:black;stroke-width:3.75px;"/>
+                    </g>
+                </g>
+                <g id="Shape" transform="matrix(0.607484,0,0,0.607484,141.305732,141.305732)">
+                    <path id="W" class="shape-letter" d="M63.696,360L63.696,508.152L211.848,656.304L360,508.152L508.152,656.304L656.304,508.152L656.304,360L508.152,508.152L360,360L211.848,508.152L63.696,360Z" style="fill:none;stroke:black;stroke-linecap:round;"/>
+                    <path id="H" class="shape-letter" d="M63.696,360L63.696,211.848L211.848,63.696L360,211.848L508.152,63.696L656.304,211.848L656.304,360L508.152,508.152L360,360L211.848,508.152L63.696,360Z" style="fill:none;stroke:black;stroke-linecap:round;"/>
+                    <g id="left" transform="matrix(1,0,0,1,-296.304063,0)">
+                        <path class="shape-stem-left" d="M508.152,656.304L508.152,508.152" style="fill:none;stroke:black;stroke-linecap:round;"/>
+                    </g>
+                    <path id="middle" class="shape-stem-middle" d="M360,508.152L360,360" style="fill:none;stroke:black;stroke-linecap:round;"/>
+                    <path id="right" class="shape-stem-right" d="M508.152,656.304L508.152,508.152" style="fill:none;stroke:black;stroke-linecap:round;"/>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

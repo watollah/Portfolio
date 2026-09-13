@@ -1,0 +1,148 @@
+{
+  "id": "vennbahn-vitrine",
+  "category": "architecture",
+  "featured": false,
+  "year": "2023",
+  "title": "Vennbahn Vitrine",
+  "title_de": "Vennbahn Vitrine",
+  "title_it": "Vennbahn Vitrine",
+  "context": "Design project during bachelor's studies",
+  "context_de": "Entwurfsprojekt im Bachelorstudium",
+  "context_it": "Progetto di design durante il bachelor",
+  "description": "Design of a bicycle manufactory along the Vennbahn cycle route in Aachen.",
+  "description_de": "Entwurf einer Fahrradmanufaktur am Vennbahnradweg in Aachen.",
+  "description_it": "Progetto di una manifattura di biciclette lungo la pista ciclabile Vennbahn ad Aquisgrana.",
+  "tags": [],
+  "authors": [
+    "Catarina Aue",
+    "Greta Scheidt",
+    "Helin Bölük",
+    "Nadia Aksent",
+    "Sophie Vandeputte",
+    "Hannes Watolla"
+  ],
+  "cover": "images/renderings/inside.png",
+  "banner": "images/renderings/banner.png",
+  "blocks": [
+    {
+      "type": "collage",
+      "files": [
+        "images/pictos/konzepterläuterung.png",
+        "images/pictos/organigram.png",
+        "images/plaene/lageplan.png"
+      ],
+      "textPosition": "bottom",
+      "text": "*Concept*",
+      "text_de": "*Konzept*",
+      "text_it": "*Concetto*"
+    },
+    {
+      "type": "image",
+      "files": [
+        "images/renderings/inside.png"
+      ],
+      "textPosition": "bottom",
+      "text": "*Interior visualization*",
+      "text_de": "*Visualisierung Innenraum*",
+      "text_it": "*Visualizzazione interna*"
+    },
+    {
+      "type": "image",
+      "files": [
+        "images/grundrisse/grundriss.png",
+        "images/grundrisse/deckenspiegel.png",
+        "images/grundrisse/dachaufsicht.png"
+      ],
+      "textPosition": "bottom",
+      "text": "*Floor plans*",
+      "text_de": "*Grundrisse*",
+      "text_it": "*Planimetrie*"
+    },
+    {
+      "type": "image",
+      "files": [
+        "images/schnitte/schnitt_a.png",
+        "images/schnitte/schnitt_b.png"
+      ],
+      "textPosition": "bottom",
+      "text": "*Sections*",
+      "text_de": "*Schnitte*",
+      "text_it": "*Sezioni*"
+    },
+    {
+      "type": "collage",
+      "files": [
+        "images/pictos/explosionszeichnung.png",
+        "images/pictos/sonnenschutz.png"
+      ],
+      "textPosition": "bottom",
+      "text": "*Assembly*",
+      "text_de": "*Aufbau*",
+      "text_it": "*Composizione costruttiva*"
+    },
+    {
+      "type": "collage",
+      "files": [
+        "images/details/fassadenschnitt_1.png",
+        "images/details/fassadenschnitt_2.png"
+      ],
+      "textPosition": "bottom",
+      "text": "*Facade section*",
+      "text_de": "*Fassadenschnitt*",
+      "text_it": "*Sezione di facciata*"
+    },
+    {
+      "type": "image",
+      "files": [
+        "images/tragwerk/aussteifung.png",
+        "images/tragwerk/knotenpunkt.png",
+        "images/tragwerk/trägerlage.png",
+        "images/tragwerk/trägerrost.png"
+      ]
+    },
+    {
+      "type": "collage",
+      "files": [
+        "images/details/detail_tragwerk_1.png",
+        "images/details/detail_tragwerk_2.png"
+      ],
+      "textPosition": "bottom",
+      "text": "*Structural system*",
+      "text_de": "*Tragwerk*",
+      "text_it": "*Struttura portante*"
+    },
+    {
+      "type": "image",
+      "files": [
+        "images/technik/energieschnitt.png"
+      ]
+    },
+    {
+      "type": "image",
+      "files": [
+        "images/technik/heizung.png",
+        "images/technik/leitungsführung.png",
+        "images/technik/strangschema.png"
+      ],
+      "textPosition": "bottom",
+      "text": "*Building services*",
+      "text_de": "*Gebäudetechnik*",
+      "text_it": "*Impiantistica*"
+    },
+    {
+      "type": "image",
+      "files": [
+        "images/details/detail_ecke_1.png",
+        "images/details/detail_ecke_2.png",
+        "images/details/detail_attika_sockel_1.png",
+        "images/details/detail_attika_sockel_2.png"
+      ],
+      "textPosition": "bottom",
+      "text": "*Details*",
+      "text_de": "*Details*",
+      "text_it": "*Dettagli*"
+    }
+  ],
+  "links": [],
+  "documents": []
+}

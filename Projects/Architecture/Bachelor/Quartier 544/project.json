@@ -1,0 +1,127 @@
+{
+  "id": "quartier-544",
+  "category": "architecture",
+  "featured": true,
+  "year": "2024",
+  "title": "Quartier 544",
+  "title_de": "Quartier 544",
+  "title_it": "Quartier 544",
+  "context": "Urban design project during bachelor's studies",
+  "context_de": "Städtebaulicher Entwurf im Bachelorstudium",
+  "context_it": "Progetto di urbanistica durante il bachelor",
+  "description": "Urban design concept for the redevelopment of a quarter at Europaplatz in Aachen.",
+  "description_de": "Städtebaulicher Entwurf für die Neugestaltung eines Quartiers am Europaplatz in Aachen.",
+  "description_it": "Progetto di urbanistica per la riqualificazione di un quartiere all'Europaplatz ad Aquisgrana.",
+  "tags": [],
+  "authors": [
+    "Maja Lehmann",
+    "Christian Mirow",
+    "Hannah Treckmann",
+    "Philipp Weidauer",
+    "Hannes Watolla"
+  ],
+  "cover": "images/cover.png",
+  "banner": "images/banner.png",
+  "blocks": [
+    {
+      "type": "image",
+      "files": [
+        "images/analysis/analyse1.png",
+        "images/analysis/analyse2.png",
+        "images/analysis/swot.png"
+      ],
+      "textPosition": "bottom",
+      "text": "*Urban analysis*",
+      "text_de": "*Städtebauliche Analyse*",
+      "text_it": "*Analisi urbanistica*"
+    },
+    {
+      "type": "image",
+      "files": [
+        "images/concept/rahmenplan.png",
+        "images/concept/leitbilder.png"
+      ],
+      "textPosition": "bottom",
+      "text": "*Concept*",
+      "text_de": "*Konzept*",
+      "text_it": "*Concetto*"
+    },
+    {
+      "type": "image",
+      "files": [
+        "images/plans/plan.png"
+      ],
+      "textPosition": "bottom",
+      "text": "*Design plan*",
+      "text_de": "*Entwurfsplan*",
+      "text_it": "*Piano di progetto*"
+    },
+    {
+      "type": "image",
+      "files": [
+        "images/concept/axo.png",
+        "images/concept/bauphasen.png"
+      ],
+      "textPosition": "bottom",
+      "text": "*Construction phases*",
+      "text_de": "*Bauphasen*",
+      "text_it": "*Fasi di costruzione*"
+    },
+    {
+      "type": "image",
+      "files": [
+        "images/detail/vertiefung.png"
+      ],
+      "textPosition": "bottom",
+      "text": "*Design study*",
+      "text_de": "*Vertiefung*",
+      "text_it": "*Approfondimento progettuale*"
+    },
+    {
+      "type": "collage",
+      "files": [
+        "images/sections/schnitt_breslauer straße.png",
+        "images/sections/schnitt_grünzug.png",
+        "images/sections/schnitt_feldweg.png"
+      ],
+      "textPosition": "bottom",
+      "text": "*Sections*",
+      "text_de": "*Schnitte*",
+      "text_it": "*Sezioni*"
+    },
+    {
+      "type": "image",
+      "files": [
+        "images/renderings/1.png",
+        "images/renderings/2.png"
+      ],
+      "textPosition": "bottom",
+      "text": "*Visualizations*",
+      "text_de": "*Visualisierungen*",
+      "text_it": "*Visualizzazioni*"
+    },
+    {
+      "type": "image",
+      "files": [
+        "images/model/1.png",
+        "images/model/2.png"
+      ],
+      "textPosition": "bottom",
+      "text": "*Physical model*",
+      "text_de": "*Modellbau*",
+      "text_it": "*Modello fisico*"
+    }
+  ],
+  "links": [
+    {
+      "url": "https://www.staedtebau.rwth-aachen.de/cms/staedtebau/Der-Lehrstuhl-und-Das-Institut/Ausstellungen/~bixmdk/EUROPA-Quartier/",
+      "title": "RWTH Chair of Urban Design | Exhibition 2024: Europaquartier",
+      "title_de": "RWTH Städtebau Lehrstuhl | Ausstellung 2024: Europaquartier",
+      "title_it": "RWTH Cattedra di Urbanistica | Mostra 2024: Europaquartier",
+      "description": "Our design was selected for an exhibition by the Chair of Urban Design at the Aachen Technology Center.",
+      "description_de": "Unser Entwurf wurde ausgewählt für eine Ausstellung des Lehrstuhls für Städtebau im Technologiezentrum Aachen.",
+      "description_it": "Il nostro progetto è stato selezionato per una mostra della cattedra di urbanistica nel Technology Center di Aquisgrana."
+    }
+  ],
+  "documents": []
+}

@@ -2,11 +2,20 @@
   "nav": {
     "projects": "Projects",
     "resume": "Resume",
-    "home": "Home"
+    "home": "Home",
+    "menu": "Menu",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
   },
   "hero": {
     "title": "Architecture & Software",
     "subtitle": "Designing spaces and building digital experiences with precision and clarity."
+  },
+  "home": {
+    "aboutTitle": "About",
+    "viewResume": "View resume",
+    "featuredProjects": "Selected Projects",
+    "showAll": "Show all"
   },
   "projects": {
     "title": "Projects",
@@ -14,7 +23,20 @@
     "software": "Software Development",
     "architecture": "Architecture",
     "viewProject": "View project",
-    "comingSoon": "More projects coming soon."
+    "backToProjects": "Back to projects",
+    "visitExternal": "Visit project",
+    "tags": "Tags",
+    "resources": "Links & Documents",
+    "documents": "Documents",
+    "links": "Links",
+    "resourceLink": "Link",
+    "resourceDocument": "Document",
+    "previousImage": "Previous image",
+    "nextImage": "Next image",
+    "closeImage": "Close image",
+    "viewFullscreen": "View fullscreen",
+    "comingSoon": "More projects coming soon.",
+    "createdBy": "Created by: {{authors}}"
   },
   "resume": {
     "title": "Resume",
@@ -23,7 +45,11 @@
     "experience": "Experience",
     "education": "Education",
     "skills": "Skills",
-    "languages": "Languages"
+    "languages": "Languages",
+    "proficiency": {
+      "native": "Native",
+      "fluent": "Fluent"
+    }
   },
   "footer": {
     "copyright": "© {{year}} Hannes Watolla. All rights reserved."
@@ -38,11 +64,13 @@
     "fontLarge": "Large",
     "fontXLarge": "Extra large",
     "highContrast": "High contrast",
-    "reducedMotion": "Reduced motion",
-    "language": "Language"
+    "reducedMotion": "Reduced motion"
   },
   "lang": {
     "en": "English",
-    "de": "Deutsch"
+    "de": "Deutsch",
+    "it": "Italiano",
+    "select": "Select language",
+    "switchTo": "Switch to {{language}}"
   }
 }

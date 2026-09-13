@@ -4,14 +4,16 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
+    "sync:projects": "node scripts/sync-projects.mjs",
+    "dev": "npm run sync:projects && vite",
+    "build": "npm run sync:projects && tsc && vite build",
     "preview": "vite preview"
   },
   "devDependencies": {
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.5",
     "@vitejs/plugin-react": "^4.7.0",
+    "sharp": "^0.35.4",
     "typescript": "~6.0.2",
     "vite": "^6.0.0"
   },

@@ -1,0 +1,163 @@
+.image-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.image-lightbox__backdrop {
+  position: absolute;
+  inset: 0;
+  padding: 0;
+  border: none;
+  background: rgb(0 0 0 / 0.88);
+  cursor: pointer;
+}
+
+.image-lightbox__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.image-lightbox__viewport {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  touch-action: none;
+  cursor: zoom-in;
+  pointer-events: auto;
+}
+
+.image-lightbox__viewport--zoomed {
+  cursor: grab;
+}
+
+.image-lightbox__viewport--panning {
+  cursor: grabbing;
+}
+
+.image-lightbox__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  border: none;
+  border-radius: 0;
+  transform-origin: center center;
+  will-change: transform;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.image-lightbox__close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: none;
+  color: #fafaf8;
+  background: #000;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.image-lightbox__close:focus-visible {
+  outline: 2px solid #fafaf8;
+  outline-offset: 2px;
+}
+
+.image-lightbox__close-icon {
+  display: block;
+  width: 1.35rem;
+  height: 1.35rem;
+}
+
+.image-lightbox__nav {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: none;
+  color: #fafaf8;
+  background: #000;
+  cursor: pointer;
+  pointer-events: auto;
+  transform: translateY(-50%);
+}
+
+.image-lightbox__nav--prev {
+  left: 0;
+}
+
+.image-lightbox__nav--next {
+  right: 0;
+}
+
+.image-lightbox__nav:disabled {
+  cursor: default;
+  color: #555;
+  background: #000;
+  opacity: 1;
+  pointer-events: none;
+}
+
+.image-lightbox__nav:disabled .image-lightbox__nav-icon path {
+  stroke: #555;
+}
+
+.image-lightbox__nav:focus-visible {
+  outline: 2px solid #fafaf8;
+  outline-offset: 2px;
+}
+
+.image-lightbox__nav-icon {
+  display: block;
+  width: 1.35rem;
+  height: 1.35rem;
+}
+
+@media (max-width: 640px) {
+  .image-lightbox__close {
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+
+  .image-lightbox__close-icon {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+
+  .image-lightbox__nav {
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+
+  .image-lightbox__nav-icon {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+}

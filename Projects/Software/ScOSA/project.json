@@ -1,0 +1,15 @@
+{
+  "id": "scosa",
+  "category": "software",
+  "featured": false,
+  "year": "2021",
+  "context": "Research project at DLR",
+  "contextDe": "Forschungsprojekt am DLR",
+  "title": "ScOSA",
+  "titleDe": "ScOSA",
+  "description": "Research on a scalable onboard computer architecture for spacecraft at the German Aerospace Center (DLR).",
+  "descriptionDe": "Forschung an einer skalierbaren Onboard-Computerarchitektur für Raumfahrzeuge am Deutschen Zentrum für Luft- und Raumfahrt (DLR).",
+  "tags": ["Research", "Spacecraft", "Software Architecture"],
+  "cover": "cover.png",
+  "images": []
+}

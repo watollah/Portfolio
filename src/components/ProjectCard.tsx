@@ -1,5 +1,8 @@
 import { useTranslation } from 'react-i18next'
-import type { Project } from '../data/projects'
+import { Link } from 'react-router-dom'
+import type { Project } from '../types/project'
+import { pickLocalized } from '../utils/projectLocale'
+import { useLocalizedPath } from '../hooks/useLocalizedPath'
 import './ProjectCard.css'
 
 interface ProjectCardProps {
@@ -7,42 +10,40 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project }: ProjectCardProps) {
-  const { i18n, t } = useTranslation()
-  const isDe = i18n.language === 'de'
+  const { i18n } = useTranslation()
+  const title = pickLocalized(project, 'title', i18n.language)
+  const description = pickLocalized(project, 'description', i18n.language)
+  const localize = useLocalizedPath()
+  const hasCover = Boolean(project.coverUrl)
 
-  const title = isDe ? project.titleDe : project.title
-  const description = isDe ? project.descriptionDe : project.description
-
-  const content = (
-    <>
-      <div className="project-card__meta">
-        <span className="project-card__year">{project.year}</span>
-      </div>
-      <h3 className="project-card__title">{title}</h3>
-      <p className="project-card__description">{description}</p>
-      <ul className="project-card__tags" aria-label="Technologies">
-        {project.tags.map((tag) => (
-          <li key={tag}>{tag}</li>
-        ))}
-      </ul>
-      {project.url && (
-        <span className="project-card__link">{t('projects.viewProject')} →</span>
+  return (
+    <Link
+      id={project.id}
+      to={localize(`/projects/${project.id}`)}
+      className={`project-card${hasCover ? '' : ' project-card--no-cover'}`}
+    >
+      {hasCover ? (
+        <img
+          className="project-card__image"
+          src={project.coverUrl}
+          srcSet={project.coverSrcSet}
+          alt=""
+          loading="lazy"
+          decoding="async"
+          width={project.coverWidth}
+          height={project.coverHeight}
+          sizes="(max-width: 640px) 100vw, (max-width: 1152px) 50vw, 560px"
+        />
+      ) : (
+        <div className="project-card__placeholder" aria-hidden="true" />
       )}
-    </>
+      <div className="project-card__overlay">
+        <span className="project-card__year">{project.year}</span>
+        <h3 className="project-card__title">{title}</h3>
+        {description ? (
+          <p className="project-card__description">{description}</p>
+        ) : null}
+      </div>
+    </Link>
   )
-
-  if (project.url) {
-    return (
-      <a
-        href={project.url}
-        className="project-card"
-        target={project.url.startsWith('http') ? '_blank' : undefined}
-        rel={project.url.startsWith('http') ? 'noopener noreferrer' : undefined}
-      >
-        {content}
-      </a>
-    )
-  }
-
-  return <article className="project-card project-card--static">{content}</article>
 }
