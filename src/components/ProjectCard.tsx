@@ -22,28 +22,36 @@ export function ProjectCard({ project }: ProjectCardProps) {
       to={localize(`/projects/${project.id}`)}
       className={`project-card${hasCover ? '' : ' project-card--no-cover'}`}
     >
-      {hasCover ? (
-        <img
-          className="project-card__image"
-          src={project.coverUrl}
-          srcSet={project.coverSrcSet}
-          alt=""
-          loading="lazy"
-          decoding="async"
-          width={project.coverWidth}
-          height={project.coverHeight}
-          sizes="(max-width: 640px) 100vw, (max-width: 1152px) 50vw, 560px"
-        />
-      ) : (
-        <div className="project-card__placeholder" aria-hidden="true" />
-      )}
-      <div className="project-card__overlay">
-        <span className="project-card__year">{project.year}</span>
-        <h3 className="project-card__title">{title}</h3>
-        {description ? (
-          <p className="project-card__description">{description}</p>
-        ) : null}
-      </div>
+      <span
+        className={`project-card__media${hasCover ? '' : ' project-card__media--no-cover'}`}
+      >
+        {hasCover ? (
+          <img
+            className="project-card__image"
+            src={project.coverUrl}
+            srcSet={project.coverSrcSet}
+            alt=""
+            loading="lazy"
+            decoding="async"
+            width={project.coverWidth}
+            height={project.coverHeight}
+            sizes="(max-width: 640px) 100vw, (max-width: 1152px) 50vw, 560px"
+          />
+        ) : (
+          <div className="project-card__placeholder" aria-hidden="true" />
+        )}
+        <div className="project-card__overlay">
+          <span className="project-card__year">{project.year}</span>
+          <h3 className="project-card__title">{title}</h3>
+          {description ? (
+            <p className="project-card__description">{description}</p>
+          ) : null}
+        </div>
+      </span>
+      <span className="project-card__meta">
+        <span className="project-card__meta-title">{title}</span>
+        <span className="project-card__meta-year">{project.year}</span>
+      </span>
     </Link>
   )
 }

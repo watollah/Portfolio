@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { profile, profilePhoto, profilePhotoCutout } from '../data/profile'
+import { resolveAssetUrl } from '../utils/assetUrl'
 import './ProfileIntro.css'
 
 interface ProfileIntroProps {
@@ -42,7 +43,7 @@ export function ProfileIntro({
             {showDownload && (
               <div className="profile-intro__actions">
                 <a
-                  href={`${import.meta.env.BASE_URL}resume.pdf`}
+                  href={resolveAssetUrl('resume.pdf')}
                   className="btn btn--secondary profile-intro__download"
                   download
                   aria-label={t('resume.download')}

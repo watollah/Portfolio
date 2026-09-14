@@ -1,5 +1,7 @@
-export const profilePhoto = `${import.meta.env.BASE_URL}photo.jpg`
-export const profilePhotoCutout = `${import.meta.env.BASE_URL}photo.png`
+import { resolveAssetUrl } from '../utils/assetUrl'
+
+export const profilePhoto = resolveAssetUrl('photo.jpg')
+export const profilePhotoCutout = resolveAssetUrl('photo.png')
 
 export const profile = {
   name: 'Hannes Watolla',

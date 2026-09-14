@@ -1,18 +1,24 @@
 .project-card {
+  display: block;
+  width: 100%;
+  padding: 0;
+  text-decoration: none;
+  color: inherit;
+}
+
+.project-card__media {
   position: relative;
   display: block;
   width: 100%;
   aspect-ratio: 4 / 3;
   overflow: hidden;
-  padding: 0;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: 2px;
-  text-decoration: none;
   color: #fff;
 }
 
-.project-card--no-cover {
+.project-card__media--no-cover {
   background: #fff;
 }
 
@@ -52,14 +58,12 @@
 }
 
 .project-card:hover .project-card__overlay,
-.project-card:focus-visible .project-card__overlay,
-.project-card:focus-within .project-card__overlay {
+.project-card:focus-visible .project-card__overlay {
   opacity: 1;
 }
 
 [data-motion='normal'] .project-card:hover .project-card__image,
-[data-motion='normal'] .project-card:focus-visible .project-card__image,
-[data-motion='normal'] .project-card:focus-within .project-card__image {
+[data-motion='normal'] .project-card:focus-visible .project-card__image {
   transform: scale(1.02);
 }
 
@@ -100,7 +104,7 @@
   outline-offset: 2px;
 }
 
-[data-contrast='high'] .project-card {
+[data-contrast='high'] .project-card__media {
   border-color: var(--color-border);
   border-width: 2px;
 }
@@ -115,8 +119,45 @@
   color: #fff;
 }
 
-@media (hover: none) {
+.project-card__meta {
+  display: none;
+}
+
+@media (hover: none) and (min-width: 641px) {
   .project-card__overlay {
     opacity: 1;
+  }
+}
+
+@media (max-width: 640px) {
+  .project-card__overlay {
+    display: none;
+  }
+
+  .project-card__meta {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 0.35rem;
+  }
+
+  .project-card__meta-title,
+  .project-card__meta-year {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.35;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    color: var(--color-text);
+  }
+
+  .project-card__meta-title {
+    min-width: 0;
+  }
+
+  .project-card__meta-year {
+    flex-shrink: 0;
   }
 }

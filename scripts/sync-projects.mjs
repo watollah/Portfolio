@@ -531,6 +531,85 @@ async function syncGalleryImage(projectDir, destDir, file) {
   }
 }
 
+async function reuseExistingCover(destDir, file, quiet) {
+  const baseName = basename(file, extname(file))
+  const coverFile = `${baseName}.jpg`
+  const cover1xFile = `${baseName}-960.jpg`
+  const coverPath = join(destDir, coverFile)
+
+  if (!existsSync(coverPath)) {
+    console.warn(
+      `[sync-projects]   Cached cover "${coverFile}" not found — run a full sync for new or changed covers`,
+    )
+    return null
+  }
+
+  const metadata = await sharp(coverPath).metadata()
+  if (!quiet) {
+    console.log(`[sync-projects]   ${coverFile} (cached, skip-images)`)
+  }
+
+  return {
+    file: coverFile,
+    file1x: existsSync(join(destDir, cover1xFile)) ? cover1xFile : coverFile,
+    width: metadata.width ?? COVER_WIDTH,
+    height: metadata.height ?? COVER_HEIGHT,
+  }
+}
+
+async function reuseExistingOptimizedAsset(destDir, file, quiet, label = 'asset') {
+  const relativeOutput = optimizedRelativePath(file)
+  const targetPath = join(destDir, relativeOutput)
+
+  if (!existsSync(targetPath)) {
+    console.warn(
+      `[sync-projects]   Cached ${label} "${relativeOutput}" not found — run a full sync for new or changed images`,
+    )
+    return null
+  }
+
+  if (!quiet) {
+    console.log(`[sync-projects]   ${relativeOutput} (cached, skip-images)`)
+  }
+
+  return relativeOutput
+}
+
+async function reuseExistingGalleryImage(destDir, file, quiet) {
+  const displayRelative = optimizedRelativePath(file)
+  const displayPath = join(destDir, displayRelative)
+
+  if (!existsSync(displayPath)) {
+    console.warn(
+      `[sync-projects]   Cached image "${displayRelative}" not found — run a full sync for new or changed images`,
+    )
+    return null
+  }
+
+  const displayMeta = await sharp(displayPath).metadata()
+  const fullRelative = optimizedRelativePath(file, '-full')
+  const fullPath = join(destDir, fullRelative)
+
+  if (!quiet) {
+    console.log(`[sync-projects]   ${displayRelative} (cached, skip-images)`)
+  }
+
+  const result = {
+    file: displayRelative,
+    width: displayMeta.width ?? 0,
+    height: displayMeta.height ?? 0,
+  }
+
+  if (existsSync(fullPath)) {
+    const fullMeta = await sharp(fullPath).metadata()
+    result.fullFile = fullRelative
+    result.fullWidth = fullMeta.width ?? 0
+    result.fullHeight = fullMeta.height ?? 0
+  }
+
+  return result
+}
+
 function copyDocument(projectDir, destDir, file) {
   if (isIgnoredPath(file)) {
     return null
@@ -619,7 +698,7 @@ function hasUsableBanner(projectDir, project) {
 }
 
 export async function syncProjects(options = {}) {
-  const { quiet = false } = options
+  const { quiet = false, skipImages = false } = options
   const projectDirs = findProjectDirs()
   const manifest = []
   const usedIds = new Set()
@@ -637,8 +716,9 @@ export async function syncProjects(options = {}) {
 
     const hasCover = hasUsableCover(projectDir, project)
     if (!quiet) {
+      const mode = skipImages ? ' [skip-images]' : ''
       console.log(
-        `[sync-projects] Syncing ${project.title} (${project.id})${hasCover ? '' : ' [no cover]'}`,
+        `[sync-projects] Syncing ${project.title} (${project.id})${hasCover ? '' : ' [no cover]'}${mode}`,
       )
     }
 
@@ -647,7 +727,9 @@ export async function syncProjects(options = {}) {
     let coverWidth = 0
     let coverHeight = 0
     if (hasCover) {
-      const coverResult = await syncCover(projectDir, destDir, project.cover)
+      const coverResult = skipImages
+        ? await reuseExistingCover(destDir, project.cover, quiet)
+        : await syncCover(projectDir, destDir, project.cover)
       if (coverResult) {
         optimizedCover = coverResult.file
         coverWidth = coverResult.width
@@ -662,13 +744,15 @@ export async function syncProjects(options = {}) {
 
     let optimizedBanner = null
     if (hasUsableBanner(projectDir, project)) {
-      optimizedBanner = await syncAsset(
-        projectDir,
-        destDir,
-        project.banner,
-        DISPLAY_MAX_WIDTH,
-        DISPLAY_QUALITY,
-      )
+      optimizedBanner = skipImages
+        ? await reuseExistingOptimizedAsset(destDir, project.banner, quiet, 'banner')
+        : await syncAsset(
+            projectDir,
+            destDir,
+            project.banner,
+            DISPLAY_MAX_WIDTH,
+            DISPLAY_QUALITY,
+          )
     } else if (project.banner && !quiet) {
       console.warn(
         `[sync-projects]   Banner "${project.banner}" not found — falling back to cover`,
@@ -684,7 +768,9 @@ export async function syncProjects(options = {}) {
 
       const syncedImages = []
       for (const file of block.files) {
-        const optimizedImage = await syncGalleryImage(projectDir, destDir, file)
+        const optimizedImage = skipImages
+          ? await reuseExistingGalleryImage(destDir, file, quiet)
+          : await syncGalleryImage(projectDir, destDir, file)
 
         if (!optimizedImage) {
           continue
@@ -728,7 +814,11 @@ export async function syncProjects(options = {}) {
 
     const syncedLinks = []
     for (const link of project.links) {
-      const previewFile = await syncPreview(projectDir, destDir, link.preview)
+      const previewFile = skipImages
+        ? link.preview
+          ? await reuseExistingOptimizedAsset(destDir, link.preview, quiet, 'link preview')
+          : null
+        : await syncPreview(projectDir, destDir, link.preview)
       syncedLinks.push({
         url: link.url,
         title: link.title,
@@ -749,7 +839,11 @@ export async function syncProjects(options = {}) {
       }
 
       const sourcePath = join(projectDir, document.file)
-      const previewFile = await syncPreview(projectDir, destDir, document.preview)
+      const previewFile = skipImages
+        ? document.preview
+          ? await reuseExistingOptimizedAsset(destDir, document.preview, quiet, 'document preview')
+          : null
+        : await syncPreview(projectDir, destDir, document.preview)
       syncedDocuments.push({
         file: copiedFile,
         url: `./projects/${project.id}/${copiedFile}`,
@@ -808,7 +902,8 @@ export async function syncProjects(options = {}) {
 const isDirectRun = process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)
 
 if (isDirectRun) {
-  syncProjects().catch((error) => {
+  const skipImages = process.argv.includes('--skip-images')
+  syncProjects({ skipImages }).catch((error) => {
     console.error('[sync-projects] Failed:', error)
     process.exit(1)
   })

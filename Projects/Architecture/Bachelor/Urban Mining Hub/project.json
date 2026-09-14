@@ -2,14 +2,114 @@
   "id": "urban-mining-hub",
   "category": "architecture",
   "featured": false,
-  "year": "2023",
-  "context": "Design project during bachelor's studies",
-  "contextDe": "Entwurfsprojekt im Bachelorstudium",
+  "year": "2024",
   "title": "Urban Mining Hub",
-  "titleDe": "Urban Mining Hub",
-  "description": "Urban design concept for a mixed-use quarter.",
-  "descriptionDe": "Städtebauliches Konzept für ein gemischt genutztes Quartier.",
-  "tags": ["Urban Design", "Mixed Use", "Bachelor"],
-  "cover": "cover.png",
-  "images": []
+  "title_de": "Urban Mining Hub",
+  "title_it": "Urban Mining Hub",
+  "context": "Design project during bachelor's studies",
+  "context_de": "Entwurfsprojekt im Bachelorstudium",
+  "context_it": "Progetto di design durante il bachelor",
+  "description": "Design of an Urban Mining Hub on the site of Aachen's municipal utilities.",
+  "description_de": "Entwurf eines Urban Mining Hubs auf dem Gelände des Aachener Stadtbetriebes.",
+  "description_it": "Progetto di un Urban Mining Hub nell'area dell'azienda municipale di Aquisgrana.",
+  "tags": [],
+  "authors": [
+    "Maik Düning",
+    "Hannes Watolla"
+  ],
+  "cover": "images/axo/axo.png",
+  "banner": "images/axo/banner.png",
+  "blocks": [
+    {
+      "type": "collage",
+      "files": [
+        "images/piktos/ressourcenkonzept.png",
+        "images/piktos/wertstoffkonzept.png"
+      ],
+      "textPosition": "bottom",
+      "text": "*Concept*",
+      "text_de": "*Konzept*",
+      "text_it": "*Concetto*"
+    },
+    {
+      "type": "image",
+      "files": [
+        "images/axo/axo.png"
+      ],
+      "textPosition": "bottom",
+      "text": "*Axonometric view*",
+      "text_de": "*Axonometrie*",
+      "text_it": "*Assonometria*"
+    },
+    {
+      "type": "image",
+      "files": [
+        "images/grundrisse/eg.png",
+        "images/grundrisse/og.png"
+      ],
+      "textPosition": "bottom",
+      "text": "*Floor plans*",
+      "text_de": "*Grundrisse*",
+      "text_it": "*Planimetrie*"
+    },
+    {
+      "type": "image",
+      "files": [
+        "images/ansichten/sued.png",
+        "images/ansichten/ost.png",
+        "images/ansichten/west.png"
+      ],
+      "textPosition": "bottom",
+      "text": "*Elevations*",
+      "text_de": "*Ansichten*",
+      "text_it": "*Prospetti*"
+    },
+    {
+      "type": "image",
+      "files": [
+        "images/schnitte/1.png",
+        "images/schnitte/3.png",
+        "images/schnitte/2.png"
+      ],
+      "textPosition": "bottom",
+      "text": "*Sections*",
+      "text_de": "*Schnitte*",
+      "text_it": "*Sezioni*"
+    },
+    {
+      "type": "collage",
+      "files": [
+        "images/ansichten/cafe_sued.png",
+        "images/ansichten/cafe_ost.png",
+        "images/schnitte/cafe.png"
+      ],
+      "textPosition": "bottom",
+      "text": "*Café*",
+      "text_de": "*Café*",
+      "text_it": "*Caffè*"
+    },
+    {
+      "type": "collage",
+      "files": [
+        "images/piktos/stahltüren.png",
+        "images/piktos/stampflehmwand.png"
+      ],
+      "textPosition": "bottom",
+      "text": "*Construction details*",
+      "text_de": "*Konstruktionsdetails*",
+      "text_it": "*Dettagli costruttivi*"
+    },
+    {
+      "type": "image",
+      "files": [
+        "images/plaene/fassadenschnitt.png"
+      ],
+      "textPosition": "bottom",
+      "text": "*Facade section*",
+      "text_de": "*Fassadenschnitt*",
+      "text_it": "*Sezione di facciata*"
+    }
+  ],
+  "links": [],
+  "documents": []
 }

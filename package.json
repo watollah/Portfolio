@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "sync:projects": "node scripts/sync-projects.mjs",
+    "sync:projects:manifest": "node scripts/sync-projects.mjs --skip-images",
     "build:app": "tsc && vite build",
     "dev": "npm run sync:projects && vite",
     "build": "npm run sync:projects && npm run build:app",

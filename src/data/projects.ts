@@ -1,10 +1,6 @@
 import manifest from './projects.manifest.json'
 import type { Project } from '../types/project'
-
-function resolveAssetUrl(path: string): string {
-  const normalized = path.replace(/^\.\//, '')
-  return `${import.meta.env.BASE_URL}${normalized}`
-}
+import { resolveAssetUrl } from '../utils/assetUrl'
 
 function resolveSrcSet(srcSet: string): string {
   return srcSet
@@ -31,6 +27,7 @@ export const projects: Project[] = (manifest as Project[]).map((project) => ({
       images: block.images.map((image) => ({
         ...image,
         url: resolveAssetUrl(image.url),
+        fullUrl: image.fullUrl ? resolveAssetUrl(image.fullUrl) : undefined,
       })),
     }
   }),
@@ -72,7 +69,7 @@ export const experience: ResumeEntry[] = [
     titleDe: 'Citizen Developer',
     organization: 'STRABAG',
     organizationDe: 'STRABAG',
-    logo: `${import.meta.env.BASE_URL}STRABAG.svg`,
+    logo: resolveAssetUrl('STRABAG.svg'),
     description:
       'Development of custom software solutions to digitize business processes. Including the design and development of an onboarding tool for Europe-wide deployment in the HR department.',
     descriptionDe:
@@ -84,7 +81,7 @@ export const experience: ResumeEntry[] = [
     titleDe: 'Hilfswissenschaftler',
     organization: 'German Aerospace Center (DLR)',
     organizationDe: 'Deutsches Zentrum für Luft- und Raumfahrt e.V.',
-    logo: `${import.meta.env.BASE_URL}DLR.svg`,
+    logo: resolveAssetUrl('DLR.svg'),
     description:
       'Software development and research on a new onboard computer architecture for spacecraft as part of the ScOSA project.',
     descriptionDe:
@@ -100,7 +97,7 @@ export const education: ResumeEntry[] = [
     titleDe: 'MSc. Architektur',
     organization: 'RWTH Aachen',
     organizationDe: 'RWTH Aachen',
-    logo: `${import.meta.env.BASE_URL}RWTH.svg`,
+    logo: resolveAssetUrl('RWTH.svg'),
   },
   {
     period: '2021 - 2024',
@@ -108,7 +105,7 @@ export const education: ResumeEntry[] = [
     titleDe: 'BSc. Architektur',
     organization: 'RWTH Aachen',
     organizationDe: 'RWTH Aachen',
-    logo: `${import.meta.env.BASE_URL}RWTH.svg`,
+    logo: resolveAssetUrl('RWTH.svg'),
     grade: 'Grade: 1.8',
     gradeDe: 'Note: 1,8',
   },
@@ -118,7 +115,7 @@ export const education: ResumeEntry[] = [
     titleDe: 'Abitur',
     organization: 'Gymnasium im Schloss',
     organizationDe: 'Gymnasium im Schloss',
-    logo: `${import.meta.env.BASE_URL}GiS.svg`,
+    logo: resolveAssetUrl('GiS.svg'),
     grade: 'Grade: 1.8',
     gradeDe: 'Note: 1,8',
   },
