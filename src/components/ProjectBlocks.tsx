@@ -16,6 +16,12 @@ import type {
 } from '../types/project'
 import { stripBlockMarkdown } from '../utils/blockMarkdown'
 import { pickLocalized } from '../utils/projectLocale'
+import {
+  animateScrollLeft,
+  cancelCarouselScrollAnimation,
+  stopHorizontalScrollMomentum,
+  supportsScrollEnd,
+} from '../utils/carouselSettleScroll'
 import { BlockText } from './BlockText'
 import { ImageLightbox, type LightboxImage } from './ImageLightbox'
 import './ProjectBlocks.css'
@@ -104,38 +110,7 @@ function computeCarouselMetrics(
   return { width: carouselWidth, height: carouselHeight }
 }
 
-const CAROUSEL_SCROLL_MS = 220
 const TOUCH_AXIS_LOCK_PX = 10
-
-function animateScrollLeft(scroller: HTMLElement, targetLeft: number, durationMs = CAROUSEL_SCROLL_MS) {
-  if (prefersReducedMotion()) {
-    scroller.scrollLeft = targetLeft
-    return Promise.resolve()
-  }
-
-  const startLeft = scroller.scrollLeft
-  const distance = targetLeft - startLeft
-  if (Math.abs(distance) <= 1) {
-    scroller.scrollLeft = targetLeft
-    return Promise.resolve()
-  }
-
-  const startTime = performance.now()
-
-  return new Promise<void>((resolve) => {
-    function frame(now: number) {
-      const progress = Math.min(1, (now - startTime) / durationMs)
-      scroller.scrollLeft = startLeft + distance * progress
-      if (progress < 1) {
-        requestAnimationFrame(frame)
-      } else {
-        resolve()
-      }
-    }
-
-    requestAnimationFrame(frame)
-  })
-}
 
 function loadImageDimensions(url: string): Promise<ImageDimensions> {
   return new Promise((resolve) => {
@@ -218,7 +193,8 @@ function BlockCarousel({
   const touchStartRef = useRef({ x: 0, y: 0 })
   const touchAxisRef = useRef<'x' | 'y' | null>(null)
   const scrollAnimatingRef = useRef(false)
-  const scrollSettleTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const userScrollingRef = useRef(false)
+  const syncScrollToIndexRef = useRef(false)
   const total = block.images.length
   const current = block.images[index]
   const hasMultiple = total > 1
@@ -233,7 +209,9 @@ function BlockCarousel({
     const clamped = Math.max(0, Math.min(total - 1, nextIndex))
     const targetLeft = clamped * scroller.clientWidth
 
+    syncScrollToIndexRef.current = true
     if (instant || prefersReducedMotion()) {
+      cancelCarouselScrollAnimation(scroller)
       scroller.scrollLeft = targetLeft
       setIndex((currentIndex) => (currentIndex === clamped ? currentIndex : clamped))
       return
@@ -247,7 +225,14 @@ function BlockCarousel({
 
   function alignScrollerToNearestSlide() {
     const scroller = scrollerRef.current
-    if (!scroller || scrollAnimatingRef.current || touchAxisRef.current === 'y') return
+    if (
+      !scroller ||
+      scrollAnimatingRef.current ||
+      touchAxisRef.current === 'y' ||
+      userScrollingRef.current
+    ) {
+      return
+    }
 
     const width = scroller.clientWidth
     if (width === 0) return
@@ -267,16 +252,6 @@ function BlockCarousel({
     })
   }
 
-  function scheduleScrollSettle() {
-    if (scrollSettleTimerRef.current) {
-      clearTimeout(scrollSettleTimerRef.current)
-    }
-    scrollSettleTimerRef.current = setTimeout(() => {
-      scrollSettleTimerRef.current = null
-      alignScrollerToNearestSlide()
-    }, 80)
-  }
-
   function applyTouchAxisLock(axis: 'x' | 'y' | null) {
     const scroller = scrollerRef.current
     if (!scroller) return
@@ -288,17 +263,6 @@ function BlockCarousel({
     } else {
       scroller.style.removeProperty('touch-action')
     }
-  }
-
-  function updateIndexFromScroll() {
-    const scroller = scrollerRef.current
-    if (!scroller) return
-
-    const width = scroller.clientWidth
-    if (width === 0) return
-
-    const nextIndex = Math.min(total - 1, Math.max(0, Math.round(scroller.scrollLeft / width)))
-    setIndex((currentIndex) => (currentIndex === nextIndex ? currentIndex : nextIndex))
   }
 
   useLayoutEffect(() => {
@@ -374,9 +338,8 @@ function BlockCarousel({
       })
     }
 
-    const width = scrollerEl.clientWidth
-    const fromScroll = width === 0 ? index : Math.round(scrollerEl.scrollLeft / width)
-    if (fromScroll !== index) {
+    if (syncScrollToIndexRef.current) {
+      syncScrollToIndexRef.current = false
       snapToCurrent(true)
     }
 
@@ -404,20 +367,17 @@ function BlockCarousel({
     if (!scroller) return
 
     function handleScrollEnd() {
-      if (scrollSettleTimerRef.current) {
-        clearTimeout(scrollSettleTimerRef.current)
-        scrollSettleTimerRef.current = null
-      }
+      userScrollingRef.current = false
       alignScrollerToNearestSlide()
     }
 
-    scroller.addEventListener('scrollend', handleScrollEnd)
+    if (supportsScrollEnd()) {
+      scroller.addEventListener('scrollend', handleScrollEnd)
+    }
 
     return () => {
-      scroller.removeEventListener('scrollend', handleScrollEnd)
-      if (scrollSettleTimerRef.current) {
-        clearTimeout(scrollSettleTimerRef.current)
-        scrollSettleTimerRef.current = null
+      if (supportsScrollEnd()) {
+        scroller.removeEventListener('scrollend', handleScrollEnd)
       }
     }
   }, [hasMultiple, total])
@@ -435,9 +395,15 @@ function BlockCarousel({
   }
 
   function handlePointerDown(event: PointerEvent<HTMLDivElement>) {
+    const scroller = scrollerRef.current
+    if (scroller) {
+      userScrollingRef.current = true
+      cancelCarouselScrollAnimation(scroller)
+      scrollAnimatingRef.current = false
+    }
     pointerStartRef.current = {
       x: event.clientX,
-      scroll: scrollerRef.current?.scrollLeft ?? 0,
+      scroll: scroller?.scrollLeft ?? 0,
       dragged: false,
     }
   }
@@ -451,6 +417,13 @@ function BlockCarousel({
   function handleTouchStart(event: ReactTouchEvent<HTMLDivElement>) {
     const touch = event.touches[0]
     if (!touch) return
+
+    const scroller = scrollerRef.current
+    if (scroller) {
+      userScrollingRef.current = true
+      cancelCarouselScrollAnimation(scroller)
+      scrollAnimatingRef.current = false
+    }
 
     touchStartRef.current = { x: touch.clientX, y: touch.clientY }
     touchAxisRef.current = null
@@ -473,21 +446,36 @@ function BlockCarousel({
 
   function handleTouchEnd() {
     const scroller = scrollerRef.current
-    if (touchAxisRef.current === 'y' && scroller) {
+    const axis = touchAxisRef.current
+
+    if (axis === 'y' && scroller) {
       const width = scroller.clientWidth
       if (width > 0) {
         scroller.scrollLeft = indexRef.current * width
       }
+      userScrollingRef.current = false
+    } else if (axis === 'x' && scroller) {
+      stopHorizontalScrollMomentum(scroller)
+      if (!supportsScrollEnd()) {
+        userScrollingRef.current = false
+        alignScrollerToNearestSlide()
+      }
+    } else {
+      userScrollingRef.current = false
     }
 
     touchAxisRef.current = null
     applyTouchAxisLock(null)
   }
 
-  function handleScrollerScroll() {
-    updateIndexFromScroll()
-    if (!scrollAnimatingRef.current) {
-      scheduleScrollSettle()
+  function handleScrollerPointerRelease() {
+    const scroller = scrollerRef.current
+    if (!scroller || !userScrollingRef.current) return
+
+    stopHorizontalScrollMomentum(scroller)
+    if (!supportsScrollEnd()) {
+      userScrollingRef.current = false
+      alignScrollerToNearestSlide()
     }
   }
 
@@ -524,9 +512,10 @@ function BlockCarousel({
             <div
               ref={scrollerRef}
               className="project-block__carousel-scroller"
-              onScroll={handleScrollerScroll}
               onPointerDown={handlePointerDown}
               onPointerMove={handlePointerMove}
+              onPointerUp={handleScrollerPointerRelease}
+              onPointerCancel={handleScrollerPointerRelease}
               onTouchStart={handleTouchStart}
               onTouchMove={handleTouchMove}
               onTouchEnd={handleTouchEnd}

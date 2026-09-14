@@ -1,7 +1,6 @@
 .image-lightbox {
-  --lightbox-control-size: 3.25rem;
-  --lightbox-control-icon-size: 1.7rem;
-  --lightbox-edge-inset: 1.25rem;
+  --lightbox-control-size: 2.75rem;
+  --lightbox-control-icon-size: 1.35rem;
 
   position: fixed;
   inset: 0;
@@ -104,8 +103,8 @@
 
 .image-lightbox__close {
   position: absolute;
-  top: max(var(--lightbox-edge-inset), env(safe-area-inset-top, 0px));
-  right: max(var(--lightbox-edge-inset), env(safe-area-inset-right, 0px));
+  top: 0.75rem;
+  right: 0.75rem;
   z-index: 2;
   display: flex;
   align-items: center;
@@ -150,11 +149,11 @@
 }
 
 .image-lightbox__nav--prev {
-  left: max(var(--lightbox-edge-inset), env(safe-area-inset-left, 0px));
+  left: 0;
 }
 
 .image-lightbox__nav--next {
-  right: max(var(--lightbox-edge-inset), env(safe-area-inset-right, 0px));
+  right: 0;
 }
 
 .image-lightbox__nav:disabled {
@@ -197,8 +196,21 @@
     --lightbox-control-icon-size: 1.6rem;
   }
 
+  .image-lightbox__close {
+    top: max(1.25rem, env(safe-area-inset-top, 0px));
+    right: max(1.25rem, env(safe-area-inset-right, 0px));
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .image-lightbox__close-icon,
+  .image-lightbox__nav-icon {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+
   .image-lightbox__nav-group {
-    inset: auto 0 max(var(--lightbox-edge-inset), env(safe-area-inset-bottom, 0px)) 0;
+    inset: auto 0 max(2.5rem, env(safe-area-inset-bottom, 0px)) 0;
     display: flex;
     align-items: center;
     justify-content: center;

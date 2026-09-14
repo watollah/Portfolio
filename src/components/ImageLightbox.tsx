@@ -4,10 +4,17 @@ import {
   useLayoutEffect,
   useRef,
   useState,
+  type PointerEvent as ReactPointerEvent,
   type TouchEvent as ReactTouchEvent,
 } from 'react'
 import { createPortal } from 'react-dom'
 import { useTranslation } from 'react-i18next'
+import {
+  animateScrollLeft,
+  cancelCarouselScrollAnimation,
+  stopHorizontalScrollMomentum,
+  supportsScrollEnd,
+} from '../utils/carouselSettleScroll'
 import './ImageLightbox.css'
 
 export interface LightboxImage {
@@ -36,45 +43,7 @@ const MIN_SCALE = 1
 const MAX_SCALE = 5
 const WHEEL_ZOOM_FACTOR = 1.12
 const DOUBLE_CLICK_SCALE = 2
-const LIGHTBOX_SCROLL_MS = 220
 const TOUCH_AXIS_LOCK_PX = 10
-
-function prefersReducedMotion() {
-  if (typeof window === 'undefined') return false
-  if (document.documentElement.getAttribute('data-motion') === 'reduced') return true
-  if (document.documentElement.getAttribute('data-motion') === 'normal') return false
-  return window.matchMedia('(prefers-reduced-motion: reduce)').matches
-}
-
-function animateScrollLeft(scroller: HTMLElement, targetLeft: number, durationMs = LIGHTBOX_SCROLL_MS) {
-  if (prefersReducedMotion()) {
-    scroller.scrollLeft = targetLeft
-    return Promise.resolve()
-  }
-
-  const startLeft = scroller.scrollLeft
-  const distance = targetLeft - startLeft
-  if (Math.abs(distance) <= 1) {
-    scroller.scrollLeft = targetLeft
-    return Promise.resolve()
-  }
-
-  const startTime = performance.now()
-
-  return new Promise<void>((resolve) => {
-    function frame(now: number) {
-      const progress = Math.min(1, (now - startTime) / durationMs)
-      scroller.scrollLeft = startLeft + distance * progress
-      if (progress < 1) {
-        requestAnimationFrame(frame)
-      } else {
-        resolve()
-      }
-    }
-
-    requestAnimationFrame(frame)
-  })
-}
 
 function clampScale(scale: number) {
   return Math.min(MAX_SCALE, Math.max(MIN_SCALE, scale))
@@ -95,7 +64,7 @@ function CloseIcon() {
       focusable="false"
     >
       <path
-        d="M7.5 7.5 16.5 16.5M16.5 7.5 7.5 16.5"
+        d="M5.5 5.5 18.5 18.5M18.5 5.5 5.5 18.5"
         fill="none"
         stroke="currentColor"
         strokeWidth="1.85"
@@ -146,56 +115,78 @@ function LightboxSlideImage({
   isActive: boolean
   transform: ViewportTransform
 }) {
-  const [imageSrc, setImageSrc] = useState(image.url)
-  const [isFullResolution, setIsFullResolution] = useState(false)
+  const previewUrl = image.url
+  const fullUrl = image.fullUrl ?? image.url
+  const hasHigherRes = fullUrl !== previewUrl
+
+  const [fullLoaded, setFullLoaded] = useState(!hasHigherRes)
+  const [usePreviewFallback, setUsePreviewFallback] = useState(false)
 
   useEffect(() => {
     if (!isActive) {
-      setImageSrc(image.url)
-      setIsFullResolution(false)
+      setFullLoaded(!hasHigherRes)
+      setUsePreviewFallback(false)
       return
     }
 
-    const displayUrl = image.url
-    const fullUrl = image.fullUrl ?? image.url
-
-    setImageSrc(displayUrl)
-    setIsFullResolution(fullUrl === displayUrl)
-
-    if (fullUrl === displayUrl) {
+    if (!hasHigherRes) {
+      setFullLoaded(true)
+      setUsePreviewFallback(false)
       return
     }
 
     let cancelled = false
+    setFullLoaded(false)
+    setUsePreviewFallback(false)
+
     const loader = new Image()
-    loader.onload = () => {
-      if (cancelled) return
-      setImageSrc(fullUrl)
-      setIsFullResolution(true)
+    const finish = () => {
+      if (!cancelled) setFullLoaded(true)
+    }
+    loader.onload = finish
+    loader.onerror = () => {
+      if (!cancelled) {
+        setUsePreviewFallback(true)
+        setFullLoaded(true)
+      }
     }
     loader.src = fullUrl
+    if (loader.complete) {
+      finish()
+    }
 
     return () => {
       cancelled = true
     }
-  }, [image, isActive])
+  }, [fullUrl, hasHigherRes, isActive])
+
+  if (!isActive) {
+    return (
+      <img
+        src={previewUrl}
+        alt=""
+        aria-hidden={true}
+        className="image-lightbox__image"
+        loading="lazy"
+        decoding="async"
+        draggable={false}
+      />
+    )
+  }
+
+  const src = hasHigherRes && !usePreviewFallback ? fullUrl : previewUrl
+  const visible = !hasHigherRes || fullLoaded
 
   return (
     <img
-      src={imageSrc || image.url}
-      alt={isActive ? image.alt : ''}
-      aria-hidden={isActive ? undefined : true}
-      className={[
-        'image-lightbox__image',
-        isFullResolution ? 'image-lightbox__image--full' : 'image-lightbox__image--preview',
-      ].join(' ')}
-      style={
-        isActive
-          ? {
-              transform: `translate(${transform.x}px, ${transform.y}px) scale(${transform.scale})`,
-            }
-          : undefined
-      }
+      src={src}
+      alt={image.alt}
+      className="image-lightbox__image"
+      style={{
+        transform: `translate(${transform.x}px, ${transform.y}px) scale(${transform.scale})`,
+        opacity: visible ? 1 : 0,
+      }}
+      loading="eager"
       decoding="async"
       draggable={false}
     />
@@ -219,7 +210,7 @@ export function ImageLightbox({ images, index, onIndexChange, onClose }: ImageLi
   const scrollerRef = useRef<HTMLDivElement>(null)
   const indexRef = useRef(index)
   const scrollAnimatingRef = useRef(false)
-  const scrollSettleTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const userScrollingRef = useRef(false)
   const touchStartRef = useRef({ x: 0, y: 0 })
   const touchAxisRef = useRef<'x' | 'y' | null>(null)
   const transformRef = useRef<ViewportTransform>({ scale: 1, x: 0, y: 0 })
@@ -294,7 +285,15 @@ export function ImageLightbox({ images, index, onIndexChange, onClose }: ImageLi
 
   const alignScrollerToNearestSlide = useCallback(() => {
     const scroller = scrollerRef.current
-    if (!scroller || !hasMultiple || scrollAnimatingRef.current || isZoomed) return
+    if (
+      !scroller ||
+      !hasMultiple ||
+      scrollAnimatingRef.current ||
+      isZoomed ||
+      userScrollingRef.current
+    ) {
+      return
+    }
 
     const width = scroller.clientWidth
     if (width === 0) return
@@ -318,16 +317,6 @@ export function ImageLightbox({ images, index, onIndexChange, onClose }: ImageLi
     })
   }, [hasMultiple, isZoomed, onIndexChange, total])
 
-  const scheduleScrollSettle = useCallback(() => {
-    if (scrollSettleTimerRef.current) {
-      clearTimeout(scrollSettleTimerRef.current)
-    }
-    scrollSettleTimerRef.current = setTimeout(() => {
-      scrollSettleTimerRef.current = null
-      alignScrollerToNearestSlide()
-    }, 80)
-  }, [alignScrollerToNearestSlide])
-
   const applyTouchAxisLock = useCallback((axis: 'x' | 'y' | null) => {
     const scroller = scrollerRef.current
     if (!scroller) return
@@ -340,7 +329,14 @@ export function ImageLightbox({ images, index, onIndexChange, onClose }: ImageLi
   }, [])
 
   useLayoutEffect(() => {
-    if (!hasMultiple || isZoomed) return
+    if (
+      !hasMultiple ||
+      isZoomed ||
+      userScrollingRef.current ||
+      scrollAnimatingRef.current
+    ) {
+      return
+    }
 
     const scroller = scrollerRef.current
     if (!scroller) return
@@ -358,20 +354,17 @@ export function ImageLightbox({ images, index, onIndexChange, onClose }: ImageLi
     if (!scroller) return
 
     function handleScrollEnd() {
-      if (scrollSettleTimerRef.current) {
-        clearTimeout(scrollSettleTimerRef.current)
-        scrollSettleTimerRef.current = null
-      }
+      userScrollingRef.current = false
       alignScrollerToNearestSlide()
     }
 
-    scroller.addEventListener('scrollend', handleScrollEnd)
+    if (supportsScrollEnd()) {
+      scroller.addEventListener('scrollend', handleScrollEnd)
+    }
 
     return () => {
-      scroller.removeEventListener('scrollend', handleScrollEnd)
-      if (scrollSettleTimerRef.current) {
-        clearTimeout(scrollSettleTimerRef.current)
-        scrollSettleTimerRef.current = null
+      if (supportsScrollEnd()) {
+        scroller.removeEventListener('scrollend', handleScrollEnd)
       }
     }
   }, [alignScrollerToNearestSlide, hasMultiple])
@@ -579,20 +572,15 @@ export function ImageLightbox({ images, index, onIndexChange, onClose }: ImageLi
     zoomAtPoint(event.clientX, event.clientY, DOUBLE_CLICK_SCALE)
   }
 
-  function handleScrollerScroll() {
-    if (!hasMultiple || isZoomed || scrollAnimatingRef.current) return
+  function beginCarouselScrollInteraction() {
+    if (isZoomed) return
 
     const scroller = scrollerRef.current
-    if (!scroller) return
-
-    const width = scroller.clientWidth
-    if (width === 0) return
-
-    const nextIndex = Math.min(total - 1, Math.max(0, Math.round(scroller.scrollLeft / width)))
-    if (nextIndex !== indexRef.current) {
-      onIndexChange(nextIndex)
+    if (scroller) {
+      userScrollingRef.current = true
+      cancelCarouselScrollAnimation(scroller)
+      scrollAnimatingRef.current = false
     }
-    scheduleScrollSettle()
   }
 
   function handleCarouselTouchStart(event: ReactTouchEvent<HTMLDivElement>) {
@@ -601,9 +589,15 @@ export function ImageLightbox({ images, index, onIndexChange, onClose }: ImageLi
     const touch = event.touches[0]
     if (!touch) return
 
+    beginCarouselScrollInteraction()
     touchStartRef.current = { x: touch.clientX, y: touch.clientY }
     touchAxisRef.current = null
     applyTouchAxisLock(null)
+  }
+
+  function handleScrollerPointerDown(event: ReactPointerEvent<HTMLDivElement>) {
+    if (isZoomed || event.pointerType === 'touch') return
+    beginCarouselScrollInteraction()
   }
 
   function handleCarouselTouchMove(event: ReactTouchEvent<HTMLDivElement>) {
@@ -624,15 +618,37 @@ export function ImageLightbox({ images, index, onIndexChange, onClose }: ImageLi
     if (isZoomed) return
 
     const scroller = scrollerRef.current
-    if (touchAxisRef.current === 'y' && scroller) {
+    const axis = touchAxisRef.current
+
+    if (axis === 'y' && scroller) {
       const width = scroller.clientWidth
       if (width > 0) {
         scroller.scrollLeft = indexRef.current * width
       }
+      userScrollingRef.current = false
+    } else if (axis === 'x' && scroller) {
+      stopHorizontalScrollMomentum(scroller)
+      if (!supportsScrollEnd()) {
+        userScrollingRef.current = false
+        alignScrollerToNearestSlide()
+      }
+    } else {
+      userScrollingRef.current = false
     }
 
     touchAxisRef.current = null
     applyTouchAxisLock(null)
+  }
+
+  function handleScrollerPointerRelease() {
+    const scroller = scrollerRef.current
+    if (!scroller || !userScrollingRef.current || isZoomed) return
+
+    stopHorizontalScrollMomentum(scroller)
+    if (!supportsScrollEnd()) {
+      userScrollingRef.current = false
+      alignScrollerToNearestSlide()
+    }
   }
 
   if (!current) {
@@ -717,7 +733,9 @@ export function ImageLightbox({ images, index, onIndexChange, onClose }: ImageLi
               ]
                 .filter(Boolean)
                 .join(' ')}
-              onScroll={handleScrollerScroll}
+              onPointerDown={handleScrollerPointerDown}
+              onPointerUp={handleScrollerPointerRelease}
+              onPointerCancel={handleScrollerPointerRelease}
               onTouchStart={handleCarouselTouchStart}
               onTouchMove={handleCarouselTouchMove}
               onTouchEnd={handleCarouselTouchEnd}
