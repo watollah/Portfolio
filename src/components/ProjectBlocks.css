@@ -149,10 +149,10 @@
   min-height: 0;
   overflow-x: auto;
   overflow-y: hidden;
-  scroll-snap-type: x mandatory;
   overscroll-behavior-x: contain;
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
+  touch-action: manipulation;
 }
 
 .project-block__carousel-scroller::-webkit-scrollbar {
@@ -168,9 +168,6 @@
   align-items: center;
   justify-content: center;
   margin: 0;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-  touch-action: pan-x;
 }
 
 .project-block__carousel-slide img {
