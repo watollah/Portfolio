@@ -71,7 +71,7 @@
 
 @media (max-width: 640px) {
   :root {
-    --page-gutter: clamp(1rem, 4vw, 1.75rem);
+    --page-gutter: clamp(0.5rem, 2vw, 0.875rem);
   }
 }
 
@@ -230,7 +230,7 @@ body {
 
 @media (max-width: 640px) {
   .main {
-    padding: 0 0.625rem;
+    padding: 0 0.3125rem;
   }
 
   .page {
