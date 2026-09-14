@@ -7,6 +7,11 @@
   --project-carousel-btn-size: 2.75rem;
 }
 
+.project-blocks > .scroll-reveal {
+  width: 100%;
+  min-width: 0;
+}
+
 .project-block {
   width: 100%;
   min-width: 0;

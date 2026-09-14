@@ -110,27 +110,24 @@ function LightboxSlideImage({
   image,
   isActive,
   transform,
+  isZoomed,
 }: {
   image: LightboxImage
   isActive: boolean
   transform: ViewportTransform
+  isZoomed: boolean
 }) {
   const previewUrl = image.url
   const fullUrl = image.fullUrl ?? image.url
   const hasHigherRes = fullUrl !== previewUrl
+  const shouldLoadFull = isActive && isZoomed && hasHigherRes
 
-  const [fullLoaded, setFullLoaded] = useState(!hasHigherRes)
+  const [fullLoaded, setFullLoaded] = useState(false)
   const [usePreviewFallback, setUsePreviewFallback] = useState(false)
 
   useEffect(() => {
-    if (!isActive) {
-      setFullLoaded(!hasHigherRes)
-      setUsePreviewFallback(false)
-      return
-    }
-
-    if (!hasHigherRes) {
-      setFullLoaded(true)
+    if (!shouldLoadFull) {
+      setFullLoaded(false)
       setUsePreviewFallback(false)
       return
     }
@@ -158,7 +155,7 @@ function LightboxSlideImage({
     return () => {
       cancelled = true
     }
-  }, [fullUrl, hasHigherRes, isActive])
+  }, [fullUrl, shouldLoadFull])
 
   if (!isActive) {
     return (
@@ -174,8 +171,8 @@ function LightboxSlideImage({
     )
   }
 
-  const src = hasHigherRes && !usePreviewFallback ? fullUrl : previewUrl
-  const visible = !hasHigherRes || fullLoaded
+  const src =
+    shouldLoadFull && fullLoaded && !usePreviewFallback ? fullUrl : previewUrl
 
   return (
     <img
@@ -184,7 +181,6 @@ function LightboxSlideImage({
       className="image-lightbox__image"
       style={{
         transform: `translate(${transform.x}px, ${transform.y}px) scale(${transform.scale})`,
-        opacity: visible ? 1 : 0,
       }}
       loading="eager"
       decoding="async"
@@ -747,12 +743,18 @@ export function ImageLightbox({ images, index, onIndexChange, onClose }: ImageLi
                     image={image}
                     isActive={imageIndex === index}
                     transform={transform}
+                    isZoomed={isZoomed}
                   />
                 </div>
               ))}
             </div>
           ) : (
-            <LightboxSlideImage image={current} isActive transform={transform} />
+            <LightboxSlideImage
+              image={current}
+              isActive
+              transform={transform}
+              isZoomed={isZoomed}
+            />
           )}
         </div>
       </div>

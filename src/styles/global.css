@@ -237,3 +237,31 @@ body {
     padding: 2rem 0 3rem;
   }
 }
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(1.125rem);
+  transition:
+    opacity 0.55s ease,
+    transform 0.55s ease;
+  will-change: opacity, transform;
+}
+
+.scroll-reveal--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+[data-motion='reduced'] .scroll-reveal {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root:not([data-motion='normal']) .scroll-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

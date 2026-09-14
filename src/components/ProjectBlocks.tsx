@@ -24,6 +24,7 @@ import {
 } from '../utils/carouselSettleScroll'
 import { BlockText } from './BlockText'
 import { ImageLightbox, type LightboxImage } from './ImageLightbox'
+import { ScrollReveal } from './ScrollReveal'
 import './ProjectBlocks.css'
 
 interface ProjectBlocksProps {
@@ -704,9 +705,11 @@ export function ProjectBlocks({ blocks, language, ariaLabel }: ProjectBlocksProp
           if (!text) return null
 
           return (
-            <div key={`text-${index}`} className="project-block project-block--text-only">
-              <BlockText className="project-block__text" text={text} />
-            </div>
+            <ScrollReveal key={`text-${index}`}>
+              <div className="project-block project-block--text-only">
+                <BlockText className="project-block__text" text={text} />
+              </div>
+            </ScrollReveal>
           )
         }
 
@@ -716,12 +719,13 @@ export function ProjectBlocks({ blocks, language, ariaLabel }: ProjectBlocksProp
           }
 
           return (
-            <CollageBlock
-              key={`collage-${block.images[0]?.url ?? index}`}
-              block={block}
-              language={language}
-              onOpenLightbox={openLightbox}
-            />
+            <ScrollReveal key={`collage-${block.images[0]?.url ?? index}`}>
+              <CollageBlock
+                block={block}
+                language={language}
+                onOpenLightbox={openLightbox}
+              />
+            </ScrollReveal>
           )
         }
 
@@ -730,13 +734,14 @@ export function ProjectBlocks({ blocks, language, ariaLabel }: ProjectBlocksProp
         }
 
         return (
-          <ImageBlock
-            key={`image-${block.images[0]?.url ?? index}`}
-            block={block}
-            language={language}
-            onOpenLightbox={openLightbox}
-            lightboxUrl={lightboxUrl}
-          />
+          <ScrollReveal key={`image-${block.images[0]?.url ?? index}`}>
+            <ImageBlock
+              block={block}
+              language={language}
+              onOpenLightbox={openLightbox}
+              lightboxUrl={lightboxUrl}
+            />
+          </ScrollReveal>
         )
       })}
       {lightboxIndex !== null && (

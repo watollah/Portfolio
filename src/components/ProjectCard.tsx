@@ -1,8 +1,10 @@
+import { useEffect, useRef, useState, type PointerEvent as ReactPointerEvent } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import type { Project } from '../types/project'
 import { pickLocalized } from '../utils/projectLocale'
 import { useLocalizedPath } from '../hooks/useLocalizedPath'
+import { useScrollReveal } from '../hooks/useScrollReveal'
 import './ProjectCard.css'
 
 interface ProjectCardProps {
@@ -15,12 +17,53 @@ export function ProjectCard({ project }: ProjectCardProps) {
   const description = pickLocalized(project, 'description', i18n.language)
   const localize = useLocalizedPath()
   const hasCover = Boolean(project.coverUrl)
+  const { ref: cardRef, revealClassName } = useScrollReveal<HTMLAnchorElement>()
+  const [revealed, setRevealed] = useState(false)
+  const suppressNavigationRef = useRef(false)
+
+  useEffect(() => {
+    if (!revealed) return
+
+    function handlePointerDownOutside(event: PointerEvent) {
+      if (cardRef.current?.contains(event.target as Node)) return
+      setRevealed(false)
+    }
+
+    document.addEventListener('pointerdown', handlePointerDownOutside)
+    return () => document.removeEventListener('pointerdown', handlePointerDownOutside)
+  }, [revealed])
+
+  function handlePointerDown(event: ReactPointerEvent<HTMLAnchorElement>) {
+    if (event.pointerType === 'mouse') return
+
+    if (!revealed) {
+      suppressNavigationRef.current = true
+      setRevealed(true)
+    }
+  }
+
+  function handleClick(event: React.MouseEvent<HTMLAnchorElement>) {
+    if (suppressNavigationRef.current) {
+      event.preventDefault()
+      suppressNavigationRef.current = false
+    }
+  }
 
   return (
     <Link
+      ref={cardRef}
       id={project.id}
       to={localize(`/projects/${project.id}`)}
-      className={`project-card${hasCover ? '' : ' project-card--no-cover'}`}
+      className={[
+        'project-card',
+        revealClassName,
+        hasCover ? '' : 'project-card--no-cover',
+        revealed ? 'project-card--revealed' : '',
+      ]
+        .filter(Boolean)
+        .join(' ')}
+      onPointerDown={handlePointerDown}
+      onClick={handleClick}
     >
       <span
         className={`project-card__media${hasCover ? '' : ' project-card__media--no-cover'}`}
@@ -47,10 +90,6 @@ export function ProjectCard({ project }: ProjectCardProps) {
             <p className="project-card__description">{description}</p>
           ) : null}
         </div>
-      </span>
-      <span className="project-card__meta">
-        <span className="project-card__meta-title">{title}</span>
-        <span className="project-card__meta-year">{project.year}</span>
       </span>
     </Link>
   )
