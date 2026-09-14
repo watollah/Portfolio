@@ -4,6 +4,11 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+    inputs:
+      force_sync:
+        description: Re-process all project images (ignore cache)
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -15,7 +20,22 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  changes:
+    runs-on: ubuntu-latest
+    outputs:
+      projects: ${{ steps.filter.outputs.projects }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            projects:
+              - 'Projects/**'
+              - 'scripts/sync-projects.mjs'
+
   build:
+    needs: changes
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -27,7 +47,24 @@ jobs:
 
       - run: npm ci --legacy-peer-deps
 
-      - run: npm run build
+      - name: Restore synced project assets
+        id: projects-cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            public/projects
+            src/data/projects.manifest.json
+          key: project-assets-${{ hashFiles('Projects/**', 'scripts/sync-projects.mjs') }}
+
+      - name: Sync project images
+        if: >-
+          (github.event_name == 'workflow_dispatch' && inputs.force_sync == true) ||
+          (github.event_name == 'push' && needs.changes.outputs.projects == 'true') ||
+          steps.projects-cache.outputs.cache-hit != 'true'
+        run: npm run sync:projects
+
+      - name: Build site
+        run: npm run build:app
 
       - uses: actions/upload-pages-artifact@v3
         with:

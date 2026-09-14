@@ -5,8 +5,9 @@
   "type": "module",
   "scripts": {
     "sync:projects": "node scripts/sync-projects.mjs",
+    "build:app": "tsc && vite build",
     "dev": "npm run sync:projects && vite",
-    "build": "npm run sync:projects && tsc && vite build",
+    "build": "npm run sync:projects && npm run build:app",
     "preview": "vite preview"
   },
   "devDependencies": {
