@@ -105,6 +105,18 @@ export const skills = {
 }
 
 export const languages = [
-  { name: 'German', nameDe: 'Deutsch', level: 'Native' },
-  { name: 'English', nameDe: 'Englisch', level: 'Fluent' },
+  {
+    name: 'German',
+    nameDe: 'Deutsch',
+    nameIt: 'Tedesco',
+    level: 'Native',
+    levelIt: 'Madrelingua',
+  },
+  {
+    name: 'English',
+    nameDe: 'Englisch',
+    nameIt: 'Inglese',
+    level: 'Fluent',
+    levelIt: 'Fluente',
+  },
 ]

@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next'
+import { projectDescription, projectTitle } from '../i18n/localizedContent'
 import type { Project } from '../data/projects'
 import './ProjectCard.css'
 
@@ -8,10 +9,9 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project }: ProjectCardProps) {
   const { i18n, t } = useTranslation()
-  const isDe = i18n.language === 'de'
 
-  const title = isDe ? project.titleDe : project.title
-  const description = isDe ? project.descriptionDe : project.description
+  const title = projectTitle(project, i18n.language)
+  const description = projectDescription(project, i18n.language)
 
   const content = (
     <>

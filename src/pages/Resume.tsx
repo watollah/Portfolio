@@ -1,6 +1,11 @@
 import { type ReactNode } from 'react'
 import { useTranslation } from 'react-i18next'
 import { education, experience, languages, skills } from '../data/projects'
+import {
+  resumeEntryDescription,
+  resumeEntryOrganization,
+  resumeEntryTitle,
+} from '../i18n/localizedContent'
 import './Resume.css'
 
 function ResumeSection({
@@ -43,7 +48,7 @@ function ResumeEntry({
 
 export function Resume() {
   const { t, i18n } = useTranslation()
-  const isDe = i18n.language === 'de'
+  const locale = i18n.language
 
   return (
     <div className="page resume-page">
@@ -60,9 +65,9 @@ export function Resume() {
           <ResumeEntry
             key={entry.period + entry.title}
             period={entry.period}
-            title={isDe ? entry.titleDe : entry.title}
-            organization={isDe ? entry.organizationDe : entry.organization}
-            description={isDe ? entry.descriptionDe : entry.description}
+            title={resumeEntryTitle(entry, locale)}
+            organization={resumeEntryOrganization(entry, locale)}
+            description={resumeEntryDescription(entry, locale)}
           />
         ))}
       </ResumeSection>
@@ -72,9 +77,9 @@ export function Resume() {
           <ResumeEntry
             key={entry.period + entry.title}
             period={entry.period}
-            title={isDe ? entry.titleDe : entry.title}
-            organization={isDe ? entry.organizationDe : entry.organization}
-            description={isDe ? entry.descriptionDe : entry.description}
+            title={resumeEntryTitle(entry, locale)}
+            organization={resumeEntryOrganization(entry, locale)}
+            description={resumeEntryDescription(entry, locale)}
           />
         ))}
       </ResumeSection>
@@ -102,10 +107,18 @@ export function Resume() {
 
       <ResumeSection title={t('resume.languages')}>
         <ul className="languages-list">
-          {languages.map((lang) => (
-            <li key={lang.name}>
-              <span>{isDe ? lang.nameDe : lang.name}</span>
-              <span className="languages-list__level">{lang.level}</span>
+          {languages.map((language) => (
+            <li key={language.name}>
+              <span>
+                {locale.startsWith('de')
+                  ? language.nameDe
+                  : locale.startsWith('it')
+                    ? language.nameIt
+                    : language.name}
+              </span>
+              <span className="languages-list__level">
+                {locale.startsWith('it') ? language.levelIt : language.level}
+              </span>
             </li>
           ))}
         </ul>

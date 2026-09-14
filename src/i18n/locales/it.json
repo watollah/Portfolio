@@ -1,0 +1,49 @@
+{
+  "nav": {
+    "projects": "Progetti",
+    "resume": "Curriculum",
+    "home": "Home"
+  },
+  "hero": {
+    "title": "Architettura e software",
+    "subtitle": "Progettare spazi e creare esperienze digitali con precisione e chiarezza."
+  },
+  "projects": {
+    "title": "Progetti",
+    "subtitle": "Lavori selezionati in architettura e sviluppo software.",
+    "software": "Sviluppo software",
+    "architecture": "Architettura",
+    "viewProject": "Vedi progetto",
+    "comingSoon": "Altri progetti in arrivo."
+  },
+  "resume": {
+    "title": "Curriculum",
+    "subtitle": "Esperienza, formazione e competenze.",
+    "download": "Scarica PDF",
+    "experience": "Esperienza",
+    "education": "Formazione",
+    "skills": "Competenze",
+    "languages": "Lingue"
+  },
+  "footer": {
+    "copyright": "© {{year}} Hannes Watolla. Tutti i diritti riservati."
+  },
+  "a11y": {
+    "title": "Accessibilità",
+    "open": "Apri impostazioni di accessibilità",
+    "close": "Chiudi impostazioni di accessibilità",
+    "fontSize": "Dimensione testo",
+    "fontSmall": "Piccolo",
+    "fontMedium": "Medio",
+    "fontLarge": "Grande",
+    "fontXLarge": "Molto grande",
+    "highContrast": "Alto contrasto",
+    "reducedMotion": "Movimento ridotto",
+    "language": "Lingua"
+  },
+  "lang": {
+    "en": "English",
+    "de": "Deutsch",
+    "it": "Italiano"
+  }
+}

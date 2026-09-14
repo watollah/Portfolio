@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { SUPPORTED_LANGUAGES } from '../i18n/detectLanguage'
 import { useAccessibility, type FontSize } from '../context/AccessibilityContext'
 import './AccessibilityPanel.css'
 
@@ -77,7 +78,7 @@ export function AccessibilityPanel() {
           <fieldset className="a11y__group">
             <legend>{t('a11y.language')}</legend>
             <div className="a11y__options">
-              {(['en', 'de'] as const).map((lang) => (
+              {SUPPORTED_LANGUAGES.map((lang) => (
                 <button
                   key={lang}
                   type="button"
