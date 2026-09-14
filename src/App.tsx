@@ -7,7 +7,12 @@ import { Projects } from './pages/Projects'
 import { ProjectsLayout } from './pages/ProjectsLayout'
 import { ProjectDetail } from './pages/ProjectDetail'
 import { Resume } from './pages/Resume'
-import { LanguageRoute, LegacyRedirect, RootRedirect } from './routing/LanguageRoutes'
+import {
+  DefaultLanguageLayout,
+  DePrefixRedirect,
+  HomeEntry,
+  PrefixedLanguageRoute,
+} from './routing/LanguageRoutes'
 import './styles/global.css'
 
 function ScrollToTop() {
@@ -26,10 +31,21 @@ export default function App() {
       <main id="main-content" className="main">
         <ScrollToTop />
         <Routes>
-          <Route path="/" element={<RootRedirect />} />
-          <Route path="/projects/*" element={<LegacyRedirect />} />
-          <Route path="/resume" element={<LegacyRedirect />} />
-          <Route path="/:lang" element={<LanguageRoute />}>
+          <Route path="/de" element={<DePrefixRedirect />} />
+          <Route path="/de/*" element={<DePrefixRedirect />} />
+
+          <Route element={<DefaultLanguageLayout />}>
+            <Route element={<HomeEntry />}>
+              <Route index element={<Home />} />
+            </Route>
+            <Route path="projects" element={<ProjectsLayout />}>
+              <Route index element={<Projects />} />
+              <Route path=":id" element={<ProjectDetail />} />
+            </Route>
+            <Route path="resume" element={<Resume />} />
+          </Route>
+
+          <Route path="/:lang" element={<PrefixedLanguageRoute />}>
             <Route index element={<Home />} />
             <Route path="projects" element={<ProjectsLayout />}>
               <Route index element={<Projects />} />
