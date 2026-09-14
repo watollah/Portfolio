@@ -3,61 +3,81 @@
   "category": "software",
   "featured": true,
   "year": "2024",
-  "context": "Bachelor's thesis",
-  "contextDe": "Bachelorarbeit",
   "title": "C2D",
-  "titleDe": "C2D",
-  "description": "A web application for creating and analyzing Cremona diagrams for structural systems.",
-  "descriptionDe": "Eine Webanwendung zum Erstellen und Analysieren von Cremonaplänen für statische Systeme.",
-  "tags": [
-    "Web App",
-    "Structural Analysis",
-    "Education"
+  "title_de": "C2D",
+  "title_it": "C2D",
+  "context": "Bachelor's thesis",
+  "context_de": "Bachelorarbeit",
+  "context_it": "Tesi di laurea triennale",
+  "description": "An app for structural mechanics, for creating and graphically solving truss structures with Cremona diagrams.",
+  "description_de": "Eine App für die Tragwerkslehre, zum Erstellen und graphischen Lösen von Stabtragwerken mit Cremonaplänen.",
+  "description_it": "Un'app per la scienza delle costruzioni, per creare e risolvere graficamente strutture reticolari con diagrammi di Cremona.",
+  "tags": [],
+  "authors": [
+    "Hannes Watolla"
   ],
-  "cover": "cover.png",
-  "images": [
+  "cover": "images/cover.png",
+  "banner": "images/banner.png",
+  "blocks": [
     {
-      "caption": "Project poster for the bachelor thesis.",
-      "captionDe": "Projektposter zur Bachelorarbeit.",
+      "type": "image",
       "files": [
-        "poster.png"
-      ]
+        "images/poster.png"
+      ],
+      "textPosition": "bottom",
+      "text": "*Project poster*",
+      "text_de": "*Projektposter*",
+      "text_it": "*Poster del progetto*"
     },
     {
-      "caption": "Defining a structural system on the drawing canvas.",
-      "captionDe": "Definition eines statischen Systems auf der Zeichenfläche.",
+      "type": "image",
       "files": [
-        "Image1.png"
-      ]
+        "images/definition.png"
+      ],
+      "textPosition": "bottom",
+      "text": "*Drawing the truss structure*",
+      "text_de": "*Zeichnen des Stabtragwerkes*",
+      "text_it": "*Disegno della struttura reticolare*"
     },
     {
-      "caption": "Step-by-step generation of the Cremona diagram.",
-      "captionDe": "Schrittweise Erzeugung des Cremonaplans.",
+      "type": "image",
       "files": [
-        "Image2.png"
-      ]
+        "images/cremona.png"
+      ],
+      "textPosition": "bottom",
+      "text": "*Automatic generation of the Cremona diagram*",
+      "text_de": "*Automatische Generation des Cremonaplans*",
+      "text_it": "*Generazione automatica del diagramma di Cremona*"
     },
     {
-      "caption": "Visualizing member forces in the result view.",
-      "captionDe": "Visualisierung der Stabkräfte in der Ergebnisansicht.",
+      "type": "image",
       "files": [
-        "Image3.png"
-      ]
-    },
-    {
-      "files": [
-        "truss.png"
-      ]
+        "images/result.png"
+      ],
+      "textPosition": "bottom",
+      "text": "*Displaying the results*",
+      "text_de": "*Anzeigen der Ergebnisse*",
+      "text_it": "*Visualizzazione dei risultati*"
     }
   ],
   "links": [
     {
-      "url": "https://github.com",
-      "title": "Source Repository",
-      "titleDe": "Quellcode-Repository",
-      "description": "Browse the project source code and documentation.",
-      "descriptionDe": "Projektquellcode und Dokumentation ansehen."
+      "url": "https://github.com/watollah/twl_bachelorarbeit",
+      "title": "GitHub | C2D",
+      "title_de": "GitHub | C2D",
+      "title_it": "GitHub | C2D",
+      "description": "GitHub repository with source code and software download.",
+      "description_de": "GitHub Repository mit Quellcode und Software Download.",
+      "description_it": "Repository GitHub con codice sorgente e download del software."
+    },
+    {
+      "url": "https://drive.google.com/file/d/19R7hk9-AhSusKHWMCDcsA9knFblBLET2/view?usp=sharing",
+      "title": "PDF | Bachelor's thesis",
+      "title_de": "PDF | Bachelorthesis",
+      "title_it": "PDF | Tesi di laurea triennale",
+      "description": "Download link for the bachelor's thesis.",
+      "description_de": "Download Link der Bachelorthesis.",
+      "description_it": "Link di download della tesi di laurea triennale."
     }
-  ],
-  "documents": []
+  ]
 }

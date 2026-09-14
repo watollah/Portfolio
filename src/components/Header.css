@@ -164,6 +164,10 @@
 }
 
 @media (max-width: 960px) {
+  .header__inner {
+    padding-right: calc(2 * var(--page-gutter));
+  }
+
   .header__links {
     display: none;
   }

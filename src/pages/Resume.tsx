@@ -1,8 +1,19 @@
 import { type ReactNode } from 'react'
 import { useTranslation } from 'react-i18next'
 import { ProfileIntro } from '../components/ProfileIntro'
-import { education, experience, languages, skills } from '../data/projects'
+import { education, experience, languages, publications, skills } from '../data/projects'
+import { normalizeLanguage, type SupportedLanguage } from '../i18n/routing'
+import { localizedResumeText } from '../utils/resumeContent'
+import '../components/ProjectResources.css'
 import './Resume.css'
+
+function publicationHostname(url: string) {
+  try {
+    return new URL(url).hostname.replace(/^www\./, '')
+  } catch {
+    return url
+  }
+}
 
 function ResumeSection({
   title,
@@ -61,9 +72,33 @@ function ResumeEntry({
   )
 }
 
+function localizeResumeEntry(
+  lang: SupportedLanguage,
+  entry: (typeof experience)[number],
+) {
+  return {
+    period: localizedResumeText(lang, entry.period, entry.periodDe, entry.periodIt),
+    title: localizedResumeText(lang, entry.title, entry.titleDe, entry.titleIt),
+    organization: localizedResumeText(
+      lang,
+      entry.organization,
+      entry.organizationDe,
+      entry.organizationIt,
+    ),
+    description: entry.description
+      ? localizedResumeText(lang, entry.description, entry.descriptionDe, entry.descriptionIt)
+      : undefined,
+    grade: entry.grade
+      ? localizedResumeText(lang, entry.grade, entry.gradeDe, entry.gradeIt)
+      : undefined,
+    logo: entry.logo,
+  }
+}
+
 export function Resume() {
   const { t, i18n } = useTranslation()
-  const isDe = i18n.language === 'de'
+  const lang = normalizeLanguage(i18n.language)
+  const softwareSkills = skills.software[lang]
 
   return (
     <div className="page resume-page">
@@ -72,31 +107,37 @@ export function Resume() {
       </header>
 
       <ResumeSection title={t('resume.experience')}>
-        {experience.map((entry) => (
-          <ResumeEntry
-            key={entry.period + entry.title}
-            period={isDe && entry.periodDe ? entry.periodDe : entry.period}
-            title={isDe ? entry.titleDe : entry.title}
-            organization={isDe ? entry.organizationDe : entry.organization}
-            description={isDe ? entry.descriptionDe : entry.description}
-            grade={isDe ? entry.gradeDe ?? entry.grade : entry.grade}
-            logo={entry.logo}
-          />
-        ))}
+        {experience.map((entry) => {
+          const localized = localizeResumeEntry(lang, entry)
+          return (
+            <ResumeEntry
+              key={entry.period + entry.title}
+              period={localized.period}
+              title={localized.title}
+              organization={localized.organization}
+              description={localized.description}
+              grade={localized.grade}
+              logo={localized.logo}
+            />
+          )
+        })}
       </ResumeSection>
 
       <ResumeSection title={t('resume.education')}>
-        {education.map((entry) => (
-          <ResumeEntry
-            key={entry.period + entry.title}
-            period={isDe && entry.periodDe ? entry.periodDe : entry.period}
-            title={isDe ? entry.titleDe : entry.title}
-            organization={isDe ? entry.organizationDe : entry.organization}
-            description={isDe ? entry.descriptionDe : entry.description}
-            grade={isDe ? entry.gradeDe ?? entry.grade : entry.grade}
-            logo={entry.logo}
-          />
-        ))}
+        {education.map((entry) => {
+          const localized = localizeResumeEntry(lang, entry)
+          return (
+            <ResumeEntry
+              key={entry.period + entry.title}
+              period={localized.period}
+              title={localized.title}
+              organization={localized.organization}
+              description={localized.description}
+              grade={localized.grade}
+              logo={localized.logo}
+            />
+          )
+        })}
       </ResumeSection>
 
       <ResumeSection title={t('resume.skills')}>
@@ -112,7 +153,7 @@ export function Resume() {
           <div className="skills-group">
             <h3>{t('projects.software')}</h3>
             <ul>
-              {skills.software.map((skill) => (
+              {softwareSkills.map((skill) => (
                 <li key={skill}>{skill}</li>
               ))}
             </ul>
@@ -122,14 +163,45 @@ export function Resume() {
 
       <ResumeSection title={t('resume.languages')}>
         <ul className="languages-list">
-          {languages.map((lang) => (
-            <li key={lang.name}>
-              <span>{isDe ? lang.nameDe : lang.name}</span>
-              <span className="languages-list__level">
-                {'levelKey' in lang && lang.levelKey
-                  ? t(`resume.proficiency.${lang.levelKey}`)
-                  : lang.level}
+          {languages.map((langEntry) => (
+            <li key={langEntry.name}>
+              <span>
+                {localizedResumeText(
+                  lang,
+                  langEntry.name,
+                  langEntry.nameDe,
+                  langEntry.nameIt,
+                )}
               </span>
+              <span className="languages-list__level">
+                {'levelKey' in langEntry && langEntry.levelKey
+                  ? t(`resume.proficiency.${langEntry.levelKey}`)
+                  : langEntry.level}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </ResumeSection>
+
+      <ResumeSection title={t('resume.publications')}>
+        <ul className="project-resources__links">
+          {publications.map((publication) => (
+            <li key={publication.url} className="project-resources__link-item">
+              <a
+                href={publication.url}
+                className="project-resources__link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span className="project-resources__link-title">{publication.title}</span>
+                <span className="project-resources__link-description">{publication.description}</span>
+                <span className="project-resources__link-meta">
+                  {publicationHostname(publication.url)}
+                  <span className="material-icons" aria-hidden="true">
+                    open_in_new
+                  </span>
+                </span>
+              </a>
             </li>
           ))}
         </ul>

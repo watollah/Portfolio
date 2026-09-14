@@ -1,5 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { profile, profilePhoto, profilePhotoCutout } from '../data/profile'
+import { normalizeLanguage } from '../i18n/routing'
+import { localizedResumeText } from '../utils/resumeContent'
 import { resolveAssetUrl } from '../utils/assetUrl'
 import './ProfileIntro.css'
 
@@ -26,7 +28,8 @@ export function ProfileIntro({
   showDownload = false,
 }: ProfileIntroProps) {
   const { t, i18n } = useTranslation()
-  const isDe = i18n.language === 'de'
+  const lang = normalizeLanguage(i18n.language)
+  const isDe = lang === 'de'
   const isResume = variant === 'resume'
 
   if (isResume) {
@@ -35,11 +38,15 @@ export function ProfileIntro({
         <div className="profile-intro__content">
           <p className="profile-intro__eyebrow">{t('resume.title')}</p>
           <h1 className="profile-intro__name">{profile.name}</h1>
-          <p className="profile-intro__role">{isDe ? profile.roleDe : profile.role}</p>
+          <p className="profile-intro__role">
+            {localizedResumeText(lang, profile.role, profile.roleDe, profile.roleIt)}
+          </p>
 
           <div className="profile-intro__bio-wrap">
             <div className="profile-intro__photo-shape" aria-hidden="true" />
-            <p className="profile-intro__bio">{isDe ? profile.bioDe : profile.bio}</p>
+            <p className="profile-intro__bio">
+              {localizedResumeText(lang, profile.bio, profile.bioDe, profile.bioIt)}
+            </p>
             {showDownload && (
               <div className="profile-intro__actions">
                 <a

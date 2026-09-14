@@ -10,7 +10,7 @@ export function ProjectsLayout() {
     <div className="page projects-page">
       <ProjectsSidebar activeProjectId={activeProjectId} />
       <div className="projects-page__content">
-        <Outlet />
+        <Outlet key={activeProjectId ?? 'index'} />
       </div>
     </div>
   )

@@ -46,6 +46,7 @@
     "education": "Ausbildung",
     "skills": "Fähigkeiten",
     "languages": "Sprachen",
+    "publications": "Publikationen",
     "proficiency": {
       "native": "Muttersprache",
       "fluent": "Fließend"
@@ -70,6 +71,7 @@
     "en": "English",
     "de": "Deutsch",
     "it": "Italiano",
+    "label": "Sprache",
     "select": "Sprache wählen",
     "switchTo": "Zu {{language}} wechseln"
   }

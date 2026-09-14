@@ -146,8 +146,7 @@
   .profile-intro--home .profile-intro__content .profile-intro__bio {
     display: block;
     max-width: none;
-    text-align: justify;
-    text-align-last: left;
+    text-align: left;
     hyphens: auto;
     line-height: var(--project-text-body-line-height);
   }

@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import {
   defaultLanguage,
-  getInitialLanguage,
+  detectBrowserLanguage,
   isPrefixedLanguage,
   localizePath,
   normalizeLanguage,
@@ -15,10 +15,12 @@ function useSyncLanguage(lang: string) {
 
   useEffect(() => {
     const normalized = normalizeLanguage(lang)
-    if (i18n.language !== normalized) {
-      i18n.changeLanguage(normalized)
+    if (normalizeLanguage(i18n.language) !== normalized) {
+      void i18n.changeLanguage(normalized)
     }
-  }, [lang, i18n])
+    // Route language is the source of truth — do not depend on i18n or we revert mid-navigation.
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- i18n instance is stable
+  }, [lang])
 }
 
 /** German content at unprefixed URLs (`/`, `/projects`, …). */
@@ -56,10 +58,14 @@ export function PrefixedLanguageRoute() {
 }
 
 export function HomeEntry() {
-  const lang = getInitialLanguage()
+  const sessionKey = 'portfolio-home-lang-redirect'
 
-  if (lang === 'en' || lang === 'it') {
-    return <Navigate to={`/${lang}`} replace />
+  if (typeof sessionStorage !== 'undefined' && !sessionStorage.getItem(sessionKey)) {
+    sessionStorage.setItem(sessionKey, '1')
+    const browserLang = detectBrowserLanguage()
+    if (browserLang === 'en' || browserLang === 'it') {
+      return <Navigate to={`/${browserLang}`} replace />
+    }
   }
 
   return <Outlet />
