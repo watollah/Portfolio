@@ -240,11 +240,10 @@ body {
 
 .scroll-reveal {
   opacity: 0;
-  transform: translateY(1.125rem);
+  transform: translateY(0.375rem);
   transition:
-    opacity 0.55s ease,
-    transform 0.55s ease;
-  will-change: opacity, transform;
+    opacity 0.4s ease-out,
+    transform 0.4s ease-out;
 }
 
 .scroll-reveal--visible {

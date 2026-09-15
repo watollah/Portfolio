@@ -1,6 +1,11 @@
-import { useEffect, useRef, useState, type PointerEvent as ReactPointerEvent } from 'react'
+import {
+  useEffect,
+  useRef,
+  type PointerEvent as ReactPointerEvent,
+} from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
+import { useProjectCardOverlay } from '../context/ProjectCardOverlayContext'
 import type { Project } from '../types/project'
 import { pickLocalized } from '../utils/projectLocale'
 import { useLocalizedPath } from '../hooks/useLocalizedPath'
@@ -11,6 +16,9 @@ interface ProjectCardProps {
   project: Project
 }
 
+const LONG_PRESS_MS = 450
+const LONG_PRESS_MOVE_CANCEL_PX = 12
+
 export function ProjectCard({ project }: ProjectCardProps) {
   const { i18n } = useTranslation()
   const title = pickLocalized(project, 'title', i18n.language)
@@ -18,28 +26,64 @@ export function ProjectCard({ project }: ProjectCardProps) {
   const localize = useLocalizedPath()
   const hasCover = Boolean(project.coverUrl)
   const { ref: cardRef, revealClassName } = useScrollReveal<HTMLAnchorElement>()
-  const [revealed, setRevealed] = useState(false)
+  const { revealedProjectId, setRevealedProjectId } = useProjectCardOverlay()
+  const revealed = revealedProjectId === project.id
+
   const suppressNavigationRef = useRef(false)
+  const longPressTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const longPressTriggeredRef = useRef(false)
+  const pressStartRef = useRef({ x: 0, y: 0 })
 
   useEffect(() => {
-    if (!revealed) return
-
-    function handlePointerDownOutside(event: PointerEvent) {
-      if (cardRef.current?.contains(event.target as Node)) return
-      setRevealed(false)
+    return () => {
+      if (longPressTimerRef.current) {
+        clearTimeout(longPressTimerRef.current)
+      }
     }
+  }, [])
 
-    document.addEventListener('pointerdown', handlePointerDownOutside)
-    return () => document.removeEventListener('pointerdown', handlePointerDownOutside)
-  }, [revealed])
+  function clearLongPressTimer() {
+    if (longPressTimerRef.current) {
+      clearTimeout(longPressTimerRef.current)
+      longPressTimerRef.current = null
+    }
+  }
 
   function handlePointerDown(event: ReactPointerEvent<HTMLAnchorElement>) {
     if (event.pointerType === 'mouse') return
 
-    if (!revealed) {
+    clearLongPressTimer()
+    longPressTriggeredRef.current = false
+
+    if (revealed) return
+
+    pressStartRef.current = { x: event.clientX, y: event.clientY }
+
+    longPressTimerRef.current = setTimeout(() => {
+      longPressTimerRef.current = null
+      longPressTriggeredRef.current = true
       suppressNavigationRef.current = true
-      setRevealed(true)
+      setRevealedProjectId(project.id)
+    }, LONG_PRESS_MS)
+  }
+
+  function handlePointerMove(event: ReactPointerEvent<HTMLAnchorElement>) {
+    if (event.pointerType === 'mouse' || !longPressTimerRef.current) return
+
+    const deltaX = Math.abs(event.clientX - pressStartRef.current.x)
+    const deltaY = Math.abs(event.clientY - pressStartRef.current.y)
+    if (deltaX > LONG_PRESS_MOVE_CANCEL_PX || deltaY > LONG_PRESS_MOVE_CANCEL_PX) {
+      clearLongPressTimer()
     }
+  }
+
+  function handlePointerUp(event: ReactPointerEvent<HTMLAnchorElement>) {
+    if (event.pointerType === 'mouse') return
+    clearLongPressTimer()
+  }
+
+  function handlePointerCancel() {
+    clearLongPressTimer()
   }
 
   function handleClick(event: React.MouseEvent<HTMLAnchorElement>) {
@@ -63,6 +107,9 @@ export function ProjectCard({ project }: ProjectCardProps) {
         .filter(Boolean)
         .join(' ')}
       onPointerDown={handlePointerDown}
+      onPointerMove={handlePointerMove}
+      onPointerUp={handlePointerUp}
+      onPointerCancel={handlePointerCancel}
       onClick={handleClick}
     >
       <span

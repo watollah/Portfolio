@@ -21,3 +21,7 @@
 .section-header .text-link {
   margin-top: 0;
 }
+
+.section-header--leading-action {
+  justify-content: flex-start;
+}

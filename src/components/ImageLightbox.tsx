@@ -374,6 +374,50 @@ export function ImageLightbox({ images, index, onIndexChange, onClose }: ImageLi
   }, [])
 
   useEffect(() => {
+    const meta = document.querySelector('meta[name="viewport"]')
+    if (!meta) return
+
+    const previousContent = meta.getAttribute('content') ?? ''
+    meta.setAttribute(
+      'content',
+      'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no',
+    )
+
+    return () => {
+      meta.setAttribute('content', previousContent)
+    }
+  }, [])
+
+  useEffect(() => {
+    const dialog = dialogRef.current
+    if (!dialog) return
+
+    function preventBrowserZoom(event: TouchEvent) {
+      if (event.touches.length > 1) {
+        event.preventDefault()
+      }
+    }
+
+    function preventGestureZoom(event: Event) {
+      event.preventDefault()
+    }
+
+    dialog.addEventListener('touchstart', preventBrowserZoom, { passive: false })
+    dialog.addEventListener('touchmove', preventBrowserZoom, { passive: false })
+    dialog.addEventListener('gesturestart', preventGestureZoom)
+    dialog.addEventListener('gesturechange', preventGestureZoom)
+    dialog.addEventListener('gestureend', preventGestureZoom)
+
+    return () => {
+      dialog.removeEventListener('touchstart', preventBrowserZoom)
+      dialog.removeEventListener('touchmove', preventBrowserZoom)
+      dialog.removeEventListener('gesturestart', preventGestureZoom)
+      dialog.removeEventListener('gesturechange', preventGestureZoom)
+      dialog.removeEventListener('gestureend', preventGestureZoom)
+    }
+  }, [])
+
+  useEffect(() => {
     closeRef.current?.focus()
   }, [])
 

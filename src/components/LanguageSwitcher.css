@@ -64,8 +64,14 @@
 }
 
 .lang-switcher__option--active {
-  color: var(--color-text);
-  background: var(--color-surface);
+  color: var(--color-bg);
+  background: var(--color-text);
+}
+
+.lang-switcher__option--active:hover {
+  color: var(--color-bg);
+  background: var(--color-text);
+  opacity: 0.85;
 }
 
 .lang-switcher__option-name {

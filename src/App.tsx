@@ -13,6 +13,7 @@ import {
   HomeEntry,
   PrefixedLanguageRoute,
 } from './routing/LanguageRoutes'
+import { ProjectCardOverlayProvider } from './context/ProjectCardOverlayContext'
 import './styles/global.css'
 
 function ScrollToTop() {
@@ -29,8 +30,9 @@ export default function App() {
       <SkipLink />
       <Header />
       <main id="main-content" className="main">
-        <ScrollToTop />
-        <Routes>
+        <ProjectCardOverlayProvider>
+          <ScrollToTop />
+          <Routes>
           <Route path="/de" element={<DePrefixRedirect />} />
           <Route path="/de/*" element={<DePrefixRedirect />} />
 
@@ -53,7 +55,8 @@ export default function App() {
             </Route>
             <Route path="resume" element={<Resume />} />
           </Route>
-        </Routes>
+          </Routes>
+        </ProjectCardOverlayProvider>
       </main>
       <Footer />
     </>

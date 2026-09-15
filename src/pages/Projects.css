@@ -114,6 +114,10 @@
   scroll-margin-top: calc(var(--header-height) + 1rem);
 }
 
+.projects-sidebar__mobile-header {
+  display: none;
+}
+
 @media (max-width: 900px) {
   .projects-page {
     display: block;
@@ -128,9 +132,13 @@
     margin-bottom: 1.5rem;
   }
 
-  .projects-sidebar__title {
+  .projects-sidebar__title--desktop {
+    display: none;
+  }
+
+  .projects-sidebar__mobile-header {
+    display: flex;
     margin-bottom: 0;
-    text-align: left;
   }
 
   .projects-sidebar__nav {
