@@ -9,9 +9,9 @@
   "context": "Bachelor's thesis",
   "context_de": "Bachelorarbeit",
   "context_it": "Tesi di laurea triennale",
-  "description": "An app for structural mechanics, for creating and graphically solving truss structures with Cremona diagrams.",
+  "description": "An app for structural engineering education that enables users to create and graphically solve truss systems using Cremona diagrams.",
   "description_de": "Eine App für die Tragwerkslehre, zum Erstellen und graphischen Lösen von Stabtragwerken mit Cremonaplänen.",
-  "description_it": "Un'app per la scienza delle costruzioni, per creare e risolvere graficamente strutture reticolari con diagrammi di Cremona.",
+  "description_it": "Un’app per la didattica delle strutture che consente di creare e risolvere graficamente sistemi reticolari mediante diagrammi di Cremona.",
   "tags": [],
   "authors": [
     "Hannes Watolla"
@@ -35,9 +35,9 @@
         "images/definition.png"
       ],
       "textPosition": "bottom",
-      "text": "*Drawing the truss structure*",
+      "text": "*Drawing the truss system*",
       "text_de": "*Zeichnen des Stabtragwerkes*",
-      "text_it": "*Disegno della struttura reticolare*"
+      "text_it": "*Disegno del sistema reticolare*"
     },
     {
       "type": "image",
@@ -66,7 +66,7 @@
       "title": "GitHub | C2D",
       "title_de": "GitHub | C2D",
       "title_it": "GitHub | C2D",
-      "description": "GitHub repository with source code and software download.",
+      "description": "GitHub repository with source code and a software download.",
       "description_de": "GitHub Repository mit Quellcode und Software Download.",
       "description_it": "Repository GitHub con codice sorgente e download del software."
     },

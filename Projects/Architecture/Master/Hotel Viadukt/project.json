@@ -8,10 +8,10 @@
   "title_it": "Hotel Viadukt",
   "context": "Design project during master's studies",
   "context_de": "Entwurfsprojekt im Masterstudium",
-  "context_it": "Progetto di design durante il master",
-  "description": "Design of a thermal hotel at the Burtscheid Viaduct in Aachen.",
+  "context_it": "Progetto di architettura durante la laurea magistrale",
+  "description": "Design for a thermal spa hotel at the Burtscheid Viaduct in Aachen.",
   "description_de": "Entwurf eines Thermalhotels am Burtscheider Viadukt in Aachen.",
-  "description_it": "Progetto di un hotel termale al viadotto di Burtscheid ad Aquisgrana.",
+  "description_it": "Progetto di un hotel termale presso il viadotto di Burtscheid ad Aquisgrana.",
   "authors": [
     "Philipp Weidauer",
     "Hannes Watolla"
@@ -25,9 +25,9 @@
         "images/rendering/tower_transparent.png"
       ],
       "textPosition": "top",
-      "text": "Hotel Viadukt combines a place of retreat, wellness offerings, and an urban meeting point. The design caters to those seeking relaxation, business travelers, and conference guests, uniting thermal and sauna facilities, conference areas, and gastronomy under one roof.\n\nAt the same time, the hotel opens up to the city: a publicly accessible wellness landscape, hotel bar, and a rooftop restaurant with views over Aachen create a lively place of encounter for guests and residents.",
+      "text": "Hotel Viadukt combines a place of retreat, wellness facilities, and an urban meeting point. The design addresses guests seeking relaxation, business travelers, and conference attendees, bringing thermal-bath and sauna facilities, conference spaces, and dining under one roof.\n\nAt the same time, the hotel opens up to the city: publicly accessible wellness facilities, a hotel bar, and a top-floor restaurant overlooking Aachen create a vibrant meeting place for guests and local residents.",
       "text_de": "Das Hotel Viadukt verbindet Rückzugsort, Wellnessangebot und urbanen Treffpunkt. Der Entwurf richtet sich an Erholungssuchende, Geschäftsreisende und Konferenzgäste und vereint Thermal- und Saunalandschaft, Tagungsbereiche sowie Gastronomie unter einem Dach.\n\nGleichzeitig öffnet sich das Hotel zur Stadt: Eine öffentlich zugängliche Wellnesslandschaft, Hotelbar und ein Restaurant im Dachgeschoss mit Blick über Aachen schaffen einen lebendigen Ort der Begegnung für Gäste und Stadtbewohner.",
-      "text_it": "L'Hotel Viadukt unisce un luogo di ritiro, offerte wellness e un punto di incontro urbano. Il progetto si rivolge a chi cerca relax, viaggiatori d'affari e ospiti di conferenze, riunendo paesaggio termale e saune, aree congressuali e gastronomia sotto un unico tetto.\n\nAl contempo, l'hotel si apre alla città: un paesaggio wellness accessibile al pubblico, bar dell'hotel e un ristorante al piano superiore con vista su Aquisgrana creano un vivace luogo d'incontro per ospiti e cittadini."
+      "text_it": "L’Hotel Viadukt combina un luogo di ritiro, un’offerta benessere e un punto d’incontro urbano. Il progetto si rivolge a chi cerca relax, ai viaggiatori d’affari e ai partecipanti a conferenze, riunendo sotto lo stesso tetto aree termali e saune, spazi per convegni e ristorazione.\n\nAllo stesso tempo, l’hotel si apre alla città: un’area benessere accessibile al pubblico, il bar dell’hotel e un ristorante all’ultimo piano con vista su Aquisgrana creano un vivace luogo d’incontro per ospiti e residenti."
     },
     {
       "type": "image",
@@ -35,9 +35,9 @@
         "images/plaene/lageplan.png"
       ],
       "textPosition": "right",
-      "text": "The hotel forms a new high point in the urban space, harmoniously integrating into the existing silhouette. This creates sight lines — from the Kurpark, from the viaduct, and from afar.\n\nAachen's bathing culture is brought to the fore at a historic site with a confident architectural language.",
+      "text": "The hotel creates a new vertical landmark in the urban fabric while fitting harmoniously into the existing skyline. This establishes sightlines from the Kurpark, the viaduct, and from afar.\n\nAt this historic site, Aachen's spa culture is brought to the fore through a confident architectural language.",
       "text_de": "Das Hotel bildet einen neuen Hochpunkt im Stadtraum, der sich harmonisch in die bestehende Silhouette einfügt. Dadurch entstehen Blickachsen - vom Kurpark, vom Viadukt und aus der Ferne.\n\nDie Aachener Badekultur wird an einem historischen Standort mit einer selbstbewussten Architektursprache in den Vordergrund gerückt.",
-      "text_it": "L'hotel forma un nuovo punto di rilievo nello spazio urbano, integrandosi armoniosamente nella silhouette esistente. Ne derivano assi visivi — dal Kurpark, dal viadotto e da lontano.\n\nLa cultura termale di Aquisgrana viene messa in evidenza in un sito storico con un linguaggio architettonico sicuro di sé."
+      "text_it": "L’hotel introduce un nuovo punto di riferimento verticale nel tessuto urbano, integrandosi armoniosamente nello skyline esistente. Si creano così assi visuali dal Kurpark, dal viadotto e da lontano.\n\nIn questo luogo storico, la cultura termale di Aquisgrana viene posta in primo piano attraverso un linguaggio architettonico deciso."
     },
     {
       "type": "image",
@@ -47,9 +47,9 @@
         "images/plaene/thermalbad_perspektive.jpg"
       ],
       "textPosition": "bottom",
-      "text": "*Perspective representations of the design*",
+      "text": "*Perspective views of the design*",
       "text_de": "*Perspektivische Darstellungen des Entwurfes*",
-      "text_it": "*Rappresentazioni prospettiche del progetto*"
+      "text_it": "*Viste prospettiche del progetto*"
     },
     {
       "type": "image",
@@ -60,9 +60,9 @@
         "images/ansichten/ansicht_so.jpg"
       ],
       "textPosition": "bottom",
-      "text": "*Views of the design*",
+      "text": "*Elevations of the design*",
       "text_de": "*Ansichten des Entwurfes*",
-      "text_it": "*Viste del progetto*"
+      "text_it": "*Prospetti del progetto*"
     },
     {
       "type": "image",
@@ -109,20 +109,20 @@
         "images/rendering/bath.png",
         "images/rendering/bathroom.png"
       ],
-      "text": "*Interior impressions, left: lobby, center: thermal bath, right: hotel room bathroom*",
+      "text": "*Interior impressions — left: lobby, centre: thermal bath, right: hotel-room bathroom*",
       "text_de": "*Impressionen aus dem Innenraum, links: Lobby, mittig: Thermalbad, rechts: Hotelzimmerbad*",
-      "text_it": "*Impressioni degli interni, a sinistra: lobby, al centro: bagno termale, a destra: bagno della camera d'hotel*"
+      "text_it": "*Impressioni degli interni — a sinistra: lobby, al centro: area termale, a destra: bagno della camera d’hotel*"
     }
   ],
   "links": [
     {
       "url": "https://ages.rwth-aachen.de/cms/ages/studium/Best-Of/Best-Of-Entwurf/M1-Entwurfsprojekt/~brjzwm/Copy-of-SoSe-2025-Viadukt/",
-      "title": "RWTH Ages Chair | Best of Summer 2025",
+      "title": "RWTH Ages Chair | Best of Summer Semester 2025",
       "title_de": "RWTH Ages Lehrstuhl | Best of SoSe 2025",
-      "title_it": "RWTH Ages Lehrstuhl | Best of SoSe 2025",
-      "description": "Our design was exhibited in the Best-of showcase of the Chair of Architectural History for the summer semester 2025.",
+      "title_it": "Cattedra RWTH Ages | Best of semestre estivo 2025",
+      "description": "Our design was exhibited in the Chair of Architectural History's Best-of exhibition for the 2025 summer semester.",
       "description_de": "Unser Entwurf wurde ausgestellt im Best-of des Lehrstuhls für Architekturgeschichte des Sommersemesters 2025.",
-      "description_it": "Il nostro progetto è stato esposto nel Best-of della cattedra di storia dell'architettura del semestre estivo 2025."
+      "description_it": "Il nostro progetto è stato esposto nella mostra Best-of della Cattedra di Storia dell’Architettura per il semestre estivo 2025."
     }
   ],
   "documents": []

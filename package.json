@@ -6,6 +6,8 @@
   "scripts": {
     "sync:projects": "node scripts/sync-projects.mjs",
     "sync:projects:manifest": "node scripts/sync-projects.mjs --skip-images",
+    "export:translations": "node scripts/export-translations.mjs",
+    "import:translations": "node scripts/import-translations.mjs && npm run sync:projects:manifest",
     "build:app": "tsc && vite build",
     "dev": "npm run sync:projects && vite",
     "build": "npm run sync:projects && npm run build:app",

@@ -8,10 +8,10 @@
   "title_it": "Quartier 544",
   "context": "Urban design project during bachelor's studies",
   "context_de": "Städtebaulicher Entwurf im Bachelorstudium",
-  "context_it": "Progetto di urbanistica durante il bachelor",
-  "description": "Urban design concept for the redevelopment of a quarter at Europaplatz in Aachen.",
+  "context_it": "Progetto urbanistico durante la laurea triennale",
+  "description": "Urban design proposal for the redevelopment of a district at Europaplatz in Aachen.",
   "description_de": "Städtebaulicher Entwurf für die Neugestaltung eines Quartiers am Europaplatz in Aachen.",
-  "description_it": "Progetto di urbanistica per la riqualificazione di un quartiere all'Europaplatz ad Aquisgrana.",
+  "description_it": "Progetto urbanistico per la riqualificazione di un quartiere presso l’Europaplatz ad Aquisgrana.",
   "tags": [],
   "authors": [
     "Maja Lehmann",
@@ -65,7 +65,7 @@
       "textPosition": "bottom",
       "text": "*Construction phases*",
       "text_de": "*Bauphasen*",
-      "text_it": "*Fasi di costruzione*"
+      "text_it": "*Fasi costruttive*"
     },
     {
       "type": "image",
@@ -73,7 +73,7 @@
         "images/detail/vertiefung.png"
       ],
       "textPosition": "bottom",
-      "text": "*Design study*",
+      "text": "*Design development*",
       "text_de": "*Vertiefung*",
       "text_it": "*Approfondimento progettuale*"
     },
@@ -117,10 +117,10 @@
       "url": "https://www.staedtebau.rwth-aachen.de/cms/staedtebau/Der-Lehrstuhl-und-Das-Institut/Ausstellungen/~bixmdk/EUROPA-Quartier/",
       "title": "RWTH Chair of Urban Design | Exhibition 2024: Europaquartier",
       "title_de": "RWTH Städtebau Lehrstuhl | Ausstellung 2024: Europaquartier",
-      "title_it": "RWTH Cattedra di Urbanistica | Mostra 2024: Europaquartier",
+      "title_it": "Cattedra di Urbanistica RWTH | Mostra 2024: Europaquartier",
       "description": "Our design was selected for an exhibition by the Chair of Urban Design at the Aachen Technology Center.",
       "description_de": "Unser Entwurf wurde ausgewählt für eine Ausstellung des Lehrstuhls für Städtebau im Technologiezentrum Aachen.",
-      "description_it": "Il nostro progetto è stato selezionato per una mostra della cattedra di urbanistica nel Technology Center di Aquisgrana."
+      "description_it": "Il nostro progetto è stato selezionato per una mostra della Cattedra di Urbanistica presso il Centro Tecnologico di Aquisgrana."
     }
   ],
   "documents": []

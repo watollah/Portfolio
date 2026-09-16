@@ -9,24 +9,24 @@
   },
   "hero": {
     "title": "Architettura & Software",
-    "subtitle": "Progettare spazi e creare esperienze digitali con precisione e chiarezza."
+    "subtitle": "Progettare spazi e sviluppare esperienze digitali con precisione e chiarezza."
   },
   "home": {
     "aboutTitle": "Chi sono",
-    "viewResume": "Vedi curriculum",
+    "viewResume": "Visualizza il curriculum",
     "featuredProjects": "Progetti selezionati",
-    "showAll": "Mostra tutti"
+    "showAll": "Mostra tutto"
   },
   "projects": {
     "title": "Progetti",
-    "subtitle": "Lavori selezionati in architettura e sviluppo software.",
+    "subtitle": "Una selezione di lavori di architettura e sviluppo software.",
     "software": "Sviluppo software",
     "architecture": "Architettura",
-    "viewProject": "Vedi progetto",
+    "viewProject": "Visualizza il progetto",
     "backToProjects": "Torna ai progetti",
-    "visitExternal": "Visita progetto",
+    "visitExternal": "Visita il progetto",
     "tags": "Tag",
-    "resources": "Link & Documenti",
+    "resources": "Link e documenti",
     "documents": "Documenti",
     "links": "Link",
     "resourceLink": "Link",
@@ -36,13 +36,13 @@
     "closeImage": "Chiudi immagine",
     "viewFullscreen": "Visualizza a schermo intero",
     "comingSoon": "Altri progetti in arrivo.",
-    "createdBy": "Creato da: {{authors}}"
+    "createdBy": "Realizzato da: {{authors}}"
   },
   "resume": {
     "title": "Curriculum",
     "subtitle": "Esperienza, formazione e competenze.",
     "download": "Scarica PDF",
-    "experience": "Esperienza",
+    "experience": "Esperienza professionale",
     "education": "Formazione",
     "skills": "Competenze",
     "languages": "Lingue",
@@ -59,7 +59,7 @@
     "title": "Accessibilità",
     "open": "Apri impostazioni di accessibilità",
     "close": "Chiudi impostazioni di accessibilità",
-    "fontSize": "Dimensione testo",
+    "fontSize": "Dimensione del carattere",
     "fontSmall": "Piccolo",
     "fontMedium": "Medio",
     "fontLarge": "Grande",

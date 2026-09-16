@@ -1,7 +1,7 @@
 {
   "nav": {
     "projects": "Projects",
-    "resume": "Resume",
+    "resume": "CV",
     "home": "Home",
     "menu": "Menu",
     "openMenu": "Open menu",
@@ -9,17 +9,17 @@
   },
   "hero": {
     "title": "Architecture & Software",
-    "subtitle": "Designing spaces and building digital experiences with precision and clarity."
+    "subtitle": "Designing spaces and developing digital experiences with precision and clarity."
   },
   "home": {
-    "aboutTitle": "About",
-    "viewResume": "View resume",
+    "aboutTitle": "About me",
+    "viewResume": "View CV",
     "featuredProjects": "Selected Projects",
     "showAll": "Show all"
   },
   "projects": {
     "title": "Projects",
-    "subtitle": "Selected work across architecture and software development.",
+    "subtitle": "Selected work in architecture and software development.",
     "software": "Software Development",
     "architecture": "Architecture",
     "viewProject": "View project",
@@ -34,15 +34,15 @@
     "previousImage": "Previous image",
     "nextImage": "Next image",
     "closeImage": "Close image",
-    "viewFullscreen": "View fullscreen",
+    "viewFullscreen": "View full screen",
     "comingSoon": "More projects coming soon.",
     "createdBy": "Created by: {{authors}}"
   },
   "resume": {
-    "title": "Resume",
+    "title": "CV",
     "subtitle": "Experience, education, and skills.",
     "download": "Download PDF",
-    "experience": "Experience",
+    "experience": "Professional Experience",
     "education": "Education",
     "skills": "Skills",
     "languages": "Languages",

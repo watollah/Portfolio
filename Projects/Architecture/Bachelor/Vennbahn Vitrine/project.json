@@ -8,10 +8,10 @@
   "title_it": "Vennbahn Vitrine",
   "context": "Design project during bachelor's studies",
   "context_de": "Entwurfsprojekt im Bachelorstudium",
-  "context_it": "Progetto di design durante il bachelor",
-  "description": "Design of a bicycle manufactory along the Vennbahn cycle route in Aachen.",
+  "context_it": "Progetto di architettura durante la laurea triennale",
+  "description": "Design for a bicycle manufacturing facility along the Vennbahn cycle route in Aachen.",
   "description_de": "Entwurf einer Fahrradmanufaktur am Vennbahnradweg in Aachen.",
-  "description_it": "Progetto di una manifattura di biciclette lungo la pista ciclabile Vennbahn ad Aquisgrana.",
+  "description_it": "Progetto di un impianto per la produzione di biciclette lungo la pista ciclabile Vennbahn ad Aquisgrana.",
   "tags": [],
   "authors": [
     "Catarina Aue",
@@ -44,7 +44,7 @@
       "textPosition": "bottom",
       "text": "*Interior visualization*",
       "text_de": "*Visualisierung Innenraum*",
-      "text_it": "*Visualizzazione interna*"
+      "text_it": "*Visualizzazione dell’interno*"
     },
     {
       "type": "image",
@@ -76,9 +76,9 @@
         "images/pictos/sonnenschutz.png"
       ],
       "textPosition": "bottom",
-      "text": "*Assembly*",
+      "text": "*Construction*",
       "text_de": "*Aufbau*",
-      "text_it": "*Composizione costruttiva*"
+      "text_it": "*Sistema costruttivo*"
     },
     {
       "type": "collage",
@@ -127,7 +127,7 @@
       "textPosition": "bottom",
       "text": "*Building services*",
       "text_de": "*Gebäudetechnik*",
-      "text_it": "*Impiantistica*"
+      "text_it": "*Impianti tecnici*"
     },
     {
       "type": "image",

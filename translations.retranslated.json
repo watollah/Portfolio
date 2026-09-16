@@ -1,0 +1,1572 @@
+{
+  "formatVersion": 1,
+  "generatedAt": "2026-09-16T11:28:27.175Z",
+  "languages": [
+    "en",
+    "de",
+    "it"
+  ],
+  "instructions": [
+    "Each entry has stable id and path fields for re-import into the portfolio.",
+    "en is the default English string; de and it map to *De and *It fields in code (or locale JSON for ui.*).",
+    "Markdown formatting in project text (**, *, etc.) should be preserved.",
+    "i18next interpolation placeholders such as {{year}} and {{authors}} must stay unchanged.",
+    "After translation, return this file with de/it filled in; empty strings mean missing translation on the site today."
+  ],
+  "stats": {
+    "total": 177,
+    "byCategory": {
+      "ui": 58,
+      "profile": 2,
+      "resume": 36,
+      "project": 81
+    }
+  },
+  "entries": [
+    {
+      "id": "ui.a11y.close",
+      "category": "ui",
+      "path": "src/i18n/locales/{en,de,it}.json → a11y.close",
+      "en": "Close accessibility settings",
+      "de": "Barrierefreiheit-Einstellungen schließen",
+      "it": "Chiudi impostazioni di accessibilità"
+    },
+    {
+      "id": "ui.a11y.fontLarge",
+      "category": "ui",
+      "path": "src/i18n/locales/{en,de,it}.json → a11y.fontLarge",
+      "en": "Large",
+      "de": "Groß",
+      "it": "Grande"
+    },
+    {
+      "id": "ui.a11y.fontMedium",
+      "category": "ui",
+      "path": "src/i18n/locales/{en,de,it}.json → a11y.fontMedium",
+      "en": "Medium",
+      "de": "Mittel",
+      "it": "Medio"
+    },
+    {
+      "id": "ui.a11y.fontSize",
+      "category": "ui",
+      "path": "src/i18n/locales/{en,de,it}.json → a11y.fontSize",
+      "en": "Font size",
+      "de": "Schriftgröße",
+      "it": "Dimensione del carattere"
+    },
+    {
+      "id": "ui.a11y.fontSmall",
+      "category": "ui",
+      "path": "src/i18n/locales/{en,de,it}.json → a11y.fontSmall",
+      "en": "Small",
+      "de": "Klein",
+      "it": "Piccolo"
+    },
+    {
+      "id": "ui.a11y.fontXLarge",
+      "category": "ui",
+      "path": "src/i18n/locales/{en,de,it}.json → a11y.fontXLarge",
+      "en": "Extra large",
+      "de": "Sehr groß",
+      "it": "Molto grande"
+    },
+    {
+      "id": "ui.a11y.highContrast",
+      "category": "ui",
+      "path": "src/i18n/locales/{en,de,it}.json → a11y.highContrast",
+      "en": "High contrast",
+      "de": "Hoher Kontrast",
+      "it": "Alto contrasto"
+    },
+    {
+      "id": "ui.a11y.open",
+      "category": "ui",
+      "path": "src/i18n/locales/{en,de,it}.json → a11y.open",
+      "en": "Open accessibility settings",
+      "de": "Barrierefreiheit-Einstellungen öffnen",
+      "it": "Apri impostazioni di accessibilità"
+    },
+    {
+      "id": "ui.a11y.reducedMotion",
+      "category": "ui",
+      "path": "src/i18n/locales/{en,de,it}.json → a11y.reducedMotion",
+      "en": "Reduced motion",
+      "de": "Reduzierte Bewegung",
+      "it": "Movimento ridotto"
+    },
+    {
+      "id": "ui.a11y.title",
+      "category": "ui",
+      "path": "src/i18n/locales/{en,de,it}.json → a11y.title",
+      "en": "Accessibility",
+      "de": "Barrierefreiheit",
+      "it": "Accessibilità"
+    },
+    {
+      "id": "ui.footer.copyright",
+      "category": "ui",
+      "path": "src/i18n/locales/{en,de,it}.json → footer.copyright",
+      "en": "© {{year}} Hannes Watolla. All rights reserved.",
+      "de": "© {{year}} Hannes Watolla. Alle Rechte vorbehalten.",
+      "it": "© {{year}} Hannes Watolla. Tutti i diritti riservati."
+    },
+    {
+      "id": "ui.hero.subtitle",
+      "category": "ui",
+      "path": "src/i18n/locales/{en,de,it}.json → hero.subtitle",
+      "en": "Designing spaces and developing digital experiences with precision and clarity.",
+      "de": "Räume gestalten und digitale Erlebnisse mit Präzision und Klarheit entwickeln.",
+      "it": "Progettare spazi e sviluppare esperienze digitali con precisione e chiarezza."
+    },
+    {
+      "id": "ui.hero.title",
+      "category": "ui",
+      "path": "src/i18n/locales/{en,de,it}.json → hero.title",
+      "en": "Architecture & Software",
+      "de": "Architektur & Software",
+      "it": "Architettura & Software"
+    },
+    {
+      "id": "ui.home.aboutTitle",
+      "category": "ui",
+      "path": "src/i18n/locales/{en,de,it}.json → home.aboutTitle",
+      "en": "About me",
+      "de": "Über mich",
+      "it": "Chi sono"
+    },
+    {
+      "id": "ui.home.featuredProjects",
+      "category": "ui",
+      "path": "src/i18n/locales/{en,de,it}.json → home.featuredProjects",
+      "en": "Selected Projects",
+      "de": "Ausgewählte Projekte",
+      "it": "Progetti selezionati"
+    },
+    {
+      "id": "ui.home.showAll",
+      "category": "ui",
+      "path": "src/i18n/locales/{en,de,it}.json → home.showAll",
+      "en": "Show all",
+      "de": "Alle anzeigen",
+      "it": "Mostra tutto"
+    },
+    {
+      "id": "ui.home.viewResume",
+      "category": "ui",
+      "path": "src/i18n/locales/{en,de,it}.json → home.viewResume",
+      "en": "View CV",
+      "de": "Lebenslauf ansehen",
+      "it": "Visualizza il curriculum"
+    },
+    {
+      "id": "ui.lang.de",
+      "category": "ui",
+      "path": "src/i18n/locales/{en,de,it}.json → lang.de",
+      "en": "Deutsch",
+      "de": "Deutsch",
+      "it": "Deutsch"
+    },
+    {
+      "id": "ui.lang.en",
+      "category": "ui",
+      "path": "src/i18n/locales/{en,de,it}.json → lang.en",
+      "en": "English",
+      "de": "English",
+      "it": "English"
+    },
+    {
+      "id": "ui.lang.it",
+      "category": "ui",
+      "path": "src/i18n/locales/{en,de,it}.json → lang.it",
+      "en": "Italiano",
+      "de": "Italiano",
+      "it": "Italiano"
+    },
+    {
+      "id": "ui.lang.label",
+      "category": "ui",
+      "path": "src/i18n/locales/{en,de,it}.json → lang.label",
+      "en": "Language",
+      "de": "Sprache",
+      "it": "Lingua"
+    },
+    {
+      "id": "ui.lang.select",
+      "category": "ui",
+      "path": "src/i18n/locales/{en,de,it}.json → lang.select",
+      "en": "Select language",
+      "de": "Sprache wählen",
+      "it": "Seleziona lingua"
+    },
+    {
+      "id": "ui.lang.switchTo",
+      "category": "ui",
+      "path": "src/i18n/locales/{en,de,it}.json → lang.switchTo",
+      "en": "Switch to {{language}}",
+      "de": "Zu {{language}} wechseln",
+      "it": "Passa a {{language}}"
+    },
+    {
+      "id": "ui.nav.closeMenu",
+      "category": "ui",
+      "path": "src/i18n/locales/{en,de,it}.json → nav.closeMenu",
+      "en": "Close menu",
+      "de": "Menü schließen",
+      "it": "Chiudi menu"
+    },
+    {
+      "id": "ui.nav.home",
+      "category": "ui",
+      "path": "src/i18n/locales/{en,de,it}.json → nav.home",
+      "en": "Home",
+      "de": "Startseite",
+      "it": "Home"
+    },
+    {
+      "id": "ui.nav.menu",
+      "category": "ui",
+      "path": "src/i18n/locales/{en,de,it}.json → nav.menu",
+      "en": "Menu",
+      "de": "Menü",
+      "it": "Menu"
+    },
+    {
+      "id": "ui.nav.openMenu",
+      "category": "ui",
+      "path": "src/i18n/locales/{en,de,it}.json → nav.openMenu",
+      "en": "Open menu",
+      "de": "Menü öffnen",
+      "it": "Apri menu"
+    },
+    {
+      "id": "ui.nav.projects",
+      "category": "ui",
+      "path": "src/i18n/locales/{en,de,it}.json → nav.projects",
+      "en": "Projects",
+      "de": "Projekte",
+      "it": "Progetti"
+    },
+    {
+      "id": "ui.nav.resume",
+      "category": "ui",
+      "path": "src/i18n/locales/{en,de,it}.json → nav.resume",
+      "en": "CV",
+      "de": "Lebenslauf",
+      "it": "Curriculum"
+    },
+    {
+      "id": "ui.projects.architecture",
+      "category": "ui",
+      "path": "src/i18n/locales/{en,de,it}.json → projects.architecture",
+      "en": "Architecture",
+      "de": "Architektur",
+      "it": "Architettura"
+    },
+    {
+      "id": "ui.projects.backToProjects",
+      "category": "ui",
+      "path": "src/i18n/locales/{en,de,it}.json → projects.backToProjects",
+      "en": "Back to projects",
+      "de": "Zurück zu Projekten",
+      "it": "Torna ai progetti"
+    },
+    {
+      "id": "ui.projects.closeImage",
+      "category": "ui",
+      "path": "src/i18n/locales/{en,de,it}.json → projects.closeImage",
+      "en": "Close image",
+      "de": "Bild schließen",
+      "it": "Chiudi immagine"
+    },
+    {
+      "id": "ui.projects.comingSoon",
+      "category": "ui",
+      "path": "src/i18n/locales/{en,de,it}.json → projects.comingSoon",
+      "en": "More projects coming soon.",
+      "de": "Weitere Projekte folgen in Kürze.",
+      "it": "Altri progetti in arrivo."
+    },
+    {
+      "id": "ui.projects.createdBy",
+      "category": "ui",
+      "path": "src/i18n/locales/{en,de,it}.json → projects.createdBy",
+      "en": "Created by: {{authors}}",
+      "de": "Erstellt von: {{authors}}",
+      "it": "Realizzato da: {{authors}}"
+    },
+    {
+      "id": "ui.projects.documents",
+      "category": "ui",
+      "path": "src/i18n/locales/{en,de,it}.json → projects.documents",
+      "en": "Documents",
+      "de": "Dokumente",
+      "it": "Documenti"
+    },
+    {
+      "id": "ui.projects.links",
+      "category": "ui",
+      "path": "src/i18n/locales/{en,de,it}.json → projects.links",
+      "en": "Links",
+      "de": "Links",
+      "it": "Link"
+    },
+    {
+      "id": "ui.projects.nextImage",
+      "category": "ui",
+      "path": "src/i18n/locales/{en,de,it}.json → projects.nextImage",
+      "en": "Next image",
+      "de": "Nächstes Bild",
+      "it": "Immagine successiva"
+    },
+    {
+      "id": "ui.projects.previousImage",
+      "category": "ui",
+      "path": "src/i18n/locales/{en,de,it}.json → projects.previousImage",
+      "en": "Previous image",
+      "de": "Vorheriges Bild",
+      "it": "Immagine precedente"
+    },
+    {
+      "id": "ui.projects.resourceDocument",
+      "category": "ui",
+      "path": "src/i18n/locales/{en,de,it}.json → projects.resourceDocument",
+      "en": "Document",
+      "de": "Dokument",
+      "it": "Documento"
+    },
+    {
+      "id": "ui.projects.resourceLink",
+      "category": "ui",
+      "path": "src/i18n/locales/{en,de,it}.json → projects.resourceLink",
+      "en": "Link",
+      "de": "Link",
+      "it": "Link"
+    },
+    {
+      "id": "ui.projects.resources",
+      "category": "ui",
+      "path": "src/i18n/locales/{en,de,it}.json → projects.resources",
+      "en": "Links & Documents",
+      "de": "Links & Dokumente",
+      "it": "Link e documenti"
+    },
+    {
+      "id": "ui.projects.software",
+      "category": "ui",
+      "path": "src/i18n/locales/{en,de,it}.json → projects.software",
+      "en": "Software Development",
+      "de": "Softwareentwicklung",
+      "it": "Sviluppo software"
+    },
+    {
+      "id": "ui.projects.subtitle",
+      "category": "ui",
+      "path": "src/i18n/locales/{en,de,it}.json → projects.subtitle",
+      "en": "Selected work in architecture and software development.",
+      "de": "Ausgewählte Arbeiten aus Architektur und Softwareentwicklung.",
+      "it": "Una selezione di lavori di architettura e sviluppo software."
+    },
+    {
+      "id": "ui.projects.tags",
+      "category": "ui",
+      "path": "src/i18n/locales/{en,de,it}.json → projects.tags",
+      "en": "Tags",
+      "de": "Schlagwörter",
+      "it": "Tag"
+    },
+    {
+      "id": "ui.projects.title",
+      "category": "ui",
+      "path": "src/i18n/locales/{en,de,it}.json → projects.title",
+      "en": "Projects",
+      "de": "Projekte",
+      "it": "Progetti"
+    },
+    {
+      "id": "ui.projects.viewFullscreen",
+      "category": "ui",
+      "path": "src/i18n/locales/{en,de,it}.json → projects.viewFullscreen",
+      "en": "View full screen",
+      "de": "Vollbild anzeigen",
+      "it": "Visualizza a schermo intero"
+    },
+    {
+      "id": "ui.projects.viewProject",
+      "category": "ui",
+      "path": "src/i18n/locales/{en,de,it}.json → projects.viewProject",
+      "en": "View project",
+      "de": "Projekt ansehen",
+      "it": "Visualizza il progetto"
+    },
+    {
+      "id": "ui.projects.visitExternal",
+      "category": "ui",
+      "path": "src/i18n/locales/{en,de,it}.json → projects.visitExternal",
+      "en": "Visit project",
+      "de": "Projekt besuchen",
+      "it": "Visita il progetto"
+    },
+    {
+      "id": "ui.resume.download",
+      "category": "ui",
+      "path": "src/i18n/locales/{en,de,it}.json → resume.download",
+      "en": "Download PDF",
+      "de": "PDF herunterladen",
+      "it": "Scarica PDF"
+    },
+    {
+      "id": "ui.resume.education",
+      "category": "ui",
+      "path": "src/i18n/locales/{en,de,it}.json → resume.education",
+      "en": "Education",
+      "de": "Ausbildung",
+      "it": "Formazione"
+    },
+    {
+      "id": "ui.resume.experience",
+      "category": "ui",
+      "path": "src/i18n/locales/{en,de,it}.json → resume.experience",
+      "en": "Professional Experience",
+      "de": "Berufserfahrung",
+      "it": "Esperienza professionale"
+    },
+    {
+      "id": "ui.resume.languages",
+      "category": "ui",
+      "path": "src/i18n/locales/{en,de,it}.json → resume.languages",
+      "en": "Languages",
+      "de": "Sprachen",
+      "it": "Lingue"
+    },
+    {
+      "id": "ui.resume.proficiency.fluent",
+      "category": "ui",
+      "path": "src/i18n/locales/{en,de,it}.json → resume.proficiency.fluent",
+      "en": "Fluent",
+      "de": "Fließend",
+      "it": "Fluente"
+    },
+    {
+      "id": "ui.resume.proficiency.native",
+      "category": "ui",
+      "path": "src/i18n/locales/{en,de,it}.json → resume.proficiency.native",
+      "en": "Native",
+      "de": "Muttersprache",
+      "it": "Madrelingua"
+    },
+    {
+      "id": "ui.resume.publications",
+      "category": "ui",
+      "path": "src/i18n/locales/{en,de,it}.json → resume.publications",
+      "en": "Publications",
+      "de": "Publikationen",
+      "it": "Pubblicazioni"
+    },
+    {
+      "id": "ui.resume.skills",
+      "category": "ui",
+      "path": "src/i18n/locales/{en,de,it}.json → resume.skills",
+      "en": "Skills",
+      "de": "Fähigkeiten",
+      "it": "Competenze"
+    },
+    {
+      "id": "ui.resume.subtitle",
+      "category": "ui",
+      "path": "src/i18n/locales/{en,de,it}.json → resume.subtitle",
+      "en": "Experience, education, and skills.",
+      "de": "Erfahrung, Ausbildung und Fähigkeiten.",
+      "it": "Esperienza, formazione e competenze."
+    },
+    {
+      "id": "ui.resume.title",
+      "category": "ui",
+      "path": "src/i18n/locales/{en,de,it}.json → resume.title",
+      "en": "CV",
+      "de": "Lebenslauf",
+      "it": "Curriculum"
+    },
+    {
+      "id": "profile.role",
+      "category": "profile",
+      "path": "src/data/profile.ts → profile.role",
+      "en": "Architecture Student & Software Developer",
+      "de": "Architekturstudent & Softwareentwickler",
+      "it": "Studente di architettura e sviluppatore software",
+      "sourceFile": "src/data/profile.ts"
+    },
+    {
+      "id": "profile.bio",
+      "category": "profile",
+      "path": "src/data/profile.ts → profile.bio",
+      "en": "I work at the intersection of architecture and software, designing carefully considered spaces and optimizing processes through digital tools.",
+      "de": "Ich arbeite an der Schnittstelle von Architektur und Software, gestalte durchdachte Räume und optimiere Prozesse durch digitale Werkzeuge.",
+      "it": "Lavoro all’intersezione tra architettura e software, progettando spazi attentamente concepiti e ottimizzando i processi attraverso strumenti digitali.",
+      "sourceFile": "src/data/profile.ts"
+    },
+    {
+      "id": "resume.experience[0].period",
+      "category": "resume",
+      "path": "src/data/projects.ts → experience[0].period",
+      "en": "2024 - 2026",
+      "de": "",
+      "it": "",
+      "sourceFile": "src/data/projects.ts"
+    },
+    {
+      "id": "resume.experience[0].title",
+      "category": "resume",
+      "path": "src/data/projects.ts → experience[0].title",
+      "en": "Citizen Developer",
+      "de": "Citizen Developer",
+      "it": "Citizen Developer",
+      "sourceFile": "src/data/projects.ts"
+    },
+    {
+      "id": "resume.experience[0].organization",
+      "category": "resume",
+      "path": "src/data/projects.ts → experience[0].organization",
+      "en": "STRABAG AG",
+      "de": "STRABAG AG",
+      "it": "STRABAG AG",
+      "sourceFile": "src/data/projects.ts"
+    },
+    {
+      "id": "resume.experience[0].description",
+      "category": "resume",
+      "path": "src/data/projects.ts → experience[0].description",
+      "en": "Development of custom software solutions to digitize business processes, including the conception and development of an onboarding tool for Europe-wide use by the HR department.",
+      "de": "Entwicklung von individuellen Softwarelösungen zur Digitalisierung von Unternehmensprozessen. Unter anderem Konzeption und Entwicklung eines Onboarding Tools zum europaweiten Einsatz für die HR-Abteilung.",
+      "it": "Sviluppo di soluzioni software su misura per digitalizzare i processi aziendali, tra cui la concezione e lo sviluppo di uno strumento di onboarding destinato all’impiego in tutta Europa da parte del reparto HR.",
+      "sourceFile": "src/data/projects.ts"
+    },
+    {
+      "id": "resume.experience[1].period",
+      "category": "resume",
+      "path": "src/data/projects.ts → experience[1].period",
+      "en": "2018 - 2021",
+      "de": "",
+      "it": "",
+      "sourceFile": "src/data/projects.ts"
+    },
+    {
+      "id": "resume.experience[1].title",
+      "category": "resume",
+      "path": "src/data/projects.ts → experience[1].title",
+      "en": "Research Assistant",
+      "de": "Hilfswissenschaftler",
+      "it": "Assistente alla ricerca",
+      "sourceFile": "src/data/projects.ts"
+    },
+    {
+      "id": "resume.experience[1].organization",
+      "category": "resume",
+      "path": "src/data/projects.ts → experience[1].organization",
+      "en": "German Aerospace Center (DLR)",
+      "de": "Deutsches Zentrum für Luft- und Raumfahrt e.V.",
+      "it": "Centro aerospaziale tedesco (DLR)",
+      "sourceFile": "src/data/projects.ts"
+    },
+    {
+      "id": "resume.experience[1].description",
+      "category": "resume",
+      "path": "src/data/projects.ts → experience[1].description",
+      "en": "Software development and research on a new on-board computer architecture for spacecraft as part of the ScOSA project.",
+      "de": "Softwareentwicklung und Forschung an einer neuen Onboard-Computerarchitektur für Raumfahrzeuge im Rahmen des Projektes ScOSA.",
+      "it": "Sviluppo software e ricerca su una nuova architettura di computer di bordo per veicoli spaziali nell’ambito del progetto ScOSA.",
+      "sourceFile": "src/data/projects.ts"
+    },
+    {
+      "id": "resume.education[0].period",
+      "category": "resume",
+      "path": "src/data/projects.ts → education[0].period",
+      "en": "2024 - Present",
+      "de": "2024 - Heute",
+      "it": "2024 - oggi",
+      "sourceFile": "src/data/projects.ts"
+    },
+    {
+      "id": "resume.education[0].title",
+      "category": "resume",
+      "path": "src/data/projects.ts → education[0].title",
+      "en": "MSc Architecture",
+      "de": "MSc. Architektur",
+      "it": "MSc in Architettura",
+      "sourceFile": "src/data/projects.ts"
+    },
+    {
+      "id": "resume.education[0].organization",
+      "category": "resume",
+      "path": "src/data/projects.ts → education[0].organization",
+      "en": "RWTH Aachen",
+      "de": "RWTH Aachen",
+      "it": "RWTH Aachen",
+      "sourceFile": "src/data/projects.ts"
+    },
+    {
+      "id": "resume.education[1].period",
+      "category": "resume",
+      "path": "src/data/projects.ts → education[1].period",
+      "en": "2021 - 2024",
+      "de": "",
+      "it": "",
+      "sourceFile": "src/data/projects.ts"
+    },
+    {
+      "id": "resume.education[1].title",
+      "category": "resume",
+      "path": "src/data/projects.ts → education[1].title",
+      "en": "BSc Architecture",
+      "de": "BSc. Architektur",
+      "it": "BSc in Architettura",
+      "sourceFile": "src/data/projects.ts"
+    },
+    {
+      "id": "resume.education[1].organization",
+      "category": "resume",
+      "path": "src/data/projects.ts → education[1].organization",
+      "en": "RWTH Aachen",
+      "de": "RWTH Aachen",
+      "it": "RWTH Aachen",
+      "sourceFile": "src/data/projects.ts"
+    },
+    {
+      "id": "resume.education[1].grade",
+      "category": "resume",
+      "path": "src/data/projects.ts → education[1].grade",
+      "en": "Grade: 1.8",
+      "de": "Note: 1,8",
+      "it": "Voto: 1,8",
+      "sourceFile": "src/data/projects.ts"
+    },
+    {
+      "id": "resume.education[2].period",
+      "category": "resume",
+      "path": "src/data/projects.ts → education[2].period",
+      "en": "2017",
+      "de": "",
+      "it": "",
+      "sourceFile": "src/data/projects.ts"
+    },
+    {
+      "id": "resume.education[2].title",
+      "category": "resume",
+      "path": "src/data/projects.ts → education[2].title",
+      "en": "Abitur",
+      "de": "Abitur",
+      "it": "Abitur",
+      "sourceFile": "src/data/projects.ts"
+    },
+    {
+      "id": "resume.education[2].organization",
+      "category": "resume",
+      "path": "src/data/projects.ts → education[2].organization",
+      "en": "Gymnasium im Schloss",
+      "de": "Gymnasium im Schloss",
+      "it": "Gymnasium im Schloss",
+      "sourceFile": "src/data/projects.ts"
+    },
+    {
+      "id": "resume.education[2].grade",
+      "category": "resume",
+      "path": "src/data/projects.ts → education[2].grade",
+      "en": "Grade: 1.8",
+      "de": "Note: 1,8",
+      "it": "Voto: 1,8",
+      "sourceFile": "src/data/projects.ts"
+    },
+    {
+      "id": "resume.skills.architecture[0]",
+      "category": "resume",
+      "path": "src/data/projects.ts → skills.architecture[0]",
+      "en": "Graphisoft Archicad",
+      "de": "Graphisoft Archicad",
+      "it": "Graphisoft Archicad",
+      "notes": "Tool names; same in all languages unless you localize product names.",
+      "sourceFile": "src/data/projects.ts"
+    },
+    {
+      "id": "resume.skills.architecture[1]",
+      "category": "resume",
+      "path": "src/data/projects.ts → skills.architecture[1]",
+      "en": "Affinity",
+      "de": "Affinity",
+      "it": "Affinity",
+      "notes": "Tool names; same in all languages unless you localize product names.",
+      "sourceFile": "src/data/projects.ts"
+    },
+    {
+      "id": "resume.skills.architecture[2]",
+      "category": "resume",
+      "path": "src/data/projects.ts → skills.architecture[2]",
+      "en": "Twinmotion",
+      "de": "Twinmotion",
+      "it": "Twinmotion",
+      "notes": "Tool names; same in all languages unless you localize product names.",
+      "sourceFile": "src/data/projects.ts"
+    },
+    {
+      "id": "resume.skills.software[0]",
+      "category": "resume",
+      "path": "src/data/projects.ts → skills.software[0]",
+      "en": "Full-stack web development",
+      "de": "Full-Stack-Webentwicklung",
+      "it": "Sviluppo web full stack",
+      "sourceFile": "src/data/projects.ts"
+    },
+    {
+      "id": "resume.skills.software[1]",
+      "category": "resume",
+      "path": "src/data/projects.ts → skills.software[1]",
+      "en": "Programming: Python, Java",
+      "de": "Programmieren in Python, Java",
+      "it": "Programmazione: Python, Java",
+      "sourceFile": "src/data/projects.ts"
+    },
+    {
+      "id": "resume.skills.software[2]",
+      "category": "resume",
+      "path": "src/data/projects.ts → skills.software[2]",
+      "en": "Version control with Git",
+      "de": "Git-Versionskontrolle",
+      "it": "Controllo di versione con Git",
+      "sourceFile": "src/data/projects.ts"
+    },
+    {
+      "id": "resume.skills.software[3]",
+      "category": "resume",
+      "path": "src/data/projects.ts → skills.software[3]",
+      "en": "Microsoft Power Platform",
+      "de": "Microsoft Power Platform",
+      "it": "Microsoft Power Platform",
+      "sourceFile": "src/data/projects.ts"
+    },
+    {
+      "id": "resume.languages[0].name",
+      "category": "resume",
+      "path": "src/data/projects.ts → languages[0].name",
+      "en": "German",
+      "de": "Deutsch",
+      "it": "Tedesco",
+      "sourceFile": "src/data/projects.ts"
+    },
+    {
+      "id": "resume.languages[1].name",
+      "category": "resume",
+      "path": "src/data/projects.ts → languages[1].name",
+      "en": "English",
+      "de": "Englisch",
+      "it": "Inglese",
+      "sourceFile": "src/data/projects.ts"
+    },
+    {
+      "id": "resume.languages[2].name",
+      "category": "resume",
+      "path": "src/data/projects.ts → languages[2].name",
+      "en": "Italian",
+      "de": "Italienisch",
+      "it": "Italiano",
+      "sourceFile": "src/data/projects.ts"
+    },
+    {
+      "id": "resume.languages[2].level",
+      "category": "resume",
+      "path": "src/data/projects.ts → languages[2].level",
+      "en": "UNIcert I (B1)",
+      "de": "UNIcert I (B1)",
+      "it": "UNIcert I (B1)",
+      "notes": "Certification label; localize if desired.",
+      "sourceFile": "src/data/projects.ts"
+    },
+    {
+      "id": "resume.publications[0].title",
+      "category": "resume",
+      "path": "src/data/projects.ts → publications[0].title",
+      "en": "Entwicklung eines digitalen Werkzeuges für die Tragwerkslehre - Der digitale Cremonaplan",
+      "de": "",
+      "it": "",
+      "notes": "Currently English only on the site; add de/it to translate publication titles.",
+      "sourceFile": "src/data/projects.ts"
+    },
+    {
+      "id": "resume.publications[0].description",
+      "category": "resume",
+      "path": "src/data/projects.ts → publications[0].description",
+      "en": "2024, Hannes Watolla",
+      "de": "",
+      "it": "",
+      "notes": "Currently English only on the site.",
+      "sourceFile": "src/data/projects.ts"
+    },
+    {
+      "id": "resume.publications[1].title",
+      "category": "resume",
+      "path": "src/data/projects.ts → publications[1].title",
+      "en": "ScOSA system software: the reliable and scalable middleware for a heterogeneous and distributed on-board computer architecture",
+      "de": "",
+      "it": "",
+      "notes": "Currently English only on the site; add de/it to translate publication titles.",
+      "sourceFile": "src/data/projects.ts"
+    },
+    {
+      "id": "resume.publications[1].description",
+      "category": "resume",
+      "path": "src/data/projects.ts → publications[1].description",
+      "en": "2021, DLR",
+      "de": "",
+      "it": "",
+      "notes": "Currently English only on the site.",
+      "sourceFile": "src/data/projects.ts"
+    },
+    {
+      "id": "resume.publications[2].title",
+      "category": "resume",
+      "path": "src/data/projects.ts → publications[2].title",
+      "en": "Model-Based Reconfiguration Planning for a Distributed On-board Computer",
+      "de": "",
+      "it": "",
+      "notes": "Currently English only on the site; add de/it to translate publication titles.",
+      "sourceFile": "src/data/projects.ts"
+    },
+    {
+      "id": "resume.publications[2].description",
+      "category": "resume",
+      "path": "src/data/projects.ts → publications[2].description",
+      "en": "2020, DLR",
+      "de": "",
+      "it": "",
+      "notes": "Currently English only on the site.",
+      "sourceFile": "src/data/projects.ts"
+    },
+    {
+      "id": "projects.kita-farbenspiel.title",
+      "category": "project",
+      "path": "project.json + manifest → title",
+      "en": "KiTa Farbenspiel",
+      "de": "KiTa Farbenspiel",
+      "it": "KiTa Farbenspiel",
+      "sourceFile": "Projects/Architecture/Master/KiTa Farbenspiel/project.json"
+    },
+    {
+      "id": "projects.kita-farbenspiel.description",
+      "category": "project",
+      "path": "project.json + manifest → description",
+      "en": "Design for a sustainable extension of KiTa Farbenspiel in Aachen-Baesweiler.",
+      "de": "Entwurf einer nachhaltigen Erweiterung der KiTa Farbenspiel in Aachen Baesweiler.",
+      "it": "Progetto per l’ampliamento sostenibile della KiTa Farbenspiel ad Aachen-Baesweiler.",
+      "sourceFile": "Projects/Architecture/Master/KiTa Farbenspiel/project.json"
+    },
+    {
+      "id": "projects.kita-farbenspiel.context",
+      "category": "project",
+      "path": "project.json + manifest → context",
+      "en": "Design project during master's studies",
+      "de": "Entwurfsprojekt im Masterstudium",
+      "it": "Progetto di architettura durante la laurea magistrale",
+      "sourceFile": "Projects/Architecture/Master/KiTa Farbenspiel/project.json"
+    },
+    {
+      "id": "projects.kita-farbenspiel.blocks[0].text",
+      "category": "project",
+      "path": "projects.kita-farbenspiel.blocks[0] (image) → text",
+      "en": "Four key design principles underpin the concept for KiTa Farbenspiel: an expanded interior with the qualities of outdoor space, a sustainable approach to the existing fabric and materials, the design integration of the different construction phases, and passive strategies for a comfortable indoor climate.\n\n**Outdoor space within the interior**\n\nThe interior is conceived as a versatile experiential environment that encourages movement, exploration, and hiding. Particularly in rain or extreme heat, it offers an attractive alternative to the outdoor grounds.\n\n**Sustainability**\n\nExisting structures are retained wherever possible and supplemented with natural, sustainable materials. Green façades and roofs, together with the use of solar energy, reinforce the resource-efficient character of the design.\n\n**Unity**\n\nThe different construction phases are brought together into a harmonious overall composition. A clear architectural and urban form gives the project a coherent expression.\n\n**Passive strategies**\n\nNatural daylight and ventilation form the basis for a comfortable indoor climate. Overhangs, light wells, and vegetation provide shading, while cross-ventilation and the stack effect enable natural air circulation.",
+      "de": "Für das Konzept der KiTa Farbenspiel stehen vier zentrale Entwurfsprinzipien im Mittelpunkt: ein erweiterter Innenraum mit Außenraumqualitäten, ein nachhaltiger Umgang mit Bestand und Materialien, die gestalterische Verbindung der Bauphasen sowie passive Strategien für ein angenehmes Raumklima.\n\n**Außenraum im Innenraum**\n\nDer Innenraum wird als vielseitiger Erlebnisraum gedacht, der Bewegung, Entdecken und Verstecken ermöglicht. Dadurch entsteht insbesondere bei Regen oder großer Hitze eine attraktive Alternative zum Außengelände.\n\n**Nachhaltigkeit**\n\nBestehende Strukturen werden, wo möglich, erhalten und durch natürliche, nachhaltige Materialien ergänzt. Begrünung an Fassade und Dach sowie die Nutzung von Solarenergie stärken den ressourcenschonenden Charakter des Entwurfs.\n\n**Einheit**\n\nDie unterschiedlichen Bauphasen werden zu einem harmonischen Gesamtbild zusammengeführt. Eine klare architektonische und städtebauliche Form schafft dabei einen zusammenhängenden Ausdruck.\n\n**Passive Strategien**\n\nNatürliche Belichtung und Belüftung bilden die Grundlage für ein angenehmes Raumklima. Überhänge, Lichtschächte und Vegetation unterstützen die Verschattung, während Querlüftung und Kamineffekt eine natürliche Luftzirkulation ermöglichen.",
+      "it": "Quattro principi progettuali fondamentali definiscono il concept della KiTa Farbenspiel: un interno ampliato con le qualità proprie dello spazio esterno, un approccio sostenibile all’esistente e ai materiali, l’integrazione progettuale delle diverse fasi costruttive e strategie passive per garantire un clima interno confortevole.\n\n**Lo spazio esterno all’interno**\n\nL’interno è concepito come uno spazio esperienziale versatile che favorisce il movimento, l’esplorazione e il nascondersi. Soprattutto in caso di pioggia o caldo intenso, offre un’alternativa interessante agli spazi esterni.\n\n**Sostenibilità**\n\nLe strutture esistenti vengono mantenute ove possibile e integrate con materiali naturali e sostenibili. Il verde in facciata e in copertura, insieme all’impiego dell’energia solare, rafforza il carattere attento all’uso delle risorse del progetto.\n\n**Unità**\n\nLe diverse fasi costruttive vengono ricomposte in un insieme armonioso. Una forma architettonica e urbanistica chiara conferisce al progetto un’espressione coerente.\n\n**Strategie passive**\n\nL’illuminazione naturale e la ventilazione costituiscono la base per un clima interno confortevole. Aggetti, pozzi di luce e vegetazione favoriscono l’ombreggiamento, mentre la ventilazione trasversale e l’effetto camino consentono una circolazione naturale dell’aria.",
+      "sourceFile": "Projects/Architecture/Master/KiTa Farbenspiel/project.json"
+    },
+    {
+      "id": "projects.kita-farbenspiel.blocks[1].text",
+      "category": "project",
+      "path": "projects.kita-farbenspiel.blocks[1] (image) → text",
+      "en": "*Outdoor space within the interior*",
+      "de": "*Außenraum im Innenraum*",
+      "it": "*Lo spazio esterno all’interno*",
+      "sourceFile": "Projects/Architecture/Master/KiTa Farbenspiel/project.json"
+    },
+    {
+      "id": "projects.kita-farbenspiel.blocks[2].text",
+      "category": "project",
+      "path": "projects.kita-farbenspiel.blocks[2] (image) → text",
+      "en": "*Activity room on the ground floor*",
+      "de": "*Bewegungsraum im Erdgeschoss*",
+      "it": "*Sala per attività motorie al piano terra*",
+      "sourceFile": "Projects/Architecture/Master/KiTa Farbenspiel/project.json"
+    },
+    {
+      "id": "projects.kita-farbenspiel.blocks[3].text",
+      "category": "project",
+      "path": "projects.kita-farbenspiel.blocks[3] (image) → text",
+      "en": "*Sectional perspective*",
+      "de": "*Schnittperspektive*",
+      "it": "*Prospettiva in sezione*",
+      "sourceFile": "Projects/Architecture/Master/KiTa Farbenspiel/project.json"
+    },
+    {
+      "id": "projects.kita-farbenspiel.blocks[4].text",
+      "category": "project",
+      "path": "projects.kita-farbenspiel.blocks[4] (collage) → text",
+      "en": "*Existing structure / demolition / new construction*",
+      "de": "*Bestand/Abbruch/Neubau*",
+      "it": "*Esistente / demolizione / nuova costruzione*",
+      "sourceFile": "Projects/Architecture/Master/KiTa Farbenspiel/project.json"
+    },
+    {
+      "id": "projects.kita-farbenspiel.blocks[5].text",
+      "category": "project",
+      "path": "projects.kita-farbenspiel.blocks[5] (image) → text",
+      "en": "*Elevations*",
+      "de": "*Ansichten*",
+      "it": "*Prospetti*",
+      "sourceFile": "Projects/Architecture/Master/KiTa Farbenspiel/project.json"
+    },
+    {
+      "id": "projects.kita-farbenspiel.blocks[6].text",
+      "category": "project",
+      "path": "projects.kita-farbenspiel.blocks[6] (collage) → text",
+      "en": "*Floor plans*",
+      "de": "*Grundrisse*",
+      "it": "*Planimetrie*",
+      "sourceFile": "Projects/Architecture/Master/KiTa Farbenspiel/project.json"
+    },
+    {
+      "id": "projects.kita-farbenspiel.blocks[7].text",
+      "category": "project",
+      "path": "projects.kita-farbenspiel.blocks[7] (image) → text",
+      "en": "*Facade*",
+      "de": "*Fassade*",
+      "it": "*Facciata*",
+      "sourceFile": "Projects/Architecture/Master/KiTa Farbenspiel/project.json"
+    },
+    {
+      "id": "projects.hotel-viadukt.title",
+      "category": "project",
+      "path": "project.json + manifest → title",
+      "en": "Hotel Viadukt",
+      "de": "Hotel Viadukt",
+      "it": "Hotel Viadukt",
+      "sourceFile": "Projects/Architecture/Master/Hotel Viadukt/project.json"
+    },
+    {
+      "id": "projects.hotel-viadukt.description",
+      "category": "project",
+      "path": "project.json + manifest → description",
+      "en": "Design for a thermal spa hotel at the Burtscheid Viaduct in Aachen.",
+      "de": "Entwurf eines Thermalhotels am Burtscheider Viadukt in Aachen.",
+      "it": "Progetto di un hotel termale presso il viadotto di Burtscheid ad Aquisgrana.",
+      "sourceFile": "Projects/Architecture/Master/Hotel Viadukt/project.json"
+    },
+    {
+      "id": "projects.hotel-viadukt.context",
+      "category": "project",
+      "path": "project.json + manifest → context",
+      "en": "Design project during master's studies",
+      "de": "Entwurfsprojekt im Masterstudium",
+      "it": "Progetto di architettura durante la laurea magistrale",
+      "sourceFile": "Projects/Architecture/Master/Hotel Viadukt/project.json"
+    },
+    {
+      "id": "projects.hotel-viadukt.blocks[0].text",
+      "category": "project",
+      "path": "projects.hotel-viadukt.blocks[0] (image) → text",
+      "en": "Hotel Viadukt combines a place of retreat, wellness facilities, and an urban meeting point. The design addresses guests seeking relaxation, business travelers, and conference attendees, bringing thermal-bath and sauna facilities, conference spaces, and dining under one roof.\n\nAt the same time, the hotel opens up to the city: publicly accessible wellness facilities, a hotel bar, and a top-floor restaurant overlooking Aachen create a vibrant meeting place for guests and local residents.",
+      "de": "Das Hotel Viadukt verbindet Rückzugsort, Wellnessangebot und urbanen Treffpunkt. Der Entwurf richtet sich an Erholungssuchende, Geschäftsreisende und Konferenzgäste und vereint Thermal- und Saunalandschaft, Tagungsbereiche sowie Gastronomie unter einem Dach.\n\nGleichzeitig öffnet sich das Hotel zur Stadt: Eine öffentlich zugängliche Wellnesslandschaft, Hotelbar und ein Restaurant im Dachgeschoss mit Blick über Aachen schaffen einen lebendigen Ort der Begegnung für Gäste und Stadtbewohner.",
+      "it": "L’Hotel Viadukt combina un luogo di ritiro, un’offerta benessere e un punto d’incontro urbano. Il progetto si rivolge a chi cerca relax, ai viaggiatori d’affari e ai partecipanti a conferenze, riunendo sotto lo stesso tetto aree termali e saune, spazi per convegni e ristorazione.\n\nAllo stesso tempo, l’hotel si apre alla città: un’area benessere accessibile al pubblico, il bar dell’hotel e un ristorante all’ultimo piano con vista su Aquisgrana creano un vivace luogo d’incontro per ospiti e residenti.",
+      "sourceFile": "Projects/Architecture/Master/Hotel Viadukt/project.json"
+    },
+    {
+      "id": "projects.hotel-viadukt.blocks[1].text",
+      "category": "project",
+      "path": "projects.hotel-viadukt.blocks[1] (image) → text",
+      "en": "The hotel creates a new vertical landmark in the urban fabric while fitting harmoniously into the existing skyline. This establishes sightlines from the Kurpark, the viaduct, and from afar.\n\nAt this historic site, Aachen's spa culture is brought to the fore through a confident architectural language.",
+      "de": "Das Hotel bildet einen neuen Hochpunkt im Stadtraum, der sich harmonisch in die bestehende Silhouette einfügt. Dadurch entstehen Blickachsen - vom Kurpark, vom Viadukt und aus der Ferne.\n\nDie Aachener Badekultur wird an einem historischen Standort mit einer selbstbewussten Architektursprache in den Vordergrund gerückt.",
+      "it": "L’hotel introduce un nuovo punto di riferimento verticale nel tessuto urbano, integrandosi armoniosamente nello skyline esistente. Si creano così assi visuali dal Kurpark, dal viadotto e da lontano.\n\nIn questo luogo storico, la cultura termale di Aquisgrana viene posta in primo piano attraverso un linguaggio architettonico deciso.",
+      "sourceFile": "Projects/Architecture/Master/Hotel Viadukt/project.json"
+    },
+    {
+      "id": "projects.hotel-viadukt.blocks[2].text",
+      "category": "project",
+      "path": "projects.hotel-viadukt.blocks[2] (image) → text",
+      "en": "*Perspective views of the design*",
+      "de": "*Perspektivische Darstellungen des Entwurfes*",
+      "it": "*Viste prospettiche del progetto*",
+      "sourceFile": "Projects/Architecture/Master/Hotel Viadukt/project.json"
+    },
+    {
+      "id": "projects.hotel-viadukt.blocks[3].text",
+      "category": "project",
+      "path": "projects.hotel-viadukt.blocks[3] (image) → text",
+      "en": "*Elevations of the design*",
+      "de": "*Ansichten des Entwurfes*",
+      "it": "*Prospetti del progetto*",
+      "sourceFile": "Projects/Architecture/Master/Hotel Viadukt/project.json"
+    },
+    {
+      "id": "projects.hotel-viadukt.blocks[4].text",
+      "category": "project",
+      "path": "projects.hotel-viadukt.blocks[4] (image) → text",
+      "en": "*Floor plans*",
+      "de": "*Grundrisse*",
+      "it": "*Planimetrie*",
+      "sourceFile": "Projects/Architecture/Master/Hotel Viadukt/project.json"
+    },
+    {
+      "id": "projects.hotel-viadukt.blocks[5].text",
+      "category": "project",
+      "path": "projects.hotel-viadukt.blocks[5] (image) → text",
+      "en": "*Sections*",
+      "de": "*Schnitte*",
+      "it": "*Sezioni*",
+      "sourceFile": "Projects/Architecture/Master/Hotel Viadukt/project.json"
+    },
+    {
+      "id": "projects.hotel-viadukt.blocks[6].text",
+      "category": "project",
+      "path": "projects.hotel-viadukt.blocks[6] (image) → text",
+      "en": "*Facade*",
+      "de": "*Fassade*",
+      "it": "*Facciata*",
+      "sourceFile": "Projects/Architecture/Master/Hotel Viadukt/project.json"
+    },
+    {
+      "id": "projects.hotel-viadukt.blocks[7].text",
+      "category": "project",
+      "path": "projects.hotel-viadukt.blocks[7] (collage) → text",
+      "en": "*Interior impressions — left: lobby, centre: thermal bath, right: hotel-room bathroom*",
+      "de": "*Impressionen aus dem Innenraum, links: Lobby, mittig: Thermalbad, rechts: Hotelzimmerbad*",
+      "it": "*Impressioni degli interni — a sinistra: lobby, al centro: area termale, a destra: bagno della camera d’hotel*",
+      "sourceFile": "Projects/Architecture/Master/Hotel Viadukt/project.json"
+    },
+    {
+      "id": "projects.hotel-viadukt.links[0].title",
+      "category": "project",
+      "path": "projects.hotel-viadukt.links[0] → title",
+      "en": "RWTH Ages Chair | Best of Summer Semester 2025",
+      "de": "RWTH Ages Lehrstuhl | Best of SoSe 2025",
+      "it": "Cattedra RWTH Ages | Best of semestre estivo 2025",
+      "sourceFile": "Projects/Architecture/Master/Hotel Viadukt/project.json"
+    },
+    {
+      "id": "projects.hotel-viadukt.links[0].description",
+      "category": "project",
+      "path": "projects.hotel-viadukt.links[0] → description",
+      "en": "Our design was exhibited in the Chair of Architectural History's Best-of exhibition for the 2025 summer semester.",
+      "de": "Unser Entwurf wurde ausgestellt im Best-of des Lehrstuhls für Architekturgeschichte des Sommersemesters 2025.",
+      "it": "Il nostro progetto è stato esposto nella mostra Best-of della Cattedra di Storia dell’Architettura per il semestre estivo 2025.",
+      "sourceFile": "Projects/Architecture/Master/Hotel Viadukt/project.json"
+    },
+    {
+      "id": "projects.quartier-544.title",
+      "category": "project",
+      "path": "project.json + manifest → title",
+      "en": "Quartier 544",
+      "de": "Quartier 544",
+      "it": "Quartier 544",
+      "sourceFile": "Projects/Architecture/Bachelor/Quartier 544/project.json"
+    },
+    {
+      "id": "projects.quartier-544.description",
+      "category": "project",
+      "path": "project.json + manifest → description",
+      "en": "Urban design proposal for the redevelopment of a district at Europaplatz in Aachen.",
+      "de": "Städtebaulicher Entwurf für die Neugestaltung eines Quartiers am Europaplatz in Aachen.",
+      "it": "Progetto urbanistico per la riqualificazione di un quartiere presso l’Europaplatz ad Aquisgrana.",
+      "sourceFile": "Projects/Architecture/Bachelor/Quartier 544/project.json"
+    },
+    {
+      "id": "projects.quartier-544.context",
+      "category": "project",
+      "path": "project.json + manifest → context",
+      "en": "Urban design project during bachelor's studies",
+      "de": "Städtebaulicher Entwurf im Bachelorstudium",
+      "it": "Progetto urbanistico durante la laurea triennale",
+      "sourceFile": "Projects/Architecture/Bachelor/Quartier 544/project.json"
+    },
+    {
+      "id": "projects.quartier-544.blocks[0].text",
+      "category": "project",
+      "path": "projects.quartier-544.blocks[0] (image) → text",
+      "en": "*Urban analysis*",
+      "de": "*Städtebauliche Analyse*",
+      "it": "*Analisi urbanistica*",
+      "sourceFile": "Projects/Architecture/Bachelor/Quartier 544/project.json"
+    },
+    {
+      "id": "projects.quartier-544.blocks[1].text",
+      "category": "project",
+      "path": "projects.quartier-544.blocks[1] (image) → text",
+      "en": "*Concept*",
+      "de": "*Konzept*",
+      "it": "*Concetto*",
+      "sourceFile": "Projects/Architecture/Bachelor/Quartier 544/project.json"
+    },
+    {
+      "id": "projects.quartier-544.blocks[2].text",
+      "category": "project",
+      "path": "projects.quartier-544.blocks[2] (image) → text",
+      "en": "*Design plan*",
+      "de": "*Entwurfsplan*",
+      "it": "*Piano di progetto*",
+      "sourceFile": "Projects/Architecture/Bachelor/Quartier 544/project.json"
+    },
+    {
+      "id": "projects.quartier-544.blocks[3].text",
+      "category": "project",
+      "path": "projects.quartier-544.blocks[3] (image) → text",
+      "en": "*Construction phases*",
+      "de": "*Bauphasen*",
+      "it": "*Fasi costruttive*",
+      "sourceFile": "Projects/Architecture/Bachelor/Quartier 544/project.json"
+    },
+    {
+      "id": "projects.quartier-544.blocks[4].text",
+      "category": "project",
+      "path": "projects.quartier-544.blocks[4] (image) → text",
+      "en": "*Design development*",
+      "de": "*Vertiefung*",
+      "it": "*Approfondimento progettuale*",
+      "sourceFile": "Projects/Architecture/Bachelor/Quartier 544/project.json"
+    },
+    {
+      "id": "projects.quartier-544.blocks[5].text",
+      "category": "project",
+      "path": "projects.quartier-544.blocks[5] (collage) → text",
+      "en": "*Sections*",
+      "de": "*Schnitte*",
+      "it": "*Sezioni*",
+      "sourceFile": "Projects/Architecture/Bachelor/Quartier 544/project.json"
+    },
+    {
+      "id": "projects.quartier-544.blocks[6].text",
+      "category": "project",
+      "path": "projects.quartier-544.blocks[6] (image) → text",
+      "en": "*Visualizations*",
+      "de": "*Visualisierungen*",
+      "it": "*Visualizzazioni*",
+      "sourceFile": "Projects/Architecture/Bachelor/Quartier 544/project.json"
+    },
+    {
+      "id": "projects.quartier-544.blocks[7].text",
+      "category": "project",
+      "path": "projects.quartier-544.blocks[7] (image) → text",
+      "en": "*Physical model*",
+      "de": "*Modellbau*",
+      "it": "*Modello fisico*",
+      "sourceFile": "Projects/Architecture/Bachelor/Quartier 544/project.json"
+    },
+    {
+      "id": "projects.quartier-544.links[0].title",
+      "category": "project",
+      "path": "projects.quartier-544.links[0] → title",
+      "en": "RWTH Chair of Urban Design | Exhibition 2024: Europaquartier",
+      "de": "RWTH Städtebau Lehrstuhl | Ausstellung 2024: Europaquartier",
+      "it": "Cattedra di Urbanistica RWTH | Mostra 2024: Europaquartier",
+      "sourceFile": "Projects/Architecture/Bachelor/Quartier 544/project.json"
+    },
+    {
+      "id": "projects.quartier-544.links[0].description",
+      "category": "project",
+      "path": "projects.quartier-544.links[0] → description",
+      "en": "Our design was selected for an exhibition by the Chair of Urban Design at the Aachen Technology Center.",
+      "de": "Unser Entwurf wurde ausgewählt für eine Ausstellung des Lehrstuhls für Städtebau im Technologiezentrum Aachen.",
+      "it": "Il nostro progetto è stato selezionato per una mostra della Cattedra di Urbanistica presso il Centro Tecnologico di Aquisgrana.",
+      "sourceFile": "Projects/Architecture/Bachelor/Quartier 544/project.json"
+    },
+    {
+      "id": "projects.urban-mining-hub.title",
+      "category": "project",
+      "path": "project.json + manifest → title",
+      "en": "Urban Mining Hub",
+      "de": "Urban Mining Hub",
+      "it": "Urban Mining Hub",
+      "sourceFile": "Projects/Architecture/Bachelor/Urban Mining Hub/project.json"
+    },
+    {
+      "id": "projects.urban-mining-hub.description",
+      "category": "project",
+      "path": "project.json + manifest → description",
+      "en": "Design for an Urban Mining Hub on the site of Aachen's municipal services department.",
+      "de": "Entwurf eines Urban Mining Hubs auf dem Gelände des Aachener Stadtbetriebes.",
+      "it": "Progetto di un Urban Mining Hub nell’area del servizio comunale di Aquisgrana.",
+      "sourceFile": "Projects/Architecture/Bachelor/Urban Mining Hub/project.json"
+    },
+    {
+      "id": "projects.urban-mining-hub.context",
+      "category": "project",
+      "path": "project.json + manifest → context",
+      "en": "Design project during bachelor's studies",
+      "de": "Entwurfsprojekt im Bachelorstudium",
+      "it": "Progetto di architettura durante la laurea triennale",
+      "sourceFile": "Projects/Architecture/Bachelor/Urban Mining Hub/project.json"
+    },
+    {
+      "id": "projects.urban-mining-hub.blocks[0].text",
+      "category": "project",
+      "path": "projects.urban-mining-hub.blocks[0] (collage) → text",
+      "en": "*Concept*",
+      "de": "*Konzept*",
+      "it": "*Concetto*",
+      "sourceFile": "Projects/Architecture/Bachelor/Urban Mining Hub/project.json"
+    },
+    {
+      "id": "projects.urban-mining-hub.blocks[1].text",
+      "category": "project",
+      "path": "projects.urban-mining-hub.blocks[1] (image) → text",
+      "en": "*Axonometric view*",
+      "de": "*Axonometrie*",
+      "it": "*Assonometria*",
+      "sourceFile": "Projects/Architecture/Bachelor/Urban Mining Hub/project.json"
+    },
+    {
+      "id": "projects.urban-mining-hub.blocks[2].text",
+      "category": "project",
+      "path": "projects.urban-mining-hub.blocks[2] (image) → text",
+      "en": "*Floor plans*",
+      "de": "*Grundrisse*",
+      "it": "*Planimetrie*",
+      "sourceFile": "Projects/Architecture/Bachelor/Urban Mining Hub/project.json"
+    },
+    {
+      "id": "projects.urban-mining-hub.blocks[3].text",
+      "category": "project",
+      "path": "projects.urban-mining-hub.blocks[3] (image) → text",
+      "en": "*Elevations*",
+      "de": "*Ansichten*",
+      "it": "*Prospetti*",
+      "sourceFile": "Projects/Architecture/Bachelor/Urban Mining Hub/project.json"
+    },
+    {
+      "id": "projects.urban-mining-hub.blocks[4].text",
+      "category": "project",
+      "path": "projects.urban-mining-hub.blocks[4] (image) → text",
+      "en": "*Sections*",
+      "de": "*Schnitte*",
+      "it": "*Sezioni*",
+      "sourceFile": "Projects/Architecture/Bachelor/Urban Mining Hub/project.json"
+    },
+    {
+      "id": "projects.urban-mining-hub.blocks[5].text",
+      "category": "project",
+      "path": "projects.urban-mining-hub.blocks[5] (collage) → text",
+      "en": "*Café*",
+      "de": "*Café*",
+      "it": "*Caffè*",
+      "sourceFile": "Projects/Architecture/Bachelor/Urban Mining Hub/project.json"
+    },
+    {
+      "id": "projects.urban-mining-hub.blocks[6].text",
+      "category": "project",
+      "path": "projects.urban-mining-hub.blocks[6] (collage) → text",
+      "en": "*Construction details*",
+      "de": "*Konstruktionsdetails*",
+      "it": "*Dettagli costruttivi*",
+      "sourceFile": "Projects/Architecture/Bachelor/Urban Mining Hub/project.json"
+    },
+    {
+      "id": "projects.urban-mining-hub.blocks[7].text",
+      "category": "project",
+      "path": "projects.urban-mining-hub.blocks[7] (image) → text",
+      "en": "*Facade section*",
+      "de": "*Fassadenschnitt*",
+      "it": "*Sezione di facciata*",
+      "sourceFile": "Projects/Architecture/Bachelor/Urban Mining Hub/project.json"
+    },
+    {
+      "id": "projects.vennbahn-vitrine.title",
+      "category": "project",
+      "path": "project.json + manifest → title",
+      "en": "Vennbahn Vitrine",
+      "de": "Vennbahn Vitrine",
+      "it": "Vennbahn Vitrine",
+      "sourceFile": "Projects/Architecture/Bachelor/Vennbahn Vitrine/project.json"
+    },
+    {
+      "id": "projects.vennbahn-vitrine.description",
+      "category": "project",
+      "path": "project.json + manifest → description",
+      "en": "Design for a bicycle manufacturing facility along the Vennbahn cycle route in Aachen.",
+      "de": "Entwurf einer Fahrradmanufaktur am Vennbahnradweg in Aachen.",
+      "it": "Progetto di un impianto per la produzione di biciclette lungo la pista ciclabile Vennbahn ad Aquisgrana.",
+      "sourceFile": "Projects/Architecture/Bachelor/Vennbahn Vitrine/project.json"
+    },
+    {
+      "id": "projects.vennbahn-vitrine.context",
+      "category": "project",
+      "path": "project.json + manifest → context",
+      "en": "Design project during bachelor's studies",
+      "de": "Entwurfsprojekt im Bachelorstudium",
+      "it": "Progetto di architettura durante la laurea triennale",
+      "sourceFile": "Projects/Architecture/Bachelor/Vennbahn Vitrine/project.json"
+    },
+    {
+      "id": "projects.vennbahn-vitrine.blocks[0].text",
+      "category": "project",
+      "path": "projects.vennbahn-vitrine.blocks[0] (collage) → text",
+      "en": "*Concept*",
+      "de": "*Konzept*",
+      "it": "*Concetto*",
+      "sourceFile": "Projects/Architecture/Bachelor/Vennbahn Vitrine/project.json"
+    },
+    {
+      "id": "projects.vennbahn-vitrine.blocks[1].text",
+      "category": "project",
+      "path": "projects.vennbahn-vitrine.blocks[1] (image) → text",
+      "en": "*Interior visualization*",
+      "de": "*Visualisierung Innenraum*",
+      "it": "*Visualizzazione dell’interno*",
+      "sourceFile": "Projects/Architecture/Bachelor/Vennbahn Vitrine/project.json"
+    },
+    {
+      "id": "projects.vennbahn-vitrine.blocks[2].text",
+      "category": "project",
+      "path": "projects.vennbahn-vitrine.blocks[2] (image) → text",
+      "en": "*Floor plans*",
+      "de": "*Grundrisse*",
+      "it": "*Planimetrie*",
+      "sourceFile": "Projects/Architecture/Bachelor/Vennbahn Vitrine/project.json"
+    },
+    {
+      "id": "projects.vennbahn-vitrine.blocks[3].text",
+      "category": "project",
+      "path": "projects.vennbahn-vitrine.blocks[3] (image) → text",
+      "en": "*Sections*",
+      "de": "*Schnitte*",
+      "it": "*Sezioni*",
+      "sourceFile": "Projects/Architecture/Bachelor/Vennbahn Vitrine/project.json"
+    },
+    {
+      "id": "projects.vennbahn-vitrine.blocks[4].text",
+      "category": "project",
+      "path": "projects.vennbahn-vitrine.blocks[4] (collage) → text",
+      "en": "*Construction*",
+      "de": "*Aufbau*",
+      "it": "*Sistema costruttivo*",
+      "sourceFile": "Projects/Architecture/Bachelor/Vennbahn Vitrine/project.json"
+    },
+    {
+      "id": "projects.vennbahn-vitrine.blocks[5].text",
+      "category": "project",
+      "path": "projects.vennbahn-vitrine.blocks[5] (collage) → text",
+      "en": "*Facade section*",
+      "de": "*Fassadenschnitt*",
+      "it": "*Sezione di facciata*",
+      "sourceFile": "Projects/Architecture/Bachelor/Vennbahn Vitrine/project.json"
+    },
+    {
+      "id": "projects.vennbahn-vitrine.blocks[7].text",
+      "category": "project",
+      "path": "projects.vennbahn-vitrine.blocks[7] (collage) → text",
+      "en": "*Structural system*",
+      "de": "*Tragwerk*",
+      "it": "*Struttura portante*",
+      "sourceFile": "Projects/Architecture/Bachelor/Vennbahn Vitrine/project.json"
+    },
+    {
+      "id": "projects.vennbahn-vitrine.blocks[9].text",
+      "category": "project",
+      "path": "projects.vennbahn-vitrine.blocks[9] (image) → text",
+      "en": "*Building services*",
+      "de": "*Gebäudetechnik*",
+      "it": "*Impianti tecnici*",
+      "sourceFile": "Projects/Architecture/Bachelor/Vennbahn Vitrine/project.json"
+    },
+    {
+      "id": "projects.vennbahn-vitrine.blocks[10].text",
+      "category": "project",
+      "path": "projects.vennbahn-vitrine.blocks[10] (image) → text",
+      "en": "*Details*",
+      "de": "*Details*",
+      "it": "*Dettagli*",
+      "sourceFile": "Projects/Architecture/Bachelor/Vennbahn Vitrine/project.json"
+    },
+    {
+      "id": "projects.c2d.title",
+      "category": "project",
+      "path": "project.json + manifest → title",
+      "en": "C2D",
+      "de": "C2D",
+      "it": "C2D",
+      "sourceFile": "Projects/Software/C2D/project.json"
+    },
+    {
+      "id": "projects.c2d.description",
+      "category": "project",
+      "path": "project.json + manifest → description",
+      "en": "An app for structural engineering education that enables users to create and graphically solve truss systems using Cremona diagrams.",
+      "de": "Eine App für die Tragwerkslehre, zum Erstellen und graphischen Lösen von Stabtragwerken mit Cremonaplänen.",
+      "it": "Un’app per la didattica delle strutture che consente di creare e risolvere graficamente sistemi reticolari mediante diagrammi di Cremona.",
+      "sourceFile": "Projects/Software/C2D/project.json"
+    },
+    {
+      "id": "projects.c2d.context",
+      "category": "project",
+      "path": "project.json + manifest → context",
+      "en": "Bachelor's thesis",
+      "de": "Bachelorarbeit",
+      "it": "Tesi di laurea triennale",
+      "sourceFile": "Projects/Software/C2D/project.json"
+    },
+    {
+      "id": "projects.c2d.blocks[0].text",
+      "category": "project",
+      "path": "projects.c2d.blocks[0] (image) → text",
+      "en": "*Project poster*",
+      "de": "*Projektposter*",
+      "it": "*Poster del progetto*",
+      "sourceFile": "Projects/Software/C2D/project.json"
+    },
+    {
+      "id": "projects.c2d.blocks[1].text",
+      "category": "project",
+      "path": "projects.c2d.blocks[1] (image) → text",
+      "en": "*Drawing the truss system*",
+      "de": "*Zeichnen des Stabtragwerkes*",
+      "it": "*Disegno del sistema reticolare*",
+      "sourceFile": "Projects/Software/C2D/project.json"
+    },
+    {
+      "id": "projects.c2d.blocks[2].text",
+      "category": "project",
+      "path": "projects.c2d.blocks[2] (image) → text",
+      "en": "*Automatic generation of the Cremona diagram*",
+      "de": "*Automatische Generation des Cremonaplans*",
+      "it": "*Generazione automatica del diagramma di Cremona*",
+      "sourceFile": "Projects/Software/C2D/project.json"
+    },
+    {
+      "id": "projects.c2d.blocks[3].text",
+      "category": "project",
+      "path": "projects.c2d.blocks[3] (image) → text",
+      "en": "*Displaying the results*",
+      "de": "*Anzeigen der Ergebnisse*",
+      "it": "*Visualizzazione dei risultati*",
+      "sourceFile": "Projects/Software/C2D/project.json"
+    },
+    {
+      "id": "projects.c2d.links[0].title",
+      "category": "project",
+      "path": "projects.c2d.links[0] → title",
+      "en": "GitHub | C2D",
+      "de": "GitHub | C2D",
+      "it": "GitHub | C2D",
+      "sourceFile": "Projects/Software/C2D/project.json"
+    },
+    {
+      "id": "projects.c2d.links[0].description",
+      "category": "project",
+      "path": "projects.c2d.links[0] → description",
+      "en": "GitHub repository with source code and a software download.",
+      "de": "GitHub Repository mit Quellcode und Software Download.",
+      "it": "Repository GitHub con codice sorgente e download del software.",
+      "sourceFile": "Projects/Software/C2D/project.json"
+    },
+    {
+      "id": "projects.c2d.links[1].title",
+      "category": "project",
+      "path": "projects.c2d.links[1] → title",
+      "en": "PDF | Bachelor's thesis",
+      "de": "PDF | Bachelorthesis",
+      "it": "PDF | Tesi di laurea triennale",
+      "sourceFile": "Projects/Software/C2D/project.json"
+    },
+    {
+      "id": "projects.c2d.links[1].description",
+      "category": "project",
+      "path": "projects.c2d.links[1] → description",
+      "en": "Download link for the bachelor's thesis.",
+      "de": "Download Link der Bachelorthesis.",
+      "it": "Link di download della tesi di laurea triennale.",
+      "sourceFile": "Projects/Software/C2D/project.json"
+    },
+    {
+      "id": "projects.scosa.title",
+      "category": "project",
+      "path": "project.json + manifest → title",
+      "en": "ScOSA",
+      "de": "ScOSA",
+      "it": "ScOSA",
+      "sourceFile": "Projects/Software/ScOSA/project.json"
+    },
+    {
+      "id": "projects.scosa.description",
+      "category": "project",
+      "path": "project.json + manifest → description",
+      "en": "A DLR research project to develop a new on-board computer architecture for spacecraft.",
+      "de": "Ein Forschungsprojekt des DLR zur Entwicklung einer neuen Onboard-Computerarchitektur für Raumfahrzeuge.",
+      "it": "Un progetto di ricerca del DLR per lo sviluppo di una nuova architettura di computer di bordo per veicoli spaziali.",
+      "sourceFile": "Projects/Software/ScOSA/project.json"
+    },
+    {
+      "id": "projects.scosa.context",
+      "category": "project",
+      "path": "project.json + manifest → context",
+      "en": "Research project at DLR",
+      "de": "Forschungsprojekt am DLR",
+      "it": "Progetto di ricerca presso il DLR",
+      "sourceFile": "Projects/Software/ScOSA/project.json"
+    },
+    {
+      "id": "projects.scosa.blocks[0].text",
+      "category": "project",
+      "path": "projects.scosa.blocks[0] (text) → text",
+      "en": "As part of the ScOSA (Scalable On-Board Computing for Space Avionics) project at the German Aerospace Center (DLR), I worked on software for modeling on-board computer systems and generating reconfigurations of these systems.\n\nUsing a graphical user interface, the software allows the system's nodes, connections, and tasks to be modeled. Based on selected criteria and algorithms, reconfiguration trees can then be generated, each specifying a new system configuration for different node-failure scenarios. The generated reconfiguration trees are provided to the on-board system's middleware before the start of the mission.",
+      "de": "Im Rahmen des Projekts ScOSA (Scalable On-Board Computing for Space Avionics) am Deutschen Zentrum für Luft- und Raumfahrt (DLR) habe ich an einer Software zur Modellierung von Onboard-Computersystemen und zur Generierung von Rekonfigurationen dieser Systeme gearbeitet.\n\nIn der Software können über eine grafische Benutzeroberfläche die Knoten, Verbindungen und Aufgaben des Systems modelliert werden. Anschließend lassen sich anhand ausgewählter Kriterien und Algorithmen Rekonfigurationsbäume generieren, die für verschiedene Ausfallszenarien von Knoten jeweils eine neue Systemkonfiguration vorgeben. Die generierten Rekonfigurationsbäume werden der Middleware des Onboard-Systems vor Beginn der Mission zur Verfügung gestellt.",
+      "it": "Nell’ambito del progetto ScOSA (Scalable On-Board Computing for Space Avionics) presso il Centro aerospaziale tedesco (DLR), ho lavorato a un software per la modellazione di sistemi informatici di bordo e la generazione delle relative riconfigurazioni.\n\nAttraverso un’interfaccia grafica, il software consente di modellare i nodi, le connessioni e i task del sistema. Sulla base di criteri e algoritmi selezionati, è quindi possibile generare alberi di riconfigurazione che definiscono una nuova configurazione del sistema per diversi scenari di guasto dei nodi. Gli alberi di riconfigurazione generati vengono messi a disposizione del middleware del sistema di bordo prima dell’inizio della missione.",
+      "sourceFile": "Projects/Software/ScOSA/project.json"
+    },
+    {
+      "id": "projects.scosa.links[0].title",
+      "category": "project",
+      "path": "projects.scosa.links[0] → title",
+      "en": "DLR | ScOSA",
+      "de": "DLR | ScOSA",
+      "it": "DLR | ScOSA",
+      "sourceFile": "Projects/Software/ScOSA/project.json"
+    },
+    {
+      "id": "projects.scosa.links[0].description",
+      "category": "project",
+      "path": "projects.scosa.links[0] → description",
+      "en": "Project description on the DLR website.",
+      "de": "Projektbeschreibung auf der DLR Website.",
+      "it": "Descrizione del progetto sul sito web del DLR.",
+      "sourceFile": "Projects/Software/ScOSA/project.json"
+    },
+    {
+      "id": "projects.scosa.links[1].title",
+      "category": "project",
+      "path": "projects.scosa.links[1] → title",
+      "en": "CEAS Space Journal | ScOSA system software: the reliable and scalable middleware for a heterogeneous and distributed on-board computer architecture",
+      "de": "CEAS Space Journal | ScOSA system software: the reliable and scalable middleware for a heterogeneous and distributed on-board computer architecture",
+      "it": "CEAS Space Journal | ScOSA system software: the reliable and scalable middleware for a heterogeneous and distributed on-board computer architecture",
+      "sourceFile": "Projects/Software/ScOSA/project.json"
+    },
+    {
+      "id": "projects.scosa.links[1].description",
+      "category": "project",
+      "path": "projects.scosa.links[1] → description",
+      "en": "2021, DLR",
+      "de": "2021, DLR",
+      "it": "2021, DLR",
+      "sourceFile": "Projects/Software/ScOSA/project.json"
+    },
+    {
+      "id": "projects.scosa.links[2].title",
+      "category": "project",
+      "path": "projects.scosa.links[2] → title",
+      "en": "SAM '20 | Model-Based Reconfiguration Planning for a Distributed On-board Computer",
+      "de": "SAM '20 | Model-Based Reconfiguration Planning for a Distributed On-board Computer",
+      "it": "SAM '20 | Model-Based Reconfiguration Planning for a Distributed On-board Computer",
+      "sourceFile": "Projects/Software/ScOSA/project.json"
+    },
+    {
+      "id": "projects.scosa.links[2].description",
+      "category": "project",
+      "path": "projects.scosa.links[2] → description",
+      "en": "2020, DLR",
+      "de": "2020, DLR",
+      "it": "2020, DLR",
+      "sourceFile": "Projects/Software/ScOSA/project.json"
+    }
+  ]
+}
