@@ -4,7 +4,9 @@ import { profile, profilePhotoCutout } from '../data/profile'
 import { education, experience, languages, skills } from '../data/projects'
 import type { SupportedLanguage } from '../i18n/routing'
 import { ResumePdfDocument } from '../pdf/ResumePdfDocument'
-import { imageUrlToDataUrl } from './imageDataUrl'
+import { ensureResumePdfFonts } from '../pdf/registerResumeFonts'
+import { cropResumeCutoutPhoto, imageUrlToDataUrl } from './imageDataUrl'
+import { formatResumePdfDate } from './formatResumePdfDate'
 import { localizeResumeEntry } from './localizeResumeEntry'
 import { localizedResumeText } from './resumeContent'
 
@@ -46,7 +48,9 @@ async function withLogoDataUrls(
 }
 
 export async function downloadResumePdf(lang: SupportedLanguage, t: TFunction) {
-  const photoDataUrl = await imageUrlToDataUrl(profilePhotoCutout, 320)
+  ensureResumePdfFonts()
+
+  const photoDataUrl = await cropResumeCutoutPhoto(profilePhotoCutout)
 
   const localizedExperience = await withLogoDataUrls(
     experience.map((entry) => localizeResumeEntry(lang, entry)),
@@ -78,6 +82,7 @@ export async function downloadResumePdf(lang: SupportedLanguage, t: TFunction) {
       name={profile.name}
       role={localizedResumeText(lang, profile.role, profile.roleDe, profile.roleIt)}
       bio={localizedResumeText(lang, profile.bio, profile.bioDe, profile.bioIt)}
+      documentDate={formatResumePdfDate()}
       photoDataUrl={photoDataUrl}
       labels={labels}
       experience={localizedExperience}
