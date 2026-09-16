@@ -210,17 +210,14 @@ export function ImageLightbox({ images, index, onIndexChange, onClose }: ImageLi
   const touchStartRef = useRef({ x: 0, y: 0 })
   const touchAxisRef = useRef<'x' | 'y' | null>(null)
   const transformRef = useRef<ViewportTransform>({ scale: 1, x: 0, y: 0 })
-  const panStartRef = useRef<{ x: number; y: number; originX: number; originY: number } | null>(
-    null,
-  )
-  const pinchStartRef = useRef<{
-    distance: number
-    scale: number
+  const panStartRef = useRef<{
     x: number
     y: number
-    centerX: number
-    centerY: number
+    originX: number
+    originY: number
+    pointerId: number
   } | null>(null)
+  const pinchDistanceRef = useRef<number | null>(null)
 
   const [transform, setTransform] = useState<ViewportTransform>({ scale: 1, x: 0, y: 0 })
   const [isPanning, setIsPanning] = useState(false)
@@ -276,7 +273,7 @@ export function ImageLightbox({ images, index, onIndexChange, onClose }: ImageLi
     setTransform({ scale: 1, x: 0, y: 0 })
     setIsPanning(false)
     panStartRef.current = null
-    pinchStartRef.current = null
+    pinchDistanceRef.current = null
   }, [index, current?.url])
 
   const alignScrollerToNearestSlide = useCallback(() => {
@@ -540,6 +537,7 @@ export function ImageLightbox({ images, index, onIndexChange, onClose }: ImageLi
       y: event.clientY,
       originX: transformRef.current.x,
       originY: transformRef.current.y,
+      pointerId: event.pointerId,
     }
     setIsPanning(true)
   }
@@ -563,45 +561,68 @@ export function ImageLightbox({ images, index, onIndexChange, onClose }: ImageLi
     setIsPanning(false)
   }
 
+  function stopPanForPinch() {
+    const panStart = panStartRef.current
+    if (!panStart) return
+
+    const viewport = viewportRef.current
+    if (viewport?.hasPointerCapture(panStart.pointerId)) {
+      viewport.releasePointerCapture(panStart.pointerId)
+    }
+
+    panStartRef.current = null
+    setIsPanning(false)
+  }
+
+  function handleTouchStart(event: ReactTouchEvent<HTMLDivElement>) {
+    if (event.touches.length !== 2) return
+
+    stopPanForPinch()
+    const firstTouch = event.touches[0]
+    const secondTouch = event.touches[1]
+    pinchDistanceRef.current = getPinchDistance(firstTouch, secondTouch)
+  }
+
   function handleTouchMove(event: React.TouchEvent<HTMLDivElement>) {
     if (event.touches.length !== 2 || !viewportRef.current) return
 
     event.preventDefault()
+    stopPanForPinch()
+
     const viewport = viewportRef.current.getBoundingClientRect()
     const firstTouch = event.touches[0]
     const secondTouch = event.touches[1]
     const distance = getPinchDistance(firstTouch, secondTouch)
     const center = getPinchCenter(viewport, firstTouch, secondTouch)
 
-    if (!pinchStartRef.current) {
-      pinchStartRef.current = {
-        distance,
-        scale: transformRef.current.scale,
-        x: transformRef.current.x,
-        y: transformRef.current.y,
-        centerX: center.x,
-        centerY: center.y,
-      }
+    const previousDistance = pinchDistanceRef.current
+    if (previousDistance === null || previousDistance === 0) {
+      pinchDistanceRef.current = distance
       return
     }
 
-    const pinch = pinchStartRef.current
-    const nextScale = clampScale(pinch.scale * (distance / pinch.distance))
+    const scaleFactor = distance / previousDistance
+    pinchDistanceRef.current = distance
+
+    const current = transformRef.current
+    const nextScale = clampScale(current.scale * scaleFactor)
     if (nextScale === MIN_SCALE) {
       resetTransform()
       return
     }
 
-    const scaleRatio = nextScale / pinch.scale
+    const scaleRatio = nextScale / current.scale
     applyTransform({
       scale: nextScale,
-      x: pinch.centerX - (pinch.centerX - pinch.x) * scaleRatio,
-      y: pinch.centerY - (pinch.centerY - pinch.y) * scaleRatio,
+      x: center.x - (center.x - current.x) * scaleRatio,
+      y: center.y - (center.y - current.y) * scaleRatio,
     })
   }
 
-  function handleTouchEnd() {
-    pinchStartRef.current = null
+  function handleTouchEnd(event: ReactTouchEvent<HTMLDivElement>) {
+    if (event.touches.length < 2) {
+      pinchDistanceRef.current = null
+    }
   }
 
   function handleDoubleClick(event: React.MouseEvent<HTMLDivElement>) {
@@ -759,6 +780,7 @@ export function ImageLightbox({ images, index, onIndexChange, onClose }: ImageLi
           onPointerMove={handlePointerMove}
           onPointerUp={handlePointerUp}
           onPointerCancel={handlePointerUp}
+          onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
           onTouchCancel={handleTouchEnd}

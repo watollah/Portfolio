@@ -18,5 +18,41 @@
   ],
   "cover": "cover.png",
   "banner": "banner.png",
-  "blocks": []
+  "blocks": [
+    {
+      "type": "text",
+      "text": "As part of the ScOSA (Scalable On-Board Computing for Space Avionics) project at the German Aerospace Center (DLR), I worked on software for modeling onboard computer systems and generating reconfigurations of these systems.\n\nIn the software, the nodes, connections, and tasks of the system can be modeled via a graphical user interface. Based on selected criteria and algorithms, reconfiguration trees can then be generated that specify a new system configuration for various node failure scenarios. The generated reconfiguration trees are provided to the onboard system's middleware before the mission begins.",
+      "text_de": "Im Rahmen des Projekts ScOSA (Scalable On-Board Computing for Space Avionics) am Deutschen Zentrum für Luft- und Raumfahrt (DLR) habe ich an einer Software zur Modellierung von Onboard-Computersystemen und zur Generierung von Rekonfigurationen dieser Systeme gearbeitet.\n\nIn der Software können über eine grafische Benutzeroberfläche die Knoten, Verbindungen und Aufgaben des Systems modelliert werden. Anschließend lassen sich anhand ausgewählter Kriterien und Algorithmen Rekonfigurationsbäume generieren, die für verschiedene Ausfallszenarien von Knoten jeweils eine neue Systemkonfiguration vorgeben. Die generierten Rekonfigurationsbäume werden der Middleware des Onboard-Systems vor Beginn der Mission zur Verfügung gestellt.",
+      "text_it": "Nell'ambito del progetto ScOSA (Scalable On-Board Computing for Space Avionics) presso il Deutsches Zentrum für Luft- und Raumfahrt (DLR), ho lavorato a un software per la modellazione di sistemi informatici di bordo e la generazione di riconfigurazioni di questi sistemi.\n\nNel software, nodi, connessioni e task del sistema possono essere modellati tramite un'interfaccia grafica. Successivamente, in base a criteri e algoritmi selezionati, è possibile generare alberi di riconfigurazione che definiscono una nuova configurazione di sistema per vari scenari di guasto dei nodi. Gli alberi di riconfigurazione generati vengono messi a disposizione del middleware del sistema di bordo prima dell'inizio della missione."
+    }
+  ],
+  "links": [
+    {
+      "url": "https://www.dlr.de/de/sc/forschung-transfer/projekte/scosa-flugexperiment",
+      "title": "DLR | ScOSA",
+      "title_de": "DLR | ScOSA",
+      "title_it": "DLR | ScOSA",
+      "description": "Project description on the DLR website.",
+      "description_de": "Projektbeschreibung auf der DLR Website.",
+      "description_it": "Descrizione del progetto sul sito web del DLR."
+    },
+    {
+      "url": "https://link.springer.com/article/10.1007/s12567-021-00371-7",
+      "title": "CEAS Space Journal | ScOSA system software: the reliable and scalable middleware for a heterogeneous and distributed on-board computer architecture",
+      "title_de": "CEAS Space Journal | ScOSA system software: the reliable and scalable middleware for a heterogeneous and distributed on-board computer architecture",
+      "title_it": "CEAS Space Journal | ScOSA system software: the reliable and scalable middleware for a heterogeneous and distributed on-board computer architecture",
+      "description": "2021, DLR",
+      "description_de": "2021, DLR",
+      "description_it": "2021, DLR"
+    },
+    {
+      "url": "https://dl.acm.org/doi/10.1145/3419804.3420266",
+      "title": "SAM '20 | Model-Based Reconfiguration Planning for a Distributed On-board Computer",
+      "title_de": "SAM '20 | Model-Based Reconfiguration Planning for a Distributed On-board Computer",
+      "title_it": "SAM '20 | Model-Based Reconfiguration Planning for a Distributed On-board Computer",
+      "description": "2020, DLR",
+      "description_de": "2020, DLR",
+      "description_it": "2020, DLR"
+    }
+  ]
 }

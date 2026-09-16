@@ -14,18 +14,22 @@ import './ProjectCard.css'
 
 interface ProjectCardProps {
   project: Project
+  /** Eager-load cover and show without scroll-reveal delay (first tile on home, etc.). */
+  priority?: boolean
 }
 
 const LONG_PRESS_MS = 450
 const LONG_PRESS_MOVE_CANCEL_PX = 12
 
-export function ProjectCard({ project }: ProjectCardProps) {
+export function ProjectCard({ project, priority = false }: ProjectCardProps) {
   const { i18n } = useTranslation()
   const title = pickLocalized(project, 'title', i18n.language)
   const description = pickLocalized(project, 'description', i18n.language)
   const localize = useLocalizedPath()
   const hasCover = Boolean(project.coverUrl)
-  const { ref: cardRef, revealClassName } = useScrollReveal<HTMLAnchorElement>()
+  const { ref: cardRef, revealClassName } = useScrollReveal<HTMLAnchorElement>({
+    initiallyVisible: priority,
+  })
   const { revealedProjectId, setRevealedProjectId } = useProjectCardOverlay()
   const revealed = revealedProjectId === project.id
 
@@ -121,7 +125,8 @@ export function ProjectCard({ project }: ProjectCardProps) {
             src={project.coverUrl}
             srcSet={project.coverSrcSet}
             alt=""
-            loading="lazy"
+            loading={priority ? 'eager' : 'lazy'}
+            fetchPriority={priority ? 'high' : undefined}
             decoding="async"
             width={project.coverWidth}
             height={project.coverHeight}

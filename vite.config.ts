@@ -126,4 +126,12 @@ function projectsSyncPlugin() {
 export default defineConfig({
   plugins: [react(), projectsSyncPlugin()],
   base: './',
+  resolve: {
+    alias: {
+      '@react-pdf/renderer': '@react-pdf/renderer/lib/react-pdf.browser.js',
+    },
+  },
+  optimizeDeps: {
+    include: ['@react-pdf/renderer'],
+  },
 })

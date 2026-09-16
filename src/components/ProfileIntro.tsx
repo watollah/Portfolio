@@ -1,8 +1,8 @@
+import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { profile, profilePhoto, profilePhotoCutout } from '../data/profile'
 import { normalizeLanguage } from '../i18n/routing'
 import { localizedResumeText } from '../utils/resumeContent'
-import { resolveAssetUrl } from '../utils/assetUrl'
 import './ProfileIntro.css'
 
 interface ProfileIntroProps {
@@ -31,6 +31,21 @@ export function ProfileIntro({
   const lang = normalizeLanguage(i18n.language)
   const isDe = lang === 'de'
   const isResume = variant === 'resume'
+  const [isDownloadingPdf, setIsDownloadingPdf] = useState(false)
+
+  async function handleDownloadPdf() {
+    if (isDownloadingPdf) return
+
+    setIsDownloadingPdf(true)
+    try {
+      const { downloadResumePdf } = await import('../utils/downloadResumePdf')
+      await downloadResumePdf(lang, t)
+    } catch (error) {
+      console.error('Failed to generate resume PDF', error)
+    } finally {
+      setIsDownloadingPdf(false)
+    }
+  }
 
   if (isResume) {
     return (
@@ -49,11 +64,12 @@ export function ProfileIntro({
             </p>
             {showDownload && (
               <div className="profile-intro__actions">
-                <a
-                  href={resolveAssetUrl('resume.pdf')}
+                <button
+                  type="button"
                   className="btn btn--secondary profile-intro__download"
-                  download
                   aria-label={t('resume.download')}
+                  disabled={isDownloadingPdf}
+                  onClick={() => void handleDownloadPdf()}
                 >
                   <span className="material-icons profile-intro__download-icon" aria-hidden="true">
                     download
@@ -62,7 +78,7 @@ export function ProfileIntro({
                   <span className="profile-intro__download-short" aria-hidden="true">
                     PDF
                   </span>
-                </a>
+                </button>
               </div>
             )}
           </div>

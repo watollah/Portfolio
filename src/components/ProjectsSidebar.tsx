@@ -24,7 +24,10 @@ export function ProjectsSidebar({ activeProjectId }: ProjectsSidebarProps) {
         activeProjectId ? t('projects.backToProjects') : t('nav.home')
       }
     >
-      ← {t('projects.title')}
+      <span className="material-icons" aria-hidden="true">
+        chevron_left
+      </span>
+      {t('projects.title')}
     </Link>
   )
 

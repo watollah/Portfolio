@@ -7,13 +7,22 @@ function prefersReducedMotion() {
   return window.matchMedia('(prefers-reduced-motion: reduce)').matches
 }
 
-export function useScrollReveal<T extends HTMLElement>() {
+interface UseScrollRevealOptions {
+  /** Skip the entrance animation (e.g. above-the-fold priority content). */
+  initiallyVisible?: boolean
+}
+
+export function useScrollReveal<T extends HTMLElement>(options?: UseScrollRevealOptions) {
   const ref = useRef<T>(null)
-  const [visible, setVisible] = useState(false)
+  const [visible, setVisible] = useState(() => options?.initiallyVisible ?? false)
 
   useEffect(() => {
     const element = ref.current
     if (!element) return
+
+    if (options?.initiallyVisible) {
+      return
+    }
 
     if (prefersReducedMotion()) {
       setVisible(true)

@@ -2,7 +2,8 @@ import { type ReactNode } from 'react'
 import { useTranslation } from 'react-i18next'
 import { ProfileIntro } from '../components/ProfileIntro'
 import { education, experience, languages, publications, skills } from '../data/projects'
-import { normalizeLanguage, type SupportedLanguage } from '../i18n/routing'
+import { normalizeLanguage } from '../i18n/routing'
+import { localizeResumeEntry } from '../utils/localizeResumeEntry'
 import { localizedResumeText } from '../utils/resumeContent'
 import '../components/ProjectResources.css'
 import './Resume.css'
@@ -70,29 +71,6 @@ function ResumeEntry({
       </div>
     </article>
   )
-}
-
-function localizeResumeEntry(
-  lang: SupportedLanguage,
-  entry: (typeof experience)[number],
-) {
-  return {
-    period: localizedResumeText(lang, entry.period, entry.periodDe, entry.periodIt),
-    title: localizedResumeText(lang, entry.title, entry.titleDe, entry.titleIt),
-    organization: localizedResumeText(
-      lang,
-      entry.organization,
-      entry.organizationDe,
-      entry.organizationIt,
-    ),
-    description: entry.description
-      ? localizedResumeText(lang, entry.description, entry.descriptionDe, entry.descriptionIt)
-      : undefined,
-    grade: entry.grade
-      ? localizedResumeText(lang, entry.grade, entry.gradeDe, entry.gradeIt)
-      : undefined,
-    logo: entry.logo,
-  }
 }
 
 export function Resume() {

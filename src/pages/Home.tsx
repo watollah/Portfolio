@@ -1,4 +1,9 @@
 import { useTranslation } from 'react-i18next'
+
+function isMobileHomeLayout() {
+  if (typeof window === 'undefined') return false
+  return window.matchMedia('(max-width: 640px)').matches
+}
 import { Link } from 'react-router-dom'
 import { ProfileIntro } from '../components/ProfileIntro'
 import { ProjectCard } from '../components/ProjectCard'
@@ -19,7 +24,10 @@ export function Home() {
           title={t('home.aboutTitle')}
           action={
             <Link to={localize('/resume')} className="text-link">
-              {t('home.viewResume')} →
+              {t('home.viewResume')}
+              <span className="material-icons" aria-hidden="true">
+                chevron_right
+              </span>
             </Link>
           }
         />
@@ -32,14 +40,21 @@ export function Home() {
           title={t('home.featuredProjects')}
           action={
             <Link to={localize('/projects')} className="text-link">
-              {t('home.showAll')} →
+              {t('home.showAll')}
+              <span className="material-icons" aria-hidden="true">
+                chevron_right
+              </span>
             </Link>
           }
         />
 
         <div className="home-projects__grid">
-          {featuredProjects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
+          {featuredProjects.map((project, index) => (
+            <ProjectCard
+              key={project.id}
+              project={project}
+              priority={index === 0 && isMobileHomeLayout()}
+            />
           ))}
         </div>
       </section>
